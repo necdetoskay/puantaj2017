@@ -44,6 +44,9 @@
     <Reference Include="lic">
       <HintPath>..\..\maashesapla\maashesapla\bin\Debug\lic.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ik\ik\bin\MySql.Data.dll</HintPath>
@@ -74,6 +77,7 @@
     <Compile Include="DAL\Grup.cs">
       <DependentUpon>ikModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\helpers.cs" />
     <Compile Include="DAL\ikModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

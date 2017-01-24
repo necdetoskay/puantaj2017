@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateBaslangic = new System.Windows.Forms.DateTimePicker();
             this.dateBitis = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -35,8 +36,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ayarlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.personelListBox = new System.Windows.Forms.ListBox();
+            this.puantajDataSet = new puantaj2017.DAL.puantajDataSet();
+            this.personelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.personelGirisCikisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tarihDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.girissaatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.personelIzinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.izintipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tarihDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aciklamaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.puantajDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelGirisCikisBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelIzinBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateBaslangic
@@ -46,6 +68,7 @@
             this.dateBaslangic.Name = "dateBaslangic";
             this.dateBaslangic.Size = new System.Drawing.Size(99, 20);
             this.dateBaslangic.TabIndex = 0;
+            this.dateBaslangic.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             // 
             // dateBitis
             // 
@@ -54,6 +77,7 @@
             this.dateBitis.Name = "dateBitis";
             this.dateBitis.Size = new System.Drawing.Size(100, 20);
             this.dateBitis.TabIndex = 0;
+            this.dateBitis.Value = new System.DateTime(2017, 1, 31, 0, 0, 0, 0);
             // 
             // groupBox1
             // 
@@ -94,7 +118,7 @@
             this.ayarlarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(765, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -104,11 +128,146 @@
             this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.ayarlarToolStripMenuItem.Text = "Ayarlar";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(283, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 49);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Kayıtları Getir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // personelListBox
+            // 
+            this.personelListBox.DataSource = this.personelBindingSource;
+            this.personelListBox.DisplayMember = "adsoyad";
+            this.personelListBox.FormattingEnabled = true;
+            this.personelListBox.Location = new System.Drawing.Point(12, 126);
+            this.personelListBox.Name = "personelListBox";
+            this.personelListBox.Size = new System.Drawing.Size(209, 446);
+            this.personelListBox.TabIndex = 4;
+            this.personelListBox.ValueMember = "id";
+            this.personelListBox.SelectedIndexChanged += new System.EventHandler(this.personelListBox_SelectedIndexChanged);
+            // 
+            // puantajDataSet
+            // 
+            this.puantajDataSet.DataSetName = "puantajDataSet";
+            this.puantajDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personelBindingSource
+            // 
+            this.personelBindingSource.DataMember = "Personel";
+            this.personelBindingSource.DataSource = this.puantajDataSet;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tarihDataGridViewTextBoxColumn,
+            this.girissaatDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.personelGirisCikisBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(227, 126);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(282, 446);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // personelGirisCikisBindingSource
+            // 
+            this.personelGirisCikisBindingSource.DataMember = "PersonelGirisCikis";
+            this.personelGirisCikisBindingSource.DataSource = this.puantajDataSet;
+            // 
+            // tarihDataGridViewTextBoxColumn
+            // 
+            this.tarihDataGridViewTextBoxColumn.DataPropertyName = "tarih";
+            this.tarihDataGridViewTextBoxColumn.HeaderText = "tarih";
+            this.tarihDataGridViewTextBoxColumn.Name = "tarihDataGridViewTextBoxColumn";
+            this.tarihDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // girissaatDataGridViewTextBoxColumn
+            // 
+            this.girissaatDataGridViewTextBoxColumn.DataPropertyName = "giris_saat";
+            this.girissaatDataGridViewTextBoxColumn.HeaderText = "giris_saat";
+            this.girissaatDataGridViewTextBoxColumn.Name = "girissaatDataGridViewTextBoxColumn";
+            this.girissaatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.izintipDataGridViewTextBoxColumn,
+            this.tarihDataGridViewTextBoxColumn1,
+            this.aciklamaDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.personelIzinBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(515, 126);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(240, 446);
+            this.dataGridView2.TabIndex = 6;
+            // 
+            // personelIzinBindingSource
+            // 
+            this.personelIzinBindingSource.DataMember = "PersonelIzin";
+            this.personelIzinBindingSource.DataSource = this.puantajDataSet;
+            // 
+            // izintipDataGridViewTextBoxColumn
+            // 
+            this.izintipDataGridViewTextBoxColumn.DataPropertyName = "izintip";
+            this.izintipDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.izintipDataGridViewTextBoxColumn.HeaderText = "izintip";
+            this.izintipDataGridViewTextBoxColumn.Name = "izintipDataGridViewTextBoxColumn";
+            this.izintipDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // tarihDataGridViewTextBoxColumn1
+            // 
+            this.tarihDataGridViewTextBoxColumn1.DataPropertyName = "tarih";
+            this.tarihDataGridViewTextBoxColumn1.HeaderText = "tarih";
+            this.tarihDataGridViewTextBoxColumn1.Name = "tarihDataGridViewTextBoxColumn1";
+            // 
+            // aciklamaDataGridViewTextBoxColumn
+            // 
+            this.aciklamaDataGridViewTextBoxColumn.DataPropertyName = "aciklama";
+            this.aciklamaDataGridViewTextBoxColumn.HeaderText = "aciklama";
+            this.aciklamaDataGridViewTextBoxColumn.Name = "aciklamaDataGridViewTextBoxColumn";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(414, 78);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Puantaj";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(667, 78);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Excel Test";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 422);
+            this.ClientSize = new System.Drawing.Size(765, 579);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.personelListBox);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -118,6 +277,12 @@
             this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.puantajDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelGirisCikisBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelIzinBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +297,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ayarlarToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox personelListBox;
+        private System.Windows.Forms.BindingSource personelBindingSource;
+        private DAL.puantajDataSet puantajDataSet;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tarihDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn girissaatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource personelGirisCikisBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn izintipDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tarihDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aciklamaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource personelIzinBindingSource;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 
