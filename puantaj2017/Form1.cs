@@ -170,7 +170,7 @@ namespace puantaj2017
                 tabloyuolustur(worksheet,birim);//tablo başlığını oluştur
                 //personel verilerini ekle
                 //tablo altlığını oluştur.
-              break;
+                // break;
                 
 
             }
@@ -343,7 +343,7 @@ namespace puantaj2017
             var sıra = 1;
             row = 6;
             
-            foreach (var personel in birim.Personels.OrderBy(c=>c.sira))
+            foreach (var personel in birim.Personels.Where(c=>c.puantaj).OrderBy(c=>c.sira))
             {
                 col = 2;
                 rg = worksheet.get_Range(ColumnIndexToColumnLetter (col)+ row, ColumnIndexToColumnLetter(col) + (row+1));
