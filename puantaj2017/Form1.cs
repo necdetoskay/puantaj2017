@@ -137,7 +137,7 @@ namespace puantaj2017
                             case 8://denkleştirme
                                 puantaj = "D";
                                 break;
-                            default:
+                            default://3-ücretli izin,
                                 puantaj = "?";
                                 break;
 
@@ -259,6 +259,16 @@ namespace puantaj2017
 
             gün2 = col - 1;
 
+            #region ayıraç
+            rg = (Excel.Range)worksheet.Cells[row, col++];
+            rg.Value2 = "";
+            rg.Orientation = 90;
+            rg.Font.Size = 7;
+            rg.ColumnWidth = 0.25;
+            rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            #endregion
+
             #region ÇALIŞMA GÜNÜ
             rg = (Excel.Range)worksheet.Cells[row, col++];
             rg.Value2 = "ÇALIŞMA GÜNÜ";
@@ -346,7 +356,9 @@ namespace puantaj2017
             foreach (var personel in birim.Personels.Where(c=>c.puantaj).OrderBy(c=>c.sira))
             {
                 col = 2;
-                rg = worksheet.get_Range(ColumnIndexToColumnLetter (col)+ row, ColumnIndexToColumnLetter(col) + (row+1));
+
+                #region SIRA NO
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
                 rg.Merge();
                 rg.Value2 = sıra.ToString();
                 rg.Font.Size = 11;
@@ -355,7 +367,9 @@ namespace puantaj2017
                 rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 col++;
+                #endregion
 
+                #region SİCİL NO
                 rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
                 rg.Merge();
                 rg.Value2 = personel.sicilno;
@@ -363,7 +377,9 @@ namespace puantaj2017
                 rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 col++;
+                #endregion
 
+                #region PERSONEL AS SOYAD
                 rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
                 rg.Merge();
                 rg.Value2 = personel.adsoyad;
@@ -372,14 +388,21 @@ namespace puantaj2017
                 rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 col++;
+                #endregion
+
+                #region HİZMET KADROSU
                 rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
                 rg.Merge();
-                rg.Value2 ="İŞÇİ";
+                rg.Value2 = "İŞÇİ";
                 rg.Font.Size = 8;
                 rg.WrapText = true;
                 rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 col++;
+                #endregion
+
+
+                #region ÇALIŞMA ŞEKLİ
                 rg = (Excel.Range)worksheet.Cells[row, col];
                 rg.Value2 = "F.M.";
                 rg.Font.Size = 7;
@@ -391,6 +414,7 @@ namespace puantaj2017
                 rg.Font.Size = 7;
                 rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                #endregion
 
                 //burada puantaj kayıtları gir.
                 var liste = PuantajGetir(ds.Personel.SingleOrDefault(c=>c.id==personel.pdksid));
@@ -401,32 +425,110 @@ namespace puantaj2017
                 Excel.Range firstFind;
                 Excel.Range tarihRange = worksheet.get_Range(g1+r, g2+r);
 
+                #region GÜNLÜK PUANTAJLAR
                 foreach (var puan in liste)
                 {
                     firstFind = tarihRange.Find(puan.tarih.Day, misValue, Excel.XlFindLookIn.xlValues, Excel.XlLookAt.xlPart, Excel.XlSearchOrder.xlByRows, Excel.XlSearchDirection.xlNext, false, misValue, misValue);
 
                     rg = (Excel.Range)worksheet.Cells[row, firstFind.Column];
                     rg.Value2 = puan.puantaj;
-                   
+
                     rg.Font.Size = 11;
                     rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                     rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                    if (puan.durum == "Cumartesi" || puan.durum == "Pazar")
+
+                    if (puan.tarih.DayOfWeek == DayOfWeek.Saturday || puan.tarih.DayOfWeek == DayOfWeek.Sunday)
                     {
                         rg.Interior.Color = Excel.XlRgbColor.rgbDimGray;
-                        ((Excel.Range)worksheet.Cells[row-1, firstFind.Column]).Interior.Color =Excel.XlRgbColor.rgbDimGray; ;
+                        ((Excel.Range)worksheet.Cells[row - 1, firstFind.Column]).Interior.Color = Excel.XlRgbColor.rgbDimGray; ;
                     }
+                    //if (puan.durum == "Cumartesi" || puan.durum == "Pazar")
+                    //{
+                    //    rg.Interior.Color = Excel.XlRgbColor.rgbDimGray;
+                    //    ((Excel.Range)worksheet.Cells[row-1, firstFind.Column]).Interior.Color =Excel.XlRgbColor.rgbDimGray; ;
+                    //}
                 }
+                #endregion
+
+
+                row--;
+                col = gün2+1;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                col++;
+                rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row, ColumnIndexToColumnLetter(col) + (row + 1));
+                rg.Merge();
+                rg.Value2 = "";
+                rg.Font.Size = 11;
+                rg.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                rg.Cells.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+
+                //col++;
 
 
 
 
-                
+
                 //var index = firstFind.Column;
 
 
 
-                row--;
+                //row--;
                 row +=2;
                 sıra++;
 

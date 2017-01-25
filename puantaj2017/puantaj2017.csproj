@@ -49,11 +49,11 @@
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ik\ik\bin\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\ik\ik\bin\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.Entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ik\ik\bin\MySql.Data.Entity.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\ik\ik\bin\MySql.Data.Entity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
