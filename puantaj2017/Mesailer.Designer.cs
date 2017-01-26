@@ -36,8 +36,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.personelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.personelGirisCikisDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.hafta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personelidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tarihDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +44,15 @@
             this.tatil = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.yemek = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mesaihesapla = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.personelGirisCikisDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.personelMesaiDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personelidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.haftaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dakikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tariharalikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personelMesaiDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.birimBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -138,20 +138,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(495, 350);
             this.dataGridView1.TabIndex = 5;
             // 
-            // personelGirisCikisDataTableBindingSource
-            // 
-            this.personelGirisCikisDataTableBindingSource.DataSource = typeof(puantaj2017.DAL.puantajDataSet.PersonelGirisCikisDataTable);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(678, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // hafta
             // 
             this.hafta.DataPropertyName = "hafta";
@@ -209,6 +195,20 @@
             this.mesaihesapla.Name = "mesaihesapla";
             this.mesaihesapla.Width = 50;
             // 
+            // personelGirisCikisDataTableBindingSource
+            // 
+            this.personelGirisCikisDataTableBindingSource.DataSource = typeof(puantaj2017.DAL.puantajDataSet.PersonelGirisCikisDataTable);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(678, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Hesapla";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -228,10 +228,6 @@
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(298, 349);
             this.dataGridView2.TabIndex = 7;
-            // 
-            // personelMesaiDataTableBindingSource
-            // 
-            this.personelMesaiDataTableBindingSource.DataSource = typeof(puantaj2017.DAL.puantajDataSet.PersonelMesaiDataTable);
             // 
             // personelidDataGridViewTextBoxColumn1
             // 
@@ -272,6 +268,10 @@
             this.tariharalikDataGridViewTextBoxColumn.Name = "tariharalikDataGridViewTextBoxColumn";
             this.tariharalikDataGridViewTextBoxColumn.ReadOnly = true;
             this.tariharalikDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // personelMesaiDataTableBindingSource
+            // 
+            this.personelMesaiDataTableBindingSource.DataSource = typeof(puantaj2017.DAL.puantajDataSet.PersonelMesaiDataTable);
             // 
             // Mesailer
             // 

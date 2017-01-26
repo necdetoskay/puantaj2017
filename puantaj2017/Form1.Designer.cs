@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ayarlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mesaiHesaplaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.personelListBox = new System.Windows.Forms.ListBox();
             this.personelBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -49,9 +50,7 @@
             this.tarihDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aciklamaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personelIzinBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.mesaiHesaplaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).BeginInit();
@@ -130,6 +129,13 @@
             this.ayarlarToolStripMenuItem.Name = "ayarlarToolStripMenuItem";
             this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.ayarlarToolStripMenuItem.Text = "Ayarlar";
+            // 
+            // mesaiHesaplaToolStripMenuItem
+            // 
+            this.mesaiHesaplaToolStripMenuItem.Name = "mesaiHesaplaToolStripMenuItem";
+            this.mesaiHesaplaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.mesaiHesaplaToolStripMenuItem.Text = "Mesai Hesapla";
+            this.mesaiHesaplaToolStripMenuItem.Click += new System.EventHandler(this.mesaiHesaplaToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -240,32 +246,15 @@
             this.personelIzinBindingSource.DataMember = "PersonelIzin";
             this.personelIzinBindingSource.DataSource = this.puantajDataSet;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(414, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Puantaj";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(667, 78);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 8;
-            this.button3.Text = "Excel Test";
+            this.button3.Text = "Excel Hazırla";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // mesaiHesaplaToolStripMenuItem
-            // 
-            this.mesaiHesaplaToolStripMenuItem.Name = "mesaiHesaplaToolStripMenuItem";
-            this.mesaiHesaplaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mesaiHesaplaToolStripMenuItem.Text = "Mesai Hesapla";
-            this.mesaiHesaplaToolStripMenuItem.Click += new System.EventHandler(this.mesaiHesaplaToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -273,7 +262,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 579);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.personelListBox);
@@ -320,7 +308,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tarihDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn aciklamaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource personelIzinBindingSource;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem mesaiHesaplaToolStripMenuItem;
     }

@@ -7,6 +7,6 @@ namespace puantaj2017.DAL
         public string adsoyad { get; set; }
         public DateTime tarih { get; set; }
         public string puantaj { get; set; }
-        public string durum { get; set; } 
+        public string durum { get; set; }
     }
 }
