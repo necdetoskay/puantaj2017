@@ -52,14 +52,14 @@ namespace puantaj2017
                         con.Open();
                     #region personel listesi yükle
                     com.CommandText =
-                                  "select id,concat(adi,' ',soyadi) as  adsoyad from personel_kartlari where sirket_kod=5";
+                                  "select id,concat(adi,' ',soyadi) as  adsoyad from personel_kartlari where sirket_kod=5 or sirket_kod=1";
                     var adapter = new MySqlDataAdapter(com);
                     adapter.Fill(ds.Personel);
                     #endregion
                     #region personel giriş saatlerini yükle
                     com.CommandText =
                                    string.Format(
-                                       "select personel_id as personelid,tarih,giris_saat from personel_giriscikis where tarih between '{0}' and '{1}'",
+                                       "select personel_id as personelid,tarih,giris_saat,cikis_saat, week(tarih,1) as hafta from personel_giriscikis where tarih between '{0}' and '{1}'",
                                       dateBaslangic.Value.ToString("yyyy-MM-dd"), dateBitis.Value.ToString("yyyy-MM-dd"));
                     adapter.Fill(ds.PersonelGirisCikis);
                     #endregion
@@ -73,8 +73,9 @@ namespace puantaj2017
                 }
                 catch (Exception ex)
                 {
-
+                    
                     con.Close();
+                    MessageBox.Show(ex.Message);
                 }
 
 
@@ -83,6 +84,11 @@ namespace puantaj2017
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ds.Personel.Clear();
+            ds.PersonelGirisCikis.Clear();
+            ds.PersonelIzin.Clear();
+
+
             perkotekyukle();
             test();
             personelListBox.DataSource = ds.Personel.OrderBy(c=>c.adsoyad).ToList();
@@ -99,8 +105,16 @@ namespace puantaj2017
         {
             //seçili personel puantaj oluştur
             var personel= (puantajDataSet.PersonelRow)personelListBox.SelectedItem;
+            MesaiHesapla(personel);
+
             PuantajGetir(personel);
         }
+
+        private void MesaiHesapla(puantajDataSet.PersonelRow personel)
+        {
+            
+        }
+
 
         private IList<Puantaj> PuantajGetir(puantajDataSet.PersonelRow personel)
         {
@@ -559,6 +573,12 @@ namespace puantaj2017
                 div = (int)((div - mod) / 26);
             }
             return colLetter;
+        }
+
+        private void mesaiHesaplaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Mesailer {Tag = ds};
+            form.ShowDialog();
         }
     }
 }
