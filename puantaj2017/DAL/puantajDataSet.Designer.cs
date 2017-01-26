@@ -30,6 +30,8 @@ namespace puantaj2017.DAL {
         
         private PersonelIzinDataTable tablePersonelIzin;
         
+        private PersonelMesaiDataTable tablePersonelMesai;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +68,9 @@ namespace puantaj2017.DAL {
                 }
                 if ((ds.Tables["PersonelIzin"] != null)) {
                     base.Tables.Add(new PersonelIzinDataTable(ds.Tables["PersonelIzin"]));
+                }
+                if ((ds.Tables["PersonelMesai"] != null)) {
+                    base.Tables.Add(new PersonelMesaiDataTable(ds.Tables["PersonelMesai"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +117,16 @@ namespace puantaj2017.DAL {
         public PersonelIzinDataTable PersonelIzin {
             get {
                 return this.tablePersonelIzin;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PersonelMesaiDataTable PersonelMesai {
+            get {
+                return this.tablePersonelMesai;
             }
         }
         
@@ -191,6 +206,9 @@ namespace puantaj2017.DAL {
                 if ((ds.Tables["PersonelIzin"] != null)) {
                     base.Tables.Add(new PersonelIzinDataTable(ds.Tables["PersonelIzin"]));
                 }
+                if ((ds.Tables["PersonelMesai"] != null)) {
+                    base.Tables.Add(new PersonelMesaiDataTable(ds.Tables["PersonelMesai"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +260,12 @@ namespace puantaj2017.DAL {
                     this.tablePersonelIzin.InitVars();
                 }
             }
+            this.tablePersonelMesai = ((PersonelMesaiDataTable)(base.Tables["PersonelMesai"]));
+            if ((initTable == true)) {
+                if ((this.tablePersonelMesai != null)) {
+                    this.tablePersonelMesai.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +282,8 @@ namespace puantaj2017.DAL {
             base.Tables.Add(this.tablePersonel);
             this.tablePersonelIzin = new PersonelIzinDataTable();
             base.Tables.Add(this.tablePersonelIzin);
+            this.tablePersonelMesai = new PersonelMesaiDataTable();
+            base.Tables.Add(this.tablePersonelMesai);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +301,12 @@ namespace puantaj2017.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePersonelIzin() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializePersonelMesai() {
             return false;
         }
         
@@ -342,6 +374,9 @@ namespace puantaj2017.DAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void PersonelIzinRowChangeEventHandler(object sender, PersonelIzinRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void PersonelMesaiRowChangeEventHandler(object sender, PersonelMesaiRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -364,6 +399,8 @@ namespace puantaj2017.DAL {
             private global::System.Data.DataColumn columnyemek;
             
             private global::System.Data.DataColumn columntatil;
+            
+            private global::System.Data.DataColumn columnmesaihesapla;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -464,6 +501,14 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn mesaihesaplaColumn {
+                get {
+                    return this.columnmesaihesapla;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +544,7 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PersonelGirisCikisRow AddPersonelGirisCikisRow(int personelid, System.DateTime tarih, System.TimeSpan giris_saat, string cikis_saat, int hafta, string fark, bool yemek, bool tatil) {
+            public PersonelGirisCikisRow AddPersonelGirisCikisRow(int personelid, System.DateTime tarih, System.TimeSpan giris_saat, string cikis_saat, int hafta, string fark, bool yemek, bool tatil, bool mesaihesapla) {
                 PersonelGirisCikisRow rowPersonelGirisCikisRow = ((PersonelGirisCikisRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         personelid,
@@ -509,7 +554,8 @@ namespace puantaj2017.DAL {
                         hafta,
                         fark,
                         yemek,
-                        tatil};
+                        tatil,
+                        mesaihesapla};
                 rowPersonelGirisCikisRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPersonelGirisCikisRow);
                 return rowPersonelGirisCikisRow;
@@ -540,6 +586,7 @@ namespace puantaj2017.DAL {
                 this.columnfark = base.Columns["fark"];
                 this.columnyemek = base.Columns["yemek"];
                 this.columntatil = base.Columns["tatil"];
+                this.columnmesaihesapla = base.Columns["mesaihesapla"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,8 +608,11 @@ namespace puantaj2017.DAL {
                 base.Columns.Add(this.columnyemek);
                 this.columntatil = new global::System.Data.DataColumn("tatil", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntatil);
+                this.columnmesaihesapla = new global::System.Data.DataColumn("mesaihesapla", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmesaihesapla);
                 this.columnyemek.DefaultValue = ((bool)(false));
                 this.columntatil.DefaultValue = ((bool)(false));
+                this.columnmesaihesapla.DefaultValue = ((bool)(true));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1240,6 +1290,295 @@ namespace puantaj2017.DAL {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PersonelMesaiDataTable : global::System.Data.TypedTableBase<PersonelMesaiRow> {
+            
+            private global::System.Data.DataColumn columnpersonelid;
+            
+            private global::System.Data.DataColumn columnhafta;
+            
+            private global::System.Data.DataColumn columnsaat;
+            
+            private global::System.Data.DataColumn columndakika;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PersonelMesaiDataTable() {
+                this.TableName = "PersonelMesai";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal PersonelMesaiDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected PersonelMesaiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn personelidColumn {
+                get {
+                    return this.columnpersonelid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn haftaColumn {
+                get {
+                    return this.columnhafta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn saatColumn {
+                get {
+                    return this.columnsaat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dakikaColumn {
+                get {
+                    return this.columndakika;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PersonelMesaiRow this[int index] {
+                get {
+                    return ((PersonelMesaiRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PersonelMesaiRowChangeEventHandler PersonelMesaiRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PersonelMesaiRowChangeEventHandler PersonelMesaiRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PersonelMesaiRowChangeEventHandler PersonelMesaiRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PersonelMesaiRowChangeEventHandler PersonelMesaiRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddPersonelMesaiRow(PersonelMesaiRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PersonelMesaiRow AddPersonelMesaiRow(string personelid, string hafta, string saat, string dakika) {
+                PersonelMesaiRow rowPersonelMesaiRow = ((PersonelMesaiRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        personelid,
+                        hafta,
+                        saat,
+                        dakika};
+                rowPersonelMesaiRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPersonelMesaiRow);
+                return rowPersonelMesaiRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PersonelMesaiDataTable cln = ((PersonelMesaiDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PersonelMesaiDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnpersonelid = base.Columns["personelid"];
+                this.columnhafta = base.Columns["hafta"];
+                this.columnsaat = base.Columns["saat"];
+                this.columndakika = base.Columns["dakika"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnpersonelid = new global::System.Data.DataColumn("personelid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpersonelid);
+                this.columnhafta = new global::System.Data.DataColumn("hafta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhafta);
+                this.columnsaat = new global::System.Data.DataColumn("saat", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsaat);
+                this.columndakika = new global::System.Data.DataColumn("dakika", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndakika);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PersonelMesaiRow NewPersonelMesaiRow() {
+                return ((PersonelMesaiRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PersonelMesaiRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PersonelMesaiRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PersonelMesaiRowChanged != null)) {
+                    this.PersonelMesaiRowChanged(this, new PersonelMesaiRowChangeEvent(((PersonelMesaiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PersonelMesaiRowChanging != null)) {
+                    this.PersonelMesaiRowChanging(this, new PersonelMesaiRowChangeEvent(((PersonelMesaiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PersonelMesaiRowDeleted != null)) {
+                    this.PersonelMesaiRowDeleted(this, new PersonelMesaiRowChangeEvent(((PersonelMesaiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PersonelMesaiRowDeleting != null)) {
+                    this.PersonelMesaiRowDeleting(this, new PersonelMesaiRowChangeEvent(((PersonelMesaiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovePersonelMesaiRow(PersonelMesaiRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                puantajDataSet ds = new puantajDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PersonelMesaiDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class PersonelGirisCikisRow : global::System.Data.DataRow {
@@ -1383,6 +1722,22 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool mesaihesapla {
+                get {
+                    try {
+                        return ((bool)(this[this.tablePersonelGirisCikis.mesaihesaplaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'mesaihesapla\' in table \'PersonelGirisCikis\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelGirisCikis.mesaihesaplaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IspersonelidNull() {
                 return this.IsNull(this.tablePersonelGirisCikis.personelidColumn);
             }
@@ -1475,6 +1830,18 @@ namespace puantaj2017.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettatilNull() {
                 this[this.tablePersonelGirisCikis.tatilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmesaihesaplaNull() {
+                return this.IsNull(this.tablePersonelGirisCikis.mesaihesaplaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmesaihesaplaNull() {
+                this[this.tablePersonelGirisCikis.mesaihesaplaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1677,6 +2044,133 @@ namespace puantaj2017.DAL {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class PersonelMesaiRow : global::System.Data.DataRow {
+            
+            private PersonelMesaiDataTable tablePersonelMesai;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal PersonelMesaiRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePersonelMesai = ((PersonelMesaiDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string personelid {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersonelMesai.personelidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'personelid\' in table \'PersonelMesai\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelMesai.personelidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string hafta {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersonelMesai.haftaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'hafta\' in table \'PersonelMesai\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelMesai.haftaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string saat {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersonelMesai.saatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'saat\' in table \'PersonelMesai\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelMesai.saatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string dakika {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersonelMesai.dakikaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dakika\' in table \'PersonelMesai\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelMesai.dakikaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspersonelidNull() {
+                return this.IsNull(this.tablePersonelMesai.personelidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpersonelidNull() {
+                this[this.tablePersonelMesai.personelidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshaftaNull() {
+                return this.IsNull(this.tablePersonelMesai.haftaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethaftaNull() {
+                this[this.tablePersonelMesai.haftaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssaatNull() {
+                return this.IsNull(this.tablePersonelMesai.saatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsaatNull() {
+                this[this.tablePersonelMesai.saatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdakikaNull() {
+                return this.IsNull(this.tablePersonelMesai.dakikaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdakikaNull() {
+                this[this.tablePersonelMesai.dakikaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1764,6 +2258,40 @@ namespace puantaj2017.DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PersonelIzinRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class PersonelMesaiRowChangeEvent : global::System.EventArgs {
+            
+            private PersonelMesaiRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PersonelMesaiRowChangeEvent(PersonelMesaiRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PersonelMesaiRow Row {
                 get {
                     return this.eventRow;
                 }

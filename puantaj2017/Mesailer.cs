@@ -77,7 +77,7 @@ namespace puantaj2017
             {
                 if (int.Parse(row.Cells[0].Value.ToString()) % 2 == 1)
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.BackColor = Color.Gray;
                 }
                 else
                 {
@@ -112,7 +112,7 @@ namespace puantaj2017
             var items =
                 (System.Data.EnumerableRowCollection<puantaj2017.DAL.puantajDataSet.PersonelGirisCikisRow>)personelGirisCikisDataTableBindingSource.DataSource;
 
-            foreach (var item in items.GroupBy(c=>c.hafta))
+            foreach (var item in items.Where(c=>c.mesaihesapla).GroupBy(c=>c.hafta))
             {
                 int haftalik = 0;
                 foreach (var personelGirisCikisRow in item)
