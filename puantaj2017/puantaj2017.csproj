@@ -173,6 +173,7 @@
     <None Include="Properties\DataSources\puantaj2017.DAL.birim.datasource" />
     <None Include="Properties\DataSources\puantaj2017.DAL.Personel.datasource" />
     <None Include="Properties\DataSources\puantaj2017.DAL.puantajDataSet+PersonelGirisCikisDataTable.datasource" />
+    <None Include="Properties\DataSources\puantaj2017.DAL.puantajDataSet+PersonelMesaiDataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

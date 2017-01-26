@@ -135,6 +135,19 @@ namespace puantaj2017
                 var mesailer = haftalik - 450;
                 Console.WriteLine(new {hafta=item.Key, mesailer,saat=mesailer/60,dakika=mesailer%60});
 
+               
+                ds.PersonelMesai.AddPersonelMesaiRow(
+                    item.FirstOrDefault().personelid,
+                    (int)item.Key,
+                    mesailer / 60,
+                    Math.Abs(mesailer % 60),
+                    item.FirstOrDefault().tarih.ToShortDateString()+"-"+item.LastOrDefault().tarih.ToShortDateString()
+                    );
+
+                personelMesaiDataTableBindingSource.DataSource =
+                    ds.PersonelMesai.Where(c => c.personelid == (int) comboBox2.SelectedValue);
+                
+
             }
 
         }

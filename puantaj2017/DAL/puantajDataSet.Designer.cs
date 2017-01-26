@@ -1304,6 +1304,8 @@ namespace puantaj2017.DAL {
             
             private global::System.Data.DataColumn columndakika;
             
+            private global::System.Data.DataColumn columntariharalik;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PersonelMesaiDataTable() {
@@ -1371,6 +1373,14 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tariharalikColumn {
+                get {
+                    return this.columntariharalik;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1406,13 +1416,14 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PersonelMesaiRow AddPersonelMesaiRow(string personelid, string hafta, string saat, string dakika) {
+            public PersonelMesaiRow AddPersonelMesaiRow(int personelid, int hafta, int saat, int dakika, string tariharalik) {
                 PersonelMesaiRow rowPersonelMesaiRow = ((PersonelMesaiRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         personelid,
                         hafta,
                         saat,
-                        dakika};
+                        dakika,
+                        tariharalik};
                 rowPersonelMesaiRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPersonelMesaiRow);
                 return rowPersonelMesaiRow;
@@ -1439,19 +1450,22 @@ namespace puantaj2017.DAL {
                 this.columnhafta = base.Columns["hafta"];
                 this.columnsaat = base.Columns["saat"];
                 this.columndakika = base.Columns["dakika"];
+                this.columntariharalik = base.Columns["tariharalik"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnpersonelid = new global::System.Data.DataColumn("personelid", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnpersonelid = new global::System.Data.DataColumn("personelid", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpersonelid);
-                this.columnhafta = new global::System.Data.DataColumn("hafta", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnhafta = new global::System.Data.DataColumn("hafta", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhafta);
-                this.columnsaat = new global::System.Data.DataColumn("saat", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnsaat = new global::System.Data.DataColumn("saat", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsaat);
-                this.columndakika = new global::System.Data.DataColumn("dakika", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columndakika = new global::System.Data.DataColumn("dakika", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndakika);
+                this.columntariharalik = new global::System.Data.DataColumn("tariharalik", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntariharalik);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2059,10 +2073,10 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string personelid {
+            public int personelid {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonelMesai.personelidColumn]));
+                        return ((int)(this[this.tablePersonelMesai.personelidColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'personelid\' in table \'PersonelMesai\' is DBNull.", e);
@@ -2075,10 +2089,10 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string hafta {
+            public int hafta {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonelMesai.haftaColumn]));
+                        return ((int)(this[this.tablePersonelMesai.haftaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'hafta\' in table \'PersonelMesai\' is DBNull.", e);
@@ -2091,10 +2105,10 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string saat {
+            public int saat {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonelMesai.saatColumn]));
+                        return ((int)(this[this.tablePersonelMesai.saatColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'saat\' in table \'PersonelMesai\' is DBNull.", e);
@@ -2107,10 +2121,10 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string dakika {
+            public int dakika {
                 get {
                     try {
-                        return ((string)(this[this.tablePersonelMesai.dakikaColumn]));
+                        return ((int)(this[this.tablePersonelMesai.dakikaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dakika\' in table \'PersonelMesai\' is DBNull.", e);
@@ -2118,6 +2132,22 @@ namespace puantaj2017.DAL {
                 }
                 set {
                     this[this.tablePersonelMesai.dakikaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tariharalik {
+                get {
+                    try {
+                        return ((string)(this[this.tablePersonelMesai.tariharalikColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tariharalik\' in table \'PersonelMesai\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelMesai.tariharalikColumn] = value;
                 }
             }
             
@@ -2167,6 +2197,18 @@ namespace puantaj2017.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdakikaNull() {
                 this[this.tablePersonelMesai.dakikaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstariharalikNull() {
+                return this.IsNull(this.tablePersonelMesai.tariharalikColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettariharalikNull() {
+                this[this.tablePersonelMesai.tariharalikColumn] = global::System.Convert.DBNull;
             }
         }
         

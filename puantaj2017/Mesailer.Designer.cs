@@ -46,10 +46,19 @@
             this.tatil = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.yemek = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mesaihesapla = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.personelMesaiDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personelidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.haftaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dakikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tariharalikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.birimBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personelGirisCikisDataTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelMesaiDataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -122,11 +131,11 @@
             this.yemek,
             this.mesaihesapla});
             this.dataGridView1.DataSource = this.personelGirisCikisDataTableBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 94);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 57);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(718, 313);
+            this.dataGridView1.Size = new System.Drawing.Size(495, 350);
             this.dataGridView1.TabIndex = 5;
             // 
             // personelGirisCikisDataTableBindingSource
@@ -168,12 +177,14 @@
             this.girissaatDataGridViewTextBoxColumn.DataPropertyName = "giris_saat";
             this.girissaatDataGridViewTextBoxColumn.HeaderText = "giris_saat";
             this.girissaatDataGridViewTextBoxColumn.Name = "girissaatDataGridViewTextBoxColumn";
+            this.girissaatDataGridViewTextBoxColumn.Width = 70;
             // 
             // cikis_saat
             // 
             this.cikis_saat.DataPropertyName = "cikis_saat";
             this.cikis_saat.HeaderText = "cikis_saat";
             this.cikis_saat.Name = "cikis_saat";
+            this.cikis_saat.Width = 70;
             // 
             // tatil
             // 
@@ -198,11 +209,76 @@
             this.mesaihesapla.Name = "mesaihesapla";
             this.mesaihesapla.Width = 50;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.personelidDataGridViewTextBoxColumn1,
+            this.haftaDataGridViewTextBoxColumn,
+            this.saatDataGridViewTextBoxColumn,
+            this.dakikaDataGridViewTextBoxColumn,
+            this.tariharalikDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.personelMesaiDataTableBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(505, 58);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(298, 349);
+            this.dataGridView2.TabIndex = 7;
+            // 
+            // personelMesaiDataTableBindingSource
+            // 
+            this.personelMesaiDataTableBindingSource.DataSource = typeof(puantaj2017.DAL.puantajDataSet.PersonelMesaiDataTable);
+            // 
+            // personelidDataGridViewTextBoxColumn1
+            // 
+            this.personelidDataGridViewTextBoxColumn1.DataPropertyName = "personelid";
+            this.personelidDataGridViewTextBoxColumn1.HeaderText = "personelid";
+            this.personelidDataGridViewTextBoxColumn1.Name = "personelidDataGridViewTextBoxColumn1";
+            this.personelidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.personelidDataGridViewTextBoxColumn1.Width = 35;
+            // 
+            // haftaDataGridViewTextBoxColumn
+            // 
+            this.haftaDataGridViewTextBoxColumn.DataPropertyName = "hafta";
+            this.haftaDataGridViewTextBoxColumn.HeaderText = "hafta";
+            this.haftaDataGridViewTextBoxColumn.Name = "haftaDataGridViewTextBoxColumn";
+            this.haftaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.haftaDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // saatDataGridViewTextBoxColumn
+            // 
+            this.saatDataGridViewTextBoxColumn.DataPropertyName = "saat";
+            this.saatDataGridViewTextBoxColumn.HeaderText = "saat";
+            this.saatDataGridViewTextBoxColumn.Name = "saatDataGridViewTextBoxColumn";
+            this.saatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saatDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // dakikaDataGridViewTextBoxColumn
+            // 
+            this.dakikaDataGridViewTextBoxColumn.DataPropertyName = "dakika";
+            this.dakikaDataGridViewTextBoxColumn.HeaderText = "dakika";
+            this.dakikaDataGridViewTextBoxColumn.Name = "dakikaDataGridViewTextBoxColumn";
+            this.dakikaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dakikaDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // tariharalikDataGridViewTextBoxColumn
+            // 
+            this.tariharalikDataGridViewTextBoxColumn.DataPropertyName = "tariharalik";
+            this.tariharalikDataGridViewTextBoxColumn.HeaderText = "tariharalik";
+            this.tariharalikDataGridViewTextBoxColumn.Name = "tariharalikDataGridViewTextBoxColumn";
+            this.tariharalikDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tariharalikDataGridViewTextBoxColumn.Width = 150;
+            // 
             // Mesailer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 419);
+            this.ClientSize = new System.Drawing.Size(808, 419);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox2);
@@ -216,6 +292,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personelGirisCikisDataTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelMesaiDataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,5 +317,12 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn tatil;
         private System.Windows.Forms.DataGridViewCheckBoxColumn yemek;
         private System.Windows.Forms.DataGridViewCheckBoxColumn mesaihesapla;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn personelidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn haftaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dakikaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tariharalikDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource personelMesaiDataTableBindingSource;
     }
 }
