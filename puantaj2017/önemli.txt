@@ -1,0 +1,1 @@
+﻿timespan formatlama ----------------> gridView1.Columns["Giris"].DisplayFormat.FormatString = @"{0:hh}:{0:mm}";

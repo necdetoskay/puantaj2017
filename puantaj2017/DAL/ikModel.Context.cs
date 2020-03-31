@@ -27,12 +27,14 @@ namespace puantaj2017.DAL
     
         public virtual DbSet<birim> birims { get; set; }
         public virtual DbSet<Grup> Grups { get; set; }
-        public virtual DbSet<Imza> Imzas { get; set; }
-        public virtual DbSet<ImzaTakip> ImzaTakips { get; set; }
         public virtual DbSet<Izin> Izins { get; set; }
         public virtual DbSet<IzinTip> IzinTips { get; set; }
-        public virtual DbSet<Personel> Personels { get; set; }
         public virtual DbSet<PersonelGrup> PersonelGrups { get; set; }
         public virtual DbSet<Takip> Takips { get; set; }
+        public virtual DbSet<Avanslar> Avanslars { get; set; }
+        public virtual DbSet<vergi_dilim> vergi_dilim { get; set; }
+        public virtual DbSet<vergi_dilim_detay> vergi_dilim_detay { get; set; }
+        public virtual DbSet<Personel> Personels { get; set; }
+        public virtual DbSet<PersonelMesai> PersonelMesais { get; set; }
     }
 }

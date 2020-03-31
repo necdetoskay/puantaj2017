@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="498e368924b4496e91ca709c3429ffb0" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="MikroDB_V15_KENTModel.PERSONEL_AILE_TANIMLARI" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MikroDB_V15_KENTModel.PERSONEL_IZINLERI" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MikroDB_V15_KENTModel.PERSONEL_TAHAKKUKLARI" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MikroDB_V15_KENTModel.PERSONELLER" Width="1.5" PointX="6.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

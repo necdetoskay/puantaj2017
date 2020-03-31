@@ -17,9 +17,11 @@ namespace puantaj2017.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Personel()
         {
-            this.ImzaTakips = new HashSet<ImzaTakip>();
+            this.Avanslars = new HashSet<Avanslar>();
+            this.birims = new HashSet<birim>();
             this.Izins = new HashSet<Izin>();
             this.PersonelGrups = new HashSet<PersonelGrup>();
+            this.PersonelMesais = new HashSet<PersonelMesai>();
         }
     
         public int id { get; set; }
@@ -32,15 +34,23 @@ namespace puantaj2017.DAL
         public Nullable<int> pdksid { get; set; }
         public Nullable<System.DateTime> giristarihi { get; set; }
         public Nullable<System.DateTime> kidemtarihi { get; set; }
-        public Nullable<int> mikroid { get; set; }
+        public Nullable<System.Guid> mikroid { get; set; }
         public Nullable<System.DateTime> dogumtarihi { get; set; }
+        public Nullable<System.DateTime> cikistarihi { get; set; }
+        public Nullable<int> kadro { get; set; }
+        public string iban { get; set; }
+        public Nullable<bool> yaka { get; set; }
     
-        public virtual birim birim { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ImzaTakip> ImzaTakips { get; set; }
+        public virtual ICollection<Avanslar> Avanslars { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<birim> birims { get; set; }
+        public virtual birim birim { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Izin> Izins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonelGrup> PersonelGrups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PersonelMesai> PersonelMesais { get; set; }
     }
 }

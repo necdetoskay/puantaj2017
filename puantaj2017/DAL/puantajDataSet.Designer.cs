@@ -1015,6 +1015,14 @@ namespace puantaj2017.DAL {
             
             private global::System.Data.DataColumn columnaciklama;
             
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columngidis_saat;
+            
+            private global::System.Data.DataColumn columngelis_saat;
+            
+            private global::System.Data.DataColumn columnSaatlik;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PersonelIzinDataTable() {
@@ -1082,6 +1090,38 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn gidis_saatColumn {
+                get {
+                    return this.columngidis_saat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn gelis_saatColumn {
+                get {
+                    return this.columngelis_saat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SaatlikColumn {
+                get {
+                    return this.columnSaatlik;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1117,13 +1157,17 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PersonelIzinRow AddPersonelIzinRow(int personelid, int izintip, System.DateTime tarih, string aciklama) {
+            public PersonelIzinRow AddPersonelIzinRow(int personelid, int izintip, System.DateTime tarih, string aciklama, int ID, System.TimeSpan gidis_saat, System.TimeSpan gelis_saat, bool Saatlik) {
                 PersonelIzinRow rowPersonelIzinRow = ((PersonelIzinRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         personelid,
                         izintip,
                         tarih,
-                        aciklama};
+                        aciklama,
+                        ID,
+                        gidis_saat,
+                        gelis_saat,
+                        Saatlik};
                 rowPersonelIzinRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPersonelIzinRow);
                 return rowPersonelIzinRow;
@@ -1150,6 +1194,10 @@ namespace puantaj2017.DAL {
                 this.columnizintip = base.Columns["izintip"];
                 this.columntarih = base.Columns["tarih"];
                 this.columnaciklama = base.Columns["aciklama"];
+                this.columnID = base.Columns["ID"];
+                this.columngidis_saat = base.Columns["gidis_saat"];
+                this.columngelis_saat = base.Columns["gelis_saat"];
+                this.columnSaatlik = base.Columns["Saatlik"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1163,6 +1211,14 @@ namespace puantaj2017.DAL {
                 base.Columns.Add(this.columntarih);
                 this.columnaciklama = new global::System.Data.DataColumn("aciklama", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaciklama);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columngidis_saat = new global::System.Data.DataColumn("gidis_saat", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngidis_saat);
+                this.columngelis_saat = new global::System.Data.DataColumn("gelis_saat", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngelis_saat);
+                this.columnSaatlik = new global::System.Data.DataColumn("Saatlik", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaatlik);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2010,6 +2066,70 @@ namespace puantaj2017.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    try {
+                        return ((int)(this[this.tablePersonelIzin.IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'PersonelIzin\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelIzin.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.TimeSpan gidis_saat {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this.tablePersonelIzin.gidis_saatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'gidis_saat\' in table \'PersonelIzin\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelIzin.gidis_saatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.TimeSpan gelis_saat {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this.tablePersonelIzin.gelis_saatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'gelis_saat\' in table \'PersonelIzin\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelIzin.gelis_saatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Saatlik {
+                get {
+                    try {
+                        return ((bool)(this[this.tablePersonelIzin.SaatlikColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Saatlik\' in table \'PersonelIzin\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePersonelIzin.SaatlikColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IspersonelidNull() {
                 return this.IsNull(this.tablePersonelIzin.personelidColumn);
             }
@@ -2054,6 +2174,54 @@ namespace puantaj2017.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetaciklamaNull() {
                 this[this.tablePersonelIzin.aciklamaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDNull() {
+                return this.IsNull(this.tablePersonelIzin.IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDNull() {
+                this[this.tablePersonelIzin.IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isgidis_saatNull() {
+                return this.IsNull(this.tablePersonelIzin.gidis_saatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setgidis_saatNull() {
+                this[this.tablePersonelIzin.gidis_saatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isgelis_saatNull() {
+                return this.IsNull(this.tablePersonelIzin.gelis_saatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setgelis_saatNull() {
+                this[this.tablePersonelIzin.gelis_saatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSaatlikNull() {
+                return this.IsNull(this.tablePersonelIzin.SaatlikColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSaatlikNull() {
+                this[this.tablePersonelIzin.SaatlikColumn] = global::System.Convert.DBNull;
             }
         }
         

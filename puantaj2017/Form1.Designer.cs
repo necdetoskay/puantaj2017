@@ -37,6 +37,23 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ayarlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mesaiHesaplaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eBorçSorgulamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izinVeRaporDurumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.puantajExcelHazırlaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avanslarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.geçKalanlarRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aileFertleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.puantajYeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personelRaporlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporTaraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borcuYokturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hazineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalanİzinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bordroBankaKarşılaştırToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayarlarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.puantajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dosyaTarihİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.personelListBox = new System.Windows.Forms.ListBox();
             this.personelBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,6 +68,7 @@
             this.aciklamaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personelIzinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
+            this.maaşKontrolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personelBindingSource)).BeginInit();
@@ -68,7 +86,7 @@
             this.dateBaslangic.Name = "dateBaslangic";
             this.dateBaslangic.Size = new System.Drawing.Size(99, 20);
             this.dateBaslangic.TabIndex = 0;
-            this.dateBaslangic.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.dateBaslangic.Value = new System.DateTime(2017, 3, 1, 0, 0, 0, 0);
             // 
             // dateBitis
             // 
@@ -77,7 +95,7 @@
             this.dateBitis.Name = "dateBitis";
             this.dateBitis.Size = new System.Drawing.Size(100, 20);
             this.dateBitis.TabIndex = 0;
-            this.dateBitis.Value = new System.DateTime(2017, 1, 31, 0, 0, 0, 0);
+            this.dateBitis.Value = new System.DateTime(2017, 3, 31, 0, 0, 0, 0);
             // 
             // groupBox1
             // 
@@ -115,7 +133,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ayarlarToolStripMenuItem});
+            this.ayarlarToolStripMenuItem,
+            this.ayarlarToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(765, 24);
@@ -125,17 +144,157 @@
             // ayarlarToolStripMenuItem
             // 
             this.ayarlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mesaiHesaplaToolStripMenuItem});
+            this.mesaiHesaplaToolStripMenuItem,
+            this.eBorçSorgulamaToolStripMenuItem,
+            this.izinVeRaporDurumuToolStripMenuItem,
+            this.puantajExcelHazırlaToolStripMenuItem,
+            this.avanslarToolStripMenuItem,
+            this.geçKalanlarRaporToolStripMenuItem,
+            this.aileFertleriToolStripMenuItem,
+            this.puantajYeniToolStripMenuItem,
+            this.personelRaporlarToolStripMenuItem,
+            this.raporTaraToolStripMenuItem,
+            this.borcuYokturToolStripMenuItem,
+            this.hazineToolStripMenuItem,
+            this.kalanİzinToolStripMenuItem,
+            this.bESToolStripMenuItem,
+            this.bordroBankaKarşılaştırToolStripMenuItem,
+            this.maaşKontrolToolStripMenuItem});
             this.ayarlarToolStripMenuItem.Name = "ayarlarToolStripMenuItem";
-            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.ayarlarToolStripMenuItem.Text = "Ayarlar";
+            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.ayarlarToolStripMenuItem.Text = "İşlemler";
             // 
             // mesaiHesaplaToolStripMenuItem
             // 
             this.mesaiHesaplaToolStripMenuItem.Name = "mesaiHesaplaToolStripMenuItem";
-            this.mesaiHesaplaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.mesaiHesaplaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.mesaiHesaplaToolStripMenuItem.Text = "Mesai Hesapla";
             this.mesaiHesaplaToolStripMenuItem.Click += new System.EventHandler(this.mesaiHesaplaToolStripMenuItem_Click);
+            // 
+            // eBorçSorgulamaToolStripMenuItem
+            // 
+            this.eBorçSorgulamaToolStripMenuItem.Name = "eBorçSorgulamaToolStripMenuItem";
+            this.eBorçSorgulamaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.eBorçSorgulamaToolStripMenuItem.Text = "E Borç Sorgulama";
+            this.eBorçSorgulamaToolStripMenuItem.Click += new System.EventHandler(this.eBorçSorgulamaToolStripMenuItem_Click);
+            // 
+            // izinVeRaporDurumuToolStripMenuItem
+            // 
+            this.izinVeRaporDurumuToolStripMenuItem.Name = "izinVeRaporDurumuToolStripMenuItem";
+            this.izinVeRaporDurumuToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.izinVeRaporDurumuToolStripMenuItem.Text = "İzin ve Rapor Durumu";
+            this.izinVeRaporDurumuToolStripMenuItem.Click += new System.EventHandler(this.izinVeRaporDurumuToolStripMenuItem_Click);
+            // 
+            // puantajExcelHazırlaToolStripMenuItem
+            // 
+            this.puantajExcelHazırlaToolStripMenuItem.Name = "puantajExcelHazırlaToolStripMenuItem";
+            this.puantajExcelHazırlaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.puantajExcelHazırlaToolStripMenuItem.Text = "Puantaj Excel Hazırla";
+            this.puantajExcelHazırlaToolStripMenuItem.Visible = false;
+            this.puantajExcelHazırlaToolStripMenuItem.Click += new System.EventHandler(this.puantajExcelHazırlaToolStripMenuItem_Click);
+            // 
+            // avanslarToolStripMenuItem
+            // 
+            this.avanslarToolStripMenuItem.Name = "avanslarToolStripMenuItem";
+            this.avanslarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.avanslarToolStripMenuItem.Text = "Avanslar";
+            this.avanslarToolStripMenuItem.Click += new System.EventHandler(this.avanslarToolStripMenuItem_Click);
+            // 
+            // geçKalanlarRaporToolStripMenuItem
+            // 
+            this.geçKalanlarRaporToolStripMenuItem.Name = "geçKalanlarRaporToolStripMenuItem";
+            this.geçKalanlarRaporToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.geçKalanlarRaporToolStripMenuItem.Text = "Geç Kalanlar Rapor";
+            this.geçKalanlarRaporToolStripMenuItem.Click += new System.EventHandler(this.geçKalanlarRaporToolStripMenuItem_Click);
+            // 
+            // aileFertleriToolStripMenuItem
+            // 
+            this.aileFertleriToolStripMenuItem.Name = "aileFertleriToolStripMenuItem";
+            this.aileFertleriToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.aileFertleriToolStripMenuItem.Text = "Aile Fertleri";
+            this.aileFertleriToolStripMenuItem.Visible = false;
+            this.aileFertleriToolStripMenuItem.Click += new System.EventHandler(this.aileFertleriToolStripMenuItem_Click);
+            // 
+            // puantajYeniToolStripMenuItem
+            // 
+            this.puantajYeniToolStripMenuItem.Name = "puantajYeniToolStripMenuItem";
+            this.puantajYeniToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.puantajYeniToolStripMenuItem.Text = "Puantaj Yeni";
+            this.puantajYeniToolStripMenuItem.Click += new System.EventHandler(this.puantajYeniToolStripMenuItem_Click);
+            // 
+            // personelRaporlarToolStripMenuItem
+            // 
+            this.personelRaporlarToolStripMenuItem.Name = "personelRaporlarToolStripMenuItem";
+            this.personelRaporlarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.personelRaporlarToolStripMenuItem.Text = "Personel Raporlar";
+            this.personelRaporlarToolStripMenuItem.Click += new System.EventHandler(this.personelRaporlarToolStripMenuItem_Click);
+            // 
+            // raporTaraToolStripMenuItem
+            // 
+            this.raporTaraToolStripMenuItem.Name = "raporTaraToolStripMenuItem";
+            this.raporTaraToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.raporTaraToolStripMenuItem.Text = "Rapor Tara";
+            this.raporTaraToolStripMenuItem.Visible = false;
+            this.raporTaraToolStripMenuItem.Click += new System.EventHandler(this.raporTaraToolStripMenuItem_Click);
+            // 
+            // borcuYokturToolStripMenuItem
+            // 
+            this.borcuYokturToolStripMenuItem.Name = "borcuYokturToolStripMenuItem";
+            this.borcuYokturToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.borcuYokturToolStripMenuItem.Text = "Borcu Yoktur";
+            this.borcuYokturToolStripMenuItem.Click += new System.EventHandler(this.borcuYokturToolStripMenuItem_Click);
+            // 
+            // hazineToolStripMenuItem
+            // 
+            this.hazineToolStripMenuItem.Name = "hazineToolStripMenuItem";
+            this.hazineToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.hazineToolStripMenuItem.Text = "Hazine";
+            this.hazineToolStripMenuItem.Visible = false;
+            this.hazineToolStripMenuItem.Click += new System.EventHandler(this.hazineToolStripMenuItem_Click);
+            // 
+            // kalanİzinToolStripMenuItem
+            // 
+            this.kalanİzinToolStripMenuItem.Name = "kalanİzinToolStripMenuItem";
+            this.kalanİzinToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.kalanİzinToolStripMenuItem.Text = "Kalan İzin";
+            this.kalanİzinToolStripMenuItem.Click += new System.EventHandler(this.kalanİzinToolStripMenuItem_Click);
+            // 
+            // bESToolStripMenuItem
+            // 
+            this.bESToolStripMenuItem.Name = "bESToolStripMenuItem";
+            this.bESToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.bESToolStripMenuItem.Text = "BES";
+            this.bESToolStripMenuItem.Click += new System.EventHandler(this.bESToolStripMenuItem_Click);
+            // 
+            // bordroBankaKarşılaştırToolStripMenuItem
+            // 
+            this.bordroBankaKarşılaştırToolStripMenuItem.Name = "bordroBankaKarşılaştırToolStripMenuItem";
+            this.bordroBankaKarşılaştırToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.bordroBankaKarşılaştırToolStripMenuItem.Text = "Bordro Banka Karşılaştır";
+            this.bordroBankaKarşılaştırToolStripMenuItem.Click += new System.EventHandler(this.bordroBankaKarşılaştırToolStripMenuItem_Click);
+            // 
+            // ayarlarToolStripMenuItem1
+            // 
+            this.ayarlarToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.puantajToolStripMenuItem,
+            this.dosyaTarihİşlemleriToolStripMenuItem});
+            this.ayarlarToolStripMenuItem1.Name = "ayarlarToolStripMenuItem1";
+            this.ayarlarToolStripMenuItem1.Size = new System.Drawing.Size(56, 20);
+            this.ayarlarToolStripMenuItem1.Text = "Ayarlar";
+            // 
+            // puantajToolStripMenuItem
+            // 
+            this.puantajToolStripMenuItem.Name = "puantajToolStripMenuItem";
+            this.puantajToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.puantajToolStripMenuItem.Text = "Puantaj";
+            this.puantajToolStripMenuItem.Click += new System.EventHandler(this.puantajToolStripMenuItem_Click);
+            // 
+            // dosyaTarihİşlemleriToolStripMenuItem
+            // 
+            this.dosyaTarihİşlemleriToolStripMenuItem.Name = "dosyaTarihİşlemleriToolStripMenuItem";
+            this.dosyaTarihİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.dosyaTarihİşlemleriToolStripMenuItem.Text = "Dosya Tarih İşlemleri";
+            this.dosyaTarihİşlemleriToolStripMenuItem.Click += new System.EventHandler(this.dosyaTarihİşlemleriToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -256,6 +415,13 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // maaşKontrolToolStripMenuItem
+            // 
+            this.maaşKontrolToolStripMenuItem.Name = "maaşKontrolToolStripMenuItem";
+            this.maaşKontrolToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.maaşKontrolToolStripMenuItem.Text = "Maaş Kontrol";
+            this.maaşKontrolToolStripMenuItem.Click += new System.EventHandler(this.maaşKontrolToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,6 +437,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -310,6 +477,24 @@
         private System.Windows.Forms.BindingSource personelIzinBindingSource;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem mesaiHesaplaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eBorçSorgulamaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem izinVeRaporDurumuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem puantajExcelHazırlaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem avanslarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayarlarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem puantajToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem geçKalanlarRaporToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aileFertleriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem puantajYeniToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personelRaporlarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporTaraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borcuYokturToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hazineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kalanİzinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dosyaTarihİşlemleriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bordroBankaKarşılaştırToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maaşKontrolToolStripMenuItem;
     }
 }
 

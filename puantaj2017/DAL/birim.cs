@@ -24,7 +24,10 @@ namespace puantaj2017.DAL
         public string birimad { get; set; }
         public string fullad { get; set; }
         public Nullable<int> sira { get; set; }
+        public Nullable<bool> puantaj { get; set; }
+        public Nullable<int> birimAmiri { get; set; }
     
+        public virtual Personel Personel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personel> Personels { get; set; }
     }

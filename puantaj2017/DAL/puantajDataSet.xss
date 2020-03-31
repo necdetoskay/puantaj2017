@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:PersonelGirisCikis" ZOrder="3" X="306" Y="84" Height="200" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
     <Shape ID="DesignTable:Personel" ZOrder="4" X="105" Y="81" Height="67" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
-    <Shape ID="DesignTable:PersonelIzin" ZOrder="2" X="82" Y="176" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
+    <Shape ID="DesignTable:PersonelIzin" ZOrder="2" X="82" Y="176" Height="181" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
     <Shape ID="DesignTable:PersonelMesai" ZOrder="1" X="235" Y="386" Height="124" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
   </Shapes>
   <Connectors />

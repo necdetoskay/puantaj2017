@@ -1,0 +1,2358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MikroDB_V15_KENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PERSONEL_AILE_TANIMLARI">
+          <Key>
+            <PropertyRef Name="PA_Guid" />
+          </Key>
+          <Property Name="PA_Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PA_DBCno" Type="smallint" Nullable="false" />
+          <Property Name="PA_SpecRECno" Type="int" />
+          <Property Name="PA_iptal" Type="bit" />
+          <Property Name="PA_fileid" Type="smallint" />
+          <Property Name="PA_hidden" Type="bit" />
+          <Property Name="PA_kilitli" Type="bit" />
+          <Property Name="PA_degisti" Type="bit" />
+          <Property Name="PA_checksum" Type="int" />
+          <Property Name="PA_create_user" Type="smallint" />
+          <Property Name="PA_create_date" Type="datetime" Nullable="false" />
+          <Property Name="PA_lastup_user" Type="smallint" />
+          <Property Name="PA_lastup_date" Type="datetime" />
+          <Property Name="PA_special1" Type="nvarchar" MaxLength="4" />
+          <Property Name="PA_special2" Type="nvarchar" MaxLength="4" />
+          <Property Name="PA_special3" Type="nvarchar" MaxLength="4" />
+          <Property Name="PA_PerKodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="PA_Yakinlik" Type="tinyint" />
+          <Property Name="PA_CocukSiraNo" Type="smallint" />
+          <Property Name="PA_Ad" Type="nvarchar" MaxLength="40" />
+          <Property Name="PA_Soyad" Type="nvarchar" MaxLength="40" />
+          <Property Name="PA_IlkSoyad" Type="nvarchar" MaxLength="40" />
+          <Property Name="PA_TcKimlik" Type="nvarchar" MaxLength="25" />
+          <Property Name="PA_Cinsiyet" Type="tinyint" />
+          <Property Name="PA_DogumTar" Type="datetime" />
+          <Property Name="PA_DogumYer" Type="nvarchar" MaxLength="40" />
+          <Property Name="PA_Ucretli" Type="tinyint" />
+          <Property Name="PA_Tahsili" Type="tinyint" />
+          <Property Name="PA_Sakatlik" Type="tinyint" />
+          <Property Name="PA_Cadde" Type="nvarchar" MaxLength="50" />
+          <Property Name="PA_Mahalle" Type="nvarchar" MaxLength="50" />
+          <Property Name="PA_Sokak" Type="nvarchar" MaxLength="50" />
+          <Property Name="PA_Semt" Type="nvarchar" MaxLength="25" />
+          <Property Name="PA_Apt_No" Type="nvarchar" MaxLength="10" />
+          <Property Name="PA_Daire_No" Type="nvarchar" MaxLength="10" />
+          <Property Name="PA_Posta_Kodu" Type="nvarchar" MaxLength="8" />
+          <Property Name="PA_Ilce" Type="nvarchar" MaxLength="50" />
+          <Property Name="PA_Il" Type="nvarchar" MaxLength="50" />
+          <Property Name="PA_Ulke" Type="nvarchar" MaxLength="50" />
+          <Property Name="PA_Adres_kodu" Type="nvarchar" MaxLength="10" />
+          <Property Name="PA_TelUlkeKodu" Type="nvarchar" MaxLength="5" />
+          <Property Name="PA_TelBolgekodu" Type="nvarchar" MaxLength="5" />
+          <Property Name="PA_TelNo1" Type="nvarchar" MaxLength="10" />
+          <Property Name="PA_EvlilikTarihi" Type="datetime" />
+          <Property Name="PA_agine_tabii" Type="tinyint" />
+          <Property Name="PA_OgrenimeDevamEdiyor" Type="bit" />
+          <Property Name="PA_maas_banka" Type="tinyint" />
+          <Property Name="PA_banka_hesapno" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PERSONEL_IZINLERI">
+          <Key>
+            <PropertyRef Name="pz_Guid" />
+          </Key>
+          <Property Name="pz_Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="pz_DBCno" Type="smallint" Nullable="false" />
+          <Property Name="pz_SpecRECno" Type="int" />
+          <Property Name="pz_iptal" Type="bit" />
+          <Property Name="pz_fileid" Type="smallint" />
+          <Property Name="pz_hidden" Type="bit" />
+          <Property Name="pz_kilitli" Type="bit" />
+          <Property Name="pz_degisti" Type="bit" />
+          <Property Name="pz_checksum" Type="int" />
+          <Property Name="pz_create_user" Type="smallint" />
+          <Property Name="pz_create_date" Type="datetime" Nullable="false" />
+          <Property Name="pz_lastup_user" Type="smallint" />
+          <Property Name="pz_lastup_date" Type="datetime" />
+          <Property Name="pz_special1" Type="nvarchar" MaxLength="4" />
+          <Property Name="pz_special2" Type="nvarchar" MaxLength="4" />
+          <Property Name="pz_special3" Type="nvarchar" MaxLength="4" />
+          <Property Name="pz_izin_yil" Type="smallint" />
+          <Property Name="pz_pers_kod" Type="nvarchar" MaxLength="25" />
+          <Property Name="pz_izin_no" Type="int" />
+          <Property Name="pz_izin_tipi" Type="tinyint" />
+          <Property Name="pz_gun_sayisi" Type="tinyint" />
+          <Property Name="pz_yol_izni" Type="tinyint" />
+          <Property Name="pz_baslangictarih" Type="datetime" />
+          <Property Name="pz_bagli_talep_uid" Type="uniqueidentifier" />
+          <Property Name="pz_izin_aciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="pz_gerceklesen_donus_tarihi" Type="datetime" />
+          <Property Name="pz_izin_detay_tipi" Type="tinyint" />
+          <Property Name="pz_bitistarihi" Type="datetime" />
+          <Property Name="pz_isbasitarihi" Type="datetime" />
+          <Property Name="pz_saat" Type="float" />
+          <Property Name="pz_BaslamaSaati" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PERSONEL_TAHAKKUKLARI">
+          <Key>
+            <PropertyRef Name="pt_Guid" />
+          </Key>
+          <Property Name="pt_Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="pt_DBCno" Type="smallint" Nullable="false" />
+          <Property Name="pt_SpecRECno" Type="int" />
+          <Property Name="pt_iptal" Type="bit" />
+          <Property Name="pt_fileid" Type="smallint" />
+          <Property Name="pt_hidden" Type="bit" />
+          <Property Name="pt_kilitli" Type="bit" />
+          <Property Name="pt_degisti" Type="bit" />
+          <Property Name="pt_checksum" Type="int" />
+          <Property Name="pt_create_user" Type="smallint" />
+          <Property Name="pt_create_date" Type="datetime" Nullable="false" />
+          <Property Name="pt_lastup_user" Type="smallint" />
+          <Property Name="pt_lastup_date" Type="datetime" />
+          <Property Name="pt_special1" Type="nvarchar" MaxLength="4" />
+          <Property Name="pt_special2" Type="nvarchar" MaxLength="4" />
+          <Property Name="pt_special3" Type="nvarchar" MaxLength="4" />
+          <Property Name="pt_pkod" Type="nvarchar" MaxLength="25" />
+          <Property Name="pt_maliyil" Type="int" />
+          <Property Name="pt_tah_ay" Type="smallint" />
+          <Property Name="pt_tahno" Type="smallint" />
+          <Property Name="pt_kayit" Type="smallint" />
+          <Property Name="pt_kesin" Type="bit" />
+          <Property Name="pt_ucrettipi" Type="tinyint" />
+          <Property Name="pt_brutucret" Type="float" />
+          <Property Name="pt_kazanc1_tkgun" Type="smallint" />
+          <Property Name="pt_kazanc1_tksaat" Type="float" />
+          <Property Name="pt_kazanc1_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_kazanc1_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_kazanc1_tktutar" Type="float" />
+          <Property Name="pt_kazanc2_tkgun" Type="smallint" />
+          <Property Name="pt_kazanc2_tksaat" Type="float" />
+          <Property Name="pt_kazanc2_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_kazanc2_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_kazanc2_tktutar" Type="float" />
+          <Property Name="pt_kazanc3_tkgun" Type="smallint" />
+          <Property Name="pt_kazanc3_tksaat" Type="float" />
+          <Property Name="pt_kazanc3_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_kazanc3_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_kazanc3_tktutar" Type="float" />
+          <Property Name="pt_kazanc4_tkgun" Type="smallint" />
+          <Property Name="pt_kazanc4_tksaat" Type="float" />
+          <Property Name="pt_kazanc4_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_kazanc4_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_kazanc4_tktutar" Type="float" />
+          <Property Name="pt_kazanc5_tkgun" Type="smallint" />
+          <Property Name="pt_kazanc5_tksaat" Type="float" />
+          <Property Name="pt_kazanc5_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_kazanc5_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_kazanc5_tktutar" Type="float" />
+          <Property Name="pt_kazanc6_tkgun" Type="smallint" />
+          <Property Name="pt_kazanc6_tksaat" Type="float" />
+          <Property Name="pt_kazanc6_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_kazanc6_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_kazanc6_tktutar" Type="float" />
+          <Property Name="pt_KazancBNCarpan" Type="float" />
+          <Property Name="pt_ekkazanc1_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc1_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc1_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc2_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc2_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc2_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc3_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc3_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc3_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc4_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc4_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc4_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc5_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc5_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc5_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc6_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc6_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc6_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc7_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc7_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc7_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc8_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc8_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc8_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc9_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc9_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc9_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc10_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc10_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc10_tktutar" Type="float" />
+          <Property Name="pt_ekkazanc11_tkgun" Type="smallint" />
+          <Property Name="pt_ekkazanc11_tksaat" Type="float" />
+          <Property Name="pt_ekkazanc11_tktutar" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan1" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan2" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan3" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan4" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan5" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan6" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan7" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan8" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan9" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan10" Type="float" />
+          <Property Name="pt_EkKazancBNCarpan11" Type="float" />
+          <Property Name="pt_sosyolgun" Type="smallint" />
+          <Property Name="pt_sosyemekgun" Type="smallint" />
+          <Property Name="pt_sosyrdm1" Type="float" />
+          <Property Name="pt_sosyrdm2" Type="float" />
+          <Property Name="pt_sosyrdm3" Type="float" />
+          <Property Name="pt_sosyrdm4" Type="float" />
+          <Property Name="pt_sosyrdm5" Type="float" />
+          <Property Name="pt_sosyrdm6" Type="float" />
+          <Property Name="pt_sosyrdm7" Type="float" />
+          <Property Name="pt_sosyrdm8" Type="float" />
+          <Property Name="pt_sosyrdm9" Type="float" />
+          <Property Name="pt_sosyrdm10" Type="float" />
+          <Property Name="pt_sosyrdm11" Type="float" />
+          <Property Name="pt_sosyrdm12" Type="float" />
+          <Property Name="pt_sosyrdm13" Type="float" />
+          <Property Name="pt_sosyrdm14" Type="float" />
+          <Property Name="pt_sosyrdm15" Type="float" />
+          <Property Name="pt_sosyrdm16" Type="float" />
+          <Property Name="pt_sosyrdm17" Type="float" />
+          <Property Name="pt_sosyrdm18" Type="float" />
+          <Property Name="pt_sosyrdm19" Type="float" />
+          <Property Name="pt_sosyrdm20" Type="float" />
+          <Property Name="pt_sosyrdm21" Type="float" />
+          <Property Name="pt_sosyrdm22" Type="float" />
+          <Property Name="pt_sosyrdm23" Type="float" />
+          <Property Name="pt_sosyrdm24" Type="float" />
+          <Property Name="pt_sosyrdm25" Type="float" />
+          <Property Name="pt_sosyrdm26" Type="float" />
+          <Property Name="pt_sosyrdm27" Type="float" />
+          <Property Name="pt_sosyrdm28" Type="float" />
+          <Property Name="pt_sosyrdm29" Type="float" />
+          <Property Name="pt_sosyrdm30" Type="float" />
+          <Property Name="pt_sosyrdm31" Type="float" />
+          <Property Name="pt_sosyrdm32" Type="float" />
+          <Property Name="pt_SosYardBNCarpan1" Type="float" />
+          <Property Name="pt_SosYardBNCarpan2" Type="float" />
+          <Property Name="pt_SosYardBNCarpan3" Type="float" />
+          <Property Name="pt_SosYardBNCarpan4" Type="float" />
+          <Property Name="pt_SosYardBNCarpan5" Type="float" />
+          <Property Name="pt_SosYardBNCarpan6" Type="float" />
+          <Property Name="pt_SosYardBNCarpan7" Type="float" />
+          <Property Name="pt_SosYardBNCarpan8" Type="float" />
+          <Property Name="pt_SosYardBNCarpan9" Type="float" />
+          <Property Name="pt_SosYardBNCarpan10" Type="float" />
+          <Property Name="pt_SosYardBNCarpan11" Type="float" />
+          <Property Name="pt_SosYardBNCarpan12" Type="float" />
+          <Property Name="pt_SosYardBNCarpan13" Type="float" />
+          <Property Name="pt_SosYardBNCarpan14" Type="float" />
+          <Property Name="pt_SosYardBNCarpan15" Type="float" />
+          <Property Name="pt_SosYardBNCarpan16" Type="float" />
+          <Property Name="pt_SosYardBNCarpan17" Type="float" />
+          <Property Name="pt_SosYardBNCarpan18" Type="float" />
+          <Property Name="pt_SosYardBNCarpan19" Type="float" />
+          <Property Name="pt_SosYardBNCarpan20" Type="float" />
+          <Property Name="pt_SosYardBNCarpan21" Type="float" />
+          <Property Name="pt_SosYardBNCarpan22" Type="float" />
+          <Property Name="pt_SosYardBNCarpan23" Type="float" />
+          <Property Name="pt_SosYardBNCarpan24" Type="float" />
+          <Property Name="pt_SosYardBNCarpan25" Type="float" />
+          <Property Name="pt_SosYardBNCarpan26" Type="float" />
+          <Property Name="pt_SosYardBNCarpan27" Type="float" />
+          <Property Name="pt_SosYardBNCarpan28" Type="float" />
+          <Property Name="pt_SosYardBNCarpan29" Type="float" />
+          <Property Name="pt_SosYardBNCarpan30" Type="float" />
+          <Property Name="pt_SosYardBNCarpan31" Type="float" />
+          <Property Name="pt_SosYardBNCarpan32" Type="float" />
+          <Property Name="pt_ozksnt1" Type="float" />
+          <Property Name="pt_ozksnt2" Type="float" />
+          <Property Name="pt_ozksnt3" Type="float" />
+          <Property Name="pt_ozksnt4" Type="float" />
+          <Property Name="pt_ozksnt5" Type="float" />
+          <Property Name="pt_ozksnt6" Type="float" />
+          <Property Name="pt_ozksnt7" Type="float" />
+          <Property Name="pt_ozksnt8" Type="float" />
+          <Property Name="pt_ozksnt9" Type="float" />
+          <Property Name="pt_ozksnt10" Type="float" />
+          <Property Name="pt_ozksnt11" Type="float" />
+          <Property Name="pt_ozksnt12" Type="float" />
+          <Property Name="pt_ozksnt13" Type="float" />
+          <Property Name="pt_ozksnt14" Type="float" />
+          <Property Name="pt_ozksnt15" Type="float" />
+          <Property Name="pt_ozksnt16" Type="float" />
+          <Property Name="pt_ozksnt17" Type="float" />
+          <Property Name="pt_ozksnt18" Type="float" />
+          <Property Name="pt_ozksnt19" Type="float" />
+          <Property Name="pt_ozksnt20" Type="float" />
+          <Property Name="pt_ozksnt21" Type="float" />
+          <Property Name="pt_ozksnt22" Type="float" />
+          <Property Name="pt_ozksnt23" Type="float" />
+          <Property Name="pt_ozksnt24" Type="float" />
+          <Property Name="pt_sskprimi" Type="float" />
+          <Property Name="pt_gv" Type="float" />
+          <Property Name="pt_dv" Type="float" />
+          <Property Name="pt_normalkazanc" Type="float" />
+          <Property Name="pt_ekkazanc" Type="float" />
+          <Property Name="pt_sosyrdm" Type="float" />
+          <Property Name="pt_yasksnt" Type="float" />
+          <Property Name="pt_ozksnt" Type="float" />
+          <Property Name="pt_kazanc" Type="float" />
+          <Property Name="pt_kesinti" Type="float" />
+          <Property Name="pt_net" Type="float" />
+          <Property Name="pt_sskgunu" Type="smallint" />
+          <Property Name="pt_sskbrut" Type="float" />
+          <Property Name="pt_izingunu" Type="smallint" />
+          <Property Name="pt_izinmatrah" Type="float" />
+          <Property Name="pt_tersbakiye" Type="float" />
+          <Property Name="pt_yuvfarki" Type="float" />
+          <Property Name="pt_sskisvhis" Type="float" />
+          <Property Name="pt_sskkonfon" Type="float" />
+          <Property Name="pt_gayrisafikaz" Type="smallint" />
+          <Property Name="pt_gs" Type="float" />
+          <Property Name="pt_verind" Type="float" />
+          <Property Name="pt_gocverind" Type="float" />
+          <Property Name="pt_sakverind" Type="float" />
+          <Property Name="pt_digverindgv" Type="float" />
+          <Property Name="pt_digverindssk" Type="float" />
+          <Property Name="pt_toplamind" Type="float" />
+          <Property Name="pt_devsskmatrah" Type="float" />
+          <Property Name="pt_devgvmatrah" Type="float" />
+          <Property Name="pt_sskbrutmatrah" Type="float" />
+          <Property Name="pt_gvmatrah" Type="float" />
+          <Property Name="pt_gvbrut" Type="float" />
+          <Property Name="pt_arge5746gvmuafiyeti" Type="float" />
+          <Property Name="pt_vergi_iadesi" Type="float" />
+          <Property Name="pt_digverinddv" Type="float" />
+          <Property Name="pt_dsiz" Type="smallint" />
+          <Property Name="pt_vidv" Type="float" />
+          <Property Name="pt_netvergiiadesi" Type="float" />
+          <Property Name="pt_dvmatrah" Type="float" />
+          <Property Name="pt_tahakkuklog" Type="tinyint" />
+          <Property Name="pt_sskkonutfonukad" Type="tinyint" />
+          <Property Name="pt_hayatsigortasi" Type="float" />
+          <Property Name="pt_ssdfonu" Type="float" />
+          <Property Name="pt_HesapTipi" Type="tinyint" />
+          <Property Name="pt_iszlksigperpayi" Type="float" />
+          <Property Name="pt_iszlksigisvpayi" Type="float" />
+          <Property Name="pt_iszlksigmatrah" Type="float" />
+          <Property Name="pt_iszlksigbrut" Type="float" />
+          <Property Name="pt_digersigorta_isveren" Type="float" />
+          <Property Name="pt_digersigorta_calisan" Type="float" />
+          <Property Name="pt_bireyselsigorta_isveren" Type="float" />
+          <Property Name="pt_bireyselsigorta_calisan" Type="float" />
+          <Property Name="pt_EksikCalismaNedeni" Type="nvarchar" MaxLength="25" />
+          <Property Name="pt_eksikcalismanedensecimli" Type="tinyint" />
+          <Property Name="pt_AskerBorclanmasi" Type="float" />
+          <Property Name="pt_IsvHisTesvInd" Type="float" />
+          <Property Name="pt_KurTarihi" Type="datetime" />
+          <Property Name="pt_DepartmanKodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="pt_GorevKodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="pt_BolgeKodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="pt_asgarigecimindirimi" Type="float" />
+          <Property Name="pt_sonrayadevredensskmatrahi" Type="float" />
+          <Property Name="pt_gecenaylardankullanilanssk" Type="float" />
+          <Property Name="pt_sgkyatabiitopkazanc" Type="float" />
+          <Property Name="pt_sgkyatabiitopekkazanc" Type="float" />
+          <Property Name="pt_sgkyatabiitopsosyalyardim" Type="float" />
+          <Property Name="pt_sgkpriminetabiikazanc" Type="float" />
+          <Property Name="pt_sgkpriminetabiiekkazanc" Type="float" />
+          <Property Name="pt_sgkpriminetabiisosyalyardim" Type="float" />
+          <Property Name="pt_sgkprimikazanctan" Type="float" />
+          <Property Name="pt_sgkprimiekkazanctan" Type="float" />
+          <Property Name="pt_sgkprimisosyalyardimdan" Type="float" />
+          <Property Name="pt_tabiioldugukanun" Type="tinyint" />
+          <Property Name="pt_tabiioldugukanun2" Type="tinyint" />
+          <Property Name="pt_kultur5225gvmuafiyeti" Type="float" />
+          <Property Name="pt_hazinekanunugvindirimi" Type="float" />
+          <Property Name="pt_dovizcins" Type="tinyint" />
+          <Property Name="pt_dovizkur" Type="float" />
+          <Property Name="pt_altdovizkur" Type="float" />
+          <Property Name="pt_bagkurprimi" Type="float" />
+          <Property Name="pt_tabiioldugubelgeturu" Type="tinyint" />
+          <Property Name="pt_tabiioldugukanun3" Type="tinyint" />
+          <Property Name="pt_Az102KanunVergiIndirimi" Type="float" />
+          <Property Name="pt_AzHastalikUcretFarki" Type="float" />
+          <Property Name="pt_AzHastalikUcretFarkVergisi" Type="float" />
+          <Property Name="pt_brutlesmeyenodeme" Type="float" />
+          <Property Name="pt_sanalgvmatrah" Type="float" />
+          <Property Name="pt_sanalgv" Type="float" />
+          <Property Name="pt_sanaldvmatrah" Type="float" />
+          <Property Name="pt_sanaldv" Type="float" />
+          <Property Name="pt_perskgtesvikind" Type="float" />
+          <Property Name="pt_perisssigtesvikind" Type="float" />
+          <Property Name="pt_izin1_tkgun" Type="smallint" />
+          <Property Name="pt_izin1_tksaat" Type="float" />
+          <Property Name="pt_izin1_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin1_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin1_tktutar" Type="float" />
+          <Property Name="pt_izin2_tkgun" Type="smallint" />
+          <Property Name="pt_izin2_tksaat" Type="float" />
+          <Property Name="pt_izin2_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin2_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin2_tktutar" Type="float" />
+          <Property Name="pt_izin3_tkgun" Type="smallint" />
+          <Property Name="pt_izin3_tksaat" Type="float" />
+          <Property Name="pt_izin3_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin3_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin3_tktutar" Type="float" />
+          <Property Name="pt_izin4_tkgun" Type="smallint" />
+          <Property Name="pt_izin4_tksaat" Type="float" />
+          <Property Name="pt_izin4_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin4_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin4_tktutar" Type="float" />
+          <Property Name="pt_izin5_tkgun" Type="smallint" />
+          <Property Name="pt_izin5_tksaat" Type="float" />
+          <Property Name="pt_izin5_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin5_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin5_tktutar" Type="float" />
+          <Property Name="pt_izin6_tkgun" Type="smallint" />
+          <Property Name="pt_izin6_tksaat" Type="float" />
+          <Property Name="pt_izin6_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin6_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin6_tktutar" Type="float" />
+          <Property Name="pt_izin7_tkgun" Type="smallint" />
+          <Property Name="pt_izin7_tksaat" Type="float" />
+          <Property Name="pt_izin7_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin7_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin7_tktutar" Type="float" />
+          <Property Name="pt_izin8_tkgun" Type="smallint" />
+          <Property Name="pt_izin8_tksaat" Type="float" />
+          <Property Name="pt_izin8_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin8_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin8_tktutar" Type="float" />
+          <Property Name="pt_izin9_tkgun" Type="smallint" />
+          <Property Name="pt_izin9_tksaat" Type="float" />
+          <Property Name="pt_izin9_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin9_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin9_tktutar" Type="float" />
+          <Property Name="pt_izin10_tkgun" Type="smallint" />
+          <Property Name="pt_izin10_tksaat" Type="float" />
+          <Property Name="pt_izin10_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin10_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin10_tktutar" Type="float" />
+          <Property Name="pt_izin11_tkgun" Type="smallint" />
+          <Property Name="pt_izin11_tksaat" Type="float" />
+          <Property Name="pt_izin11_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin11_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin11_tktutar" Type="float" />
+          <Property Name="pt_izin12_tkgun" Type="smallint" />
+          <Property Name="pt_izin12_tksaat" Type="float" />
+          <Property Name="pt_izin12_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin12_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin12_tktutar" Type="float" />
+          <Property Name="pt_izin13_tkgun" Type="smallint" />
+          <Property Name="pt_izin13_tksaat" Type="float" />
+          <Property Name="pt_izin13_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin13_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin13_tktutar" Type="float" />
+          <Property Name="pt_izin14_tkgun" Type="smallint" />
+          <Property Name="pt_izin14_tksaat" Type="float" />
+          <Property Name="pt_izin14_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin14_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin14_tktutar" Type="float" />
+          <Property Name="pt_izin15_tkgun" Type="smallint" />
+          <Property Name="pt_izin15_tksaat" Type="float" />
+          <Property Name="pt_izin15_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin15_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin15_tktutar" Type="float" />
+          <Property Name="pt_izin16_tkgun" Type="smallint" />
+          <Property Name="pt_izin16_tksaat" Type="float" />
+          <Property Name="pt_izin16_tkyarim_isgunu" Type="smallint" />
+          <Property Name="pt_izin16_tkyarim_isgun_saat" Type="float" />
+          <Property Name="pt_izin16_tktutar" Type="float" />
+          <Property Name="pt_hayatsigorta_isveren" Type="float" />
+          <Property Name="pt_hayatsigorta_calisan" Type="float" />
+          <Property Name="pt_kanungvindirimi" Type="float" />
+          <Property Name="pt_kanundvindirimi" Type="float" />
+          <Property Name="pt_isssigisvpayi_tesvind" Type="float" />
+          <Property Name="pt_hazine_destegine_tabi_fl" Type="bit" />
+          <Property Name="pt_hazine_destegi_gunu" Type="int" />
+          <Property Name="pt_ilave_agi" Type="float" />
+          <Property Name="pt_saatlik_izin_suresi" Type="float" />
+          <Property Name="pt_saatlik_izin_tutari" Type="float" />
+          <Property Name="pt_otobes_tutari" Type="float" />
+          <Property Name="pt_hazinekanunudvindirimi" Type="float" />
+        </EntityType>
+        <EntityType Name="PERSONELLER">
+          <Key>
+            <PropertyRef Name="per_Guid" />
+          </Key>
+          <Property Name="per_Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="per_DBCno" Type="smallint" Nullable="false" />
+          <Property Name="per_SpecRECno" Type="int" />
+          <Property Name="per_iptal" Type="bit" />
+          <Property Name="per_fileid" Type="smallint" />
+          <Property Name="per_hidden" Type="bit" />
+          <Property Name="per_kilitli" Type="bit" />
+          <Property Name="per_degisti" Type="bit" />
+          <Property Name="per_checksum" Type="int" />
+          <Property Name="per_create_user" Type="smallint" />
+          <Property Name="per_create_date" Type="datetime" Nullable="false" />
+          <Property Name="per_lastup_user" Type="smallint" />
+          <Property Name="per_lastup_date" Type="datetime" />
+          <Property Name="per_special1" Type="nvarchar" MaxLength="4" />
+          <Property Name="per_special2" Type="nvarchar" MaxLength="4" />
+          <Property Name="per_special3" Type="nvarchar" MaxLength="4" />
+          <Property Name="per_kod" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_orjdildeadisoyadi" Type="nvarchar" MaxLength="80" />
+          <Property Name="per_sicil_no" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_firma_no" Type="int" />
+          <Property Name="per_sube_no" Type="int" />
+          <Property Name="per_caripers_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_tip" Type="tinyint" />
+          <Property Name="per_dept_kod" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_is_grup" Type="tinyint" />
+          <Property Name="per_giris_tar" Type="datetime" />
+          <Property Name="per_cikis_tar" Type="datetime" />
+          <Property Name="per_cikis_neden" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_kod" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_kim_tahsil" Type="tinyint" />
+          <Property Name="per_kim_meslek" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_kim_gorev" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_kim_sakat_derece" Type="tinyint" />
+          <Property Name="per_kim_gocmen" Type="tinyint" />
+          <Property Name="per_kim_gorev_kod" Type="tinyint" />
+          <Property Name="per_kim_SGK_kod" Type="tinyint" />
+          <Property Name="per_kim_cocuk" Type="tinyint" />
+          <Property Name="per_kim_okuloncesi" Type="tinyint" />
+          <Property Name="per_kim_ilkokul" Type="tinyint" />
+          <Property Name="per_kim_ortaokul" Type="tinyint" />
+          <Property Name="per_kim_lise" Type="tinyint" />
+          <Property Name="per_kim_yuksek" Type="tinyint" />
+          <Property Name="per_nuf_uyruk" Type="nvarchar" MaxLength="15" />
+          <Property Name="per_nuf_cinsiyet" Type="tinyint" />
+          <Property Name="per_nuf_medeni_hal" Type="tinyint" />
+          <Property Name="per_nuf_din" Type="nvarchar" MaxLength="15" />
+          <Property Name="per_nuf_dogum_tarih" Type="datetime" />
+          <Property Name="per_nuf_dogum_yer" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_nuf_kangrup" Type="tinyint" />
+          <Property Name="per_nuf_seri_no" Type="nvarchar" MaxLength="15" />
+          <Property Name="per_nuf_il" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_ilce" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_mahalle" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_koy" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_ciltno" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_nuf_sayfano" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_nuf_kutukno" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_nuf_ver_neden" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_ver_yer" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_ver_tarih" Type="datetime" />
+          <Property Name="per_nuf_cuz_kayitno" Type="nvarchar" MaxLength="15" />
+          <Property Name="per_ucr_tip" Type="tinyint" />
+          <Property Name="per_ucret" Type="float" />
+          <Property Name="per_Brut_net" Type="tinyint" />
+          <Property Name="per_ucr_send_durum" Type="tinyint" />
+          <Property Name="per_ucr_send" Type="tinyint" />
+          <Property Name="per_ucr_PSSK_sube" Type="int" />
+          <Property Name="per_ucr_hesapno" Type="nvarchar" MaxLength="30" />
+          <Property Name="per_ucr_sig_yuzde_gr" Type="tinyint" />
+          <Property Name="per_ucr_bode_yapilma" Type="tinyint" />
+          <Property Name="per_ucr_vdaire" Type="nvarchar" MaxLength="14" />
+          <Property Name="per_ucr_vkarneno" Type="nvarchar" MaxLength="12" />
+          <Property Name="per_ucr_vkarne_tarih" Type="datetime" />
+          <Property Name="per_ucr_konutfon" Type="tinyint" />
+          <Property Name="per_ucr_onceod" Type="smallint" />
+          <Property Name="per_ozelavansorani" Type="float" />
+          <Property Name="per_yard_yol" Type="tinyint" />
+          <Property Name="per_yard_yemek" Type="tinyint" />
+          <Property Name="per_yard_yakacak" Type="tinyint" />
+          <Property Name="per_yard_bayram" Type="tinyint" />
+          <Property Name="per_yard_cocuk" Type="tinyint" />
+          <Property Name="per_yard_aile" Type="tinyint" />
+          <Property Name="per_yard_ozelindirim" Type="tinyint" />
+          <Property Name="per_adr_cadde" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_adr_mahalle" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_adr_sokak" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_adr_semt" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_adr_apartman_no" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_adr_daire_no" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_adr_posta_kod" Type="nvarchar" MaxLength="8" />
+          <Property Name="per_adr_ilce" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_adr_il" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_adr_ulke" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_adr_adres_kodu" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_tel_ulke_kod" Type="nvarchar" MaxLength="5" />
+          <Property Name="per_tel_bolge_kod" Type="nvarchar" MaxLength="5" />
+          <Property Name="per_tel_no1" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_tel_no2" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_tel_faxno" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_tel_cepno" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_doviz_cinsi" Type="tinyint" />
+          <Property Name="per_muh_grpkod" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_muh_ozelc1" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc2" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc3" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc4" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc5" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc6" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc7" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc8" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc9" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc10" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc11" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc12" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc13" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc14" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc15" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc16" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc17" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc18" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc19" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc20" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc21" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc22" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc23" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_muh_ozelc24" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_old_ucret" Type="float" />
+          <Property Name="per_old_tarih" Type="datetime" />
+          <Property Name="per_maas_ikramiye" Type="tinyint" />
+          <Property Name="per_ozel_not" Type="nvarchar" MaxLength="12" />
+          <Property Name="per_VkfKesOd_fl" Type="bit" />
+          <Property Name="per_Kidem_Tarih" Type="datetime" />
+          <Property Name="per_iszlksig" Type="tinyint" />
+          <Property Name="per_Calismatipi" Type="tinyint" />
+          <Property Name="per_dil1" Type="bit" />
+          <Property Name="per_dil2" Type="bit" />
+          <Property Name="per_dil3" Type="bit" />
+          <Property Name="per_dil4" Type="bit" />
+          <Property Name="per_dil5" Type="bit" />
+          <Property Name="per_dil6" Type="bit" />
+          <Property Name="per_dil7" Type="bit" />
+          <Property Name="per_dil8" Type="bit" />
+          <Property Name="per_dil9" Type="bit" />
+          <Property Name="per_dil10" Type="bit" />
+          <Property Name="per_dil11" Type="bit" />
+          <Property Name="per_dil12" Type="bit" />
+          <Property Name="per_mevsim" Type="tinyint" />
+          <Property Name="per_kapsam" Type="tinyint" />
+          <Property Name="per_asgari_ucretli" Type="bit" />
+          <Property Name="Per_PerCariCins1" Type="tinyint" />
+          <Property Name="Per_PerCariCins2" Type="tinyint" />
+          <Property Name="Per_PerCariCins3" Type="tinyint" />
+          <Property Name="Per_PerCariCins4" Type="tinyint" />
+          <Property Name="Per_PerCariCins5" Type="tinyint" />
+          <Property Name="Per_PerCariCins6" Type="tinyint" />
+          <Property Name="Per_PerCariCins7" Type="tinyint" />
+          <Property Name="Per_PerCariCins8" Type="tinyint" />
+          <Property Name="Per_PerCariCins9" Type="tinyint" />
+          <Property Name="Per_PerCariCins10" Type="tinyint" />
+          <Property Name="Per_PerCariCins11" Type="tinyint" />
+          <Property Name="Per_PerCariCins12" Type="tinyint" />
+          <Property Name="Per_PerCariCins13" Type="tinyint" />
+          <Property Name="Per_PerCariCins14" Type="tinyint" />
+          <Property Name="Per_PerCariCins15" Type="tinyint" />
+          <Property Name="Per_PerCariCins16" Type="tinyint" />
+          <Property Name="Per_PerCariCins17" Type="tinyint" />
+          <Property Name="Per_PerCariCins18" Type="tinyint" />
+          <Property Name="Per_PerCariCins19" Type="tinyint" />
+          <Property Name="Per_PerCariCins20" Type="tinyint" />
+          <Property Name="Per_PerCariCins21" Type="tinyint" />
+          <Property Name="Per_PerCariCins22" Type="tinyint" />
+          <Property Name="Per_PerCariCins23" Type="tinyint" />
+          <Property Name="Per_PerCariCins24" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno1" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno2" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno3" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno4" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno5" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno6" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno7" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno8" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno9" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno10" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno11" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno12" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno13" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno14" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno15" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno16" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno17" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno18" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno19" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno20" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno21" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno22" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno23" Type="tinyint" />
+          <Property Name="Per_PerCariCins_grupno24" Type="tinyint" />
+          <Property Name="Per_TcKimlikNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="Per_PersMailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Per_Aylik_calisma_saati" Type="float" />
+          <Property Name="Per_Muh_Grup_Kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_bolge_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_okul_ad" Type="nvarchar" MaxLength="40" />
+          <Property Name="per_IdariAmirKodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_TeknikAmirKodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_CikisSebebiSecimli" Type="tinyint" />
+          <Property Name="per_ilksoyad" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_tabiioldugukanun" Type="tinyint" />
+          <Property Name="per_semada_gosterme_fl" Type="bit" />
+          <Property Name="per_Ehl_Bel_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_Ehl_Bel_Tar" Type="datetime" />
+          <Property Name="per_Ehl_Sinif" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_Ehl_Ver_Tar" Type="datetime" />
+          <Property Name="per_Ehl_Ver_Il" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_Ehl_Ver_Ilce" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_Ehl_Kart_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_Pasaprot_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_Pas_Alindigi_Tar" Type="datetime" />
+          <Property Name="per_Pas_Gec_Tar" Type="datetime" />
+          <Property Name="per_nuf_asker_cuzdan" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_nuf_asker_bastarih" Type="datetime" />
+          <Property Name="per_nuf_asker_bittarih" Type="datetime" />
+          <Property Name="per_nuf_asker_durum" Type="tinyint" />
+          <Property Name="per_Isy_KimlikNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_calismaizni_no" Type="nvarchar" MaxLength="20" />
+          <Property Name="per_calismaizni_alindigi_tar" Type="datetime" />
+          <Property Name="per_calismaizni_gec_tar" Type="datetime" />
+          <Property Name="per_boyu" Type="float" />
+          <Property Name="per_kilo" Type="float" />
+          <Property Name="per_gomlek_bed" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_pant_bed" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_etek_bed" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_ayak_no" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_sapka_bed" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_onluk_bed" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_diger_bed1" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_diger_bed2" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_diger_bed3" Type="nvarchar" MaxLength="10" />
+          <Property Name="per_UserNo" Type="int" />
+          <Property Name="per_uye_dernek" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_uye_dernek_sicil_no" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_sinyority_uygulamasi_fl" Type="bit" />
+          <Property Name="per_izinparasi_uygulamasi_fl" Type="bit" />
+          <Property Name="per_YemekKarti_ID" Type="nvarchar" MaxLength="30" />
+          <Property Name="per_srmmrkbaglanti_tip" Type="tinyint" />
+          <Property Name="per_srmmrkdaganah_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_maas_banka" Type="tinyint" />
+          <Property Name="per_calisma_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_meslek_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_servis_guzergahi" Type="nvarchar" MaxLength="60" />
+          <Property Name="per_vize_no" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_vize_alindigi_tarih" Type="datetime" />
+          <Property Name="per_vize_tarihi" Type="datetime" />
+          <Property Name="per_sskbelge_turu" Type="tinyint" />
+          <Property Name="per_agine_tabii" Type="tinyint" />
+          <Property Name="per_ozur_5763_kont_dahili_fl" Type="bit" />
+          <Property Name="per_yabanci_ulke" Type="nvarchar" MaxLength="30" />
+          <Property Name="per_sigortalilik_turu" Type="tinyint" />
+          <Property Name="per_eski_sicil_no" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_tabiioldugukanun2" Type="tinyint" />
+          <Property Name="per_maaskiminhesabina" Type="tinyint" />
+          <Property Name="per_maassistemikodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_is_grup_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_unvan_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_raporlama_yapacagi_per_kod" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_okul_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_okul_bolum_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_bolum_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_alt_dept_kod" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_kanun_gecerlilik_tarihi" Type="datetime" />
+          <Property Name="per_tabiioldugukanun3" Type="tinyint" />
+          <Property Name="per_mezuniyetyili" Type="smallint" />
+          <Property Name="per_proje_kodu" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_hazine_destegine_tabi_fl" Type="bit" />
+          <Property Name="per_KEP_adresi" Type="nvarchar" MaxLength="80" />
+          <Property Name="per_sigara_fl" Type="bit" />
+          <Property Name="per_otobes_fl" Type="bit" />
+          <Property Name="per_otobes_sigorta" Type="tinyint" />
+          <Property Name="per_otobes_orani" Type="float" />
+          <Property Name="per_otobes_hesap_no" Type="nvarchar" MaxLength="30" />
+          <Property Name="per_otobes_grup_sozlesme_no" Type="nvarchar" MaxLength="25" />
+          <Property Name="per_otobes_fon_tercihi" Type="tinyint" />
+          <Property Name="per_otobes_giris" Type="datetime" />
+          <Property Name="per_otobes_ayrilis" Type="datetime" />
+          <Property Name="per_sosyal_linkedin" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_webadresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_youtube" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_twitter" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_facebook" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_google" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_pinterest" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_instagram" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_sosyal_snapchat" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="MikroDB_V15_KENTModelStoreContainer">
+          <EntitySet Name="PERSONEL_AILE_TANIMLARI" EntityType="Self.PERSONEL_AILE_TANIMLARI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONEL_IZINLERI" EntityType="Self.PERSONEL_IZINLERI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONEL_TAHAKKUKLARI" EntityType="Self.PERSONEL_TAHAKKUKLARI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONELLER" EntityType="Self.PERSONELLER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MikroDB_V15_KENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MikroDB_V15_KENTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PERSONEL_AILE_TANIMLARI" EntityType="MikroDB_V15_KENTModel.PERSONEL_AILE_TANIMLARI" />
+          <EntitySet Name="PERSONEL_IZINLERI" EntityType="MikroDB_V15_KENTModel.PERSONEL_IZINLERI" />
+          <EntitySet Name="PERSONEL_TAHAKKUKLARI" EntityType="MikroDB_V15_KENTModel.PERSONEL_TAHAKKUKLARI" />
+          <EntitySet Name="PERSONELLERs" EntityType="MikroDB_V15_KENTModel.PERSONELLER" />
+        </EntityContainer>
+        <EntityType Name="PERSONEL_AILE_TANIMLARI">
+          <Key>
+            <PropertyRef Name="PA_Guid" />
+          </Key>
+          <Property Name="PA_Guid" Type="Guid" Nullable="false" />
+          <Property Name="PA_DBCno" Type="Int16" Nullable="false" />
+          <Property Name="PA_SpecRECno" Type="Int32" />
+          <Property Name="PA_iptal" Type="Boolean" />
+          <Property Name="PA_fileid" Type="Int16" />
+          <Property Name="PA_hidden" Type="Boolean" />
+          <Property Name="PA_kilitli" Type="Boolean" />
+          <Property Name="PA_degisti" Type="Boolean" />
+          <Property Name="PA_checksum" Type="Int32" />
+          <Property Name="PA_create_user" Type="Int16" />
+          <Property Name="PA_create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PA_lastup_user" Type="Int16" />
+          <Property Name="PA_lastup_date" Type="DateTime" Precision="3" />
+          <Property Name="PA_special1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PA_special2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PA_special3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PA_PerKodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Yakinlik" Type="Byte" />
+          <Property Name="PA_CocukSiraNo" Type="Int16" />
+          <Property Name="PA_Ad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Soyad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PA_IlkSoyad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PA_TcKimlik" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Cinsiyet" Type="Byte" />
+          <Property Name="PA_DogumTar" Type="DateTime" Precision="3" />
+          <Property Name="PA_DogumYer" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Ucretli" Type="Byte" />
+          <Property Name="PA_Tahsili" Type="Byte" />
+          <Property Name="PA_Sakatlik" Type="Byte" />
+          <Property Name="PA_Cadde" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Mahalle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Sokak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Semt" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Apt_No" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Daire_No" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Posta_Kodu" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Il" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Ulke" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PA_Adres_kodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PA_TelUlkeKodu" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PA_TelBolgekodu" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PA_TelNo1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PA_EvlilikTarihi" Type="DateTime" Precision="3" />
+          <Property Name="PA_agine_tabii" Type="Byte" />
+          <Property Name="PA_OgrenimeDevamEdiyor" Type="Boolean" />
+          <Property Name="PA_maas_banka" Type="Byte" />
+          <Property Name="PA_banka_hesapno" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PERSONEL_IZINLERI">
+          <Key>
+            <PropertyRef Name="pz_Guid" />
+          </Key>
+          <Property Name="pz_Guid" Type="Guid" Nullable="false" />
+          <Property Name="pz_DBCno" Type="Int16" Nullable="false" />
+          <Property Name="pz_SpecRECno" Type="Int32" />
+          <Property Name="pz_iptal" Type="Boolean" />
+          <Property Name="pz_fileid" Type="Int16" />
+          <Property Name="pz_hidden" Type="Boolean" />
+          <Property Name="pz_kilitli" Type="Boolean" />
+          <Property Name="pz_degisti" Type="Boolean" />
+          <Property Name="pz_checksum" Type="Int32" />
+          <Property Name="pz_create_user" Type="Int16" />
+          <Property Name="pz_create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pz_lastup_user" Type="Int16" />
+          <Property Name="pz_lastup_date" Type="DateTime" Precision="3" />
+          <Property Name="pz_special1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pz_special2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pz_special3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pz_izin_yil" Type="Int16" />
+          <Property Name="pz_pers_kod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="pz_izin_no" Type="Int32" />
+          <Property Name="pz_izin_tipi" Type="Byte" />
+          <Property Name="pz_gun_sayisi" Type="Byte" />
+          <Property Name="pz_yol_izni" Type="Byte" />
+          <Property Name="pz_baslangictarih" Type="DateTime" Precision="3" />
+          <Property Name="pz_bagli_talep_uid" Type="Guid" />
+          <Property Name="pz_izin_aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pz_gerceklesen_donus_tarihi" Type="DateTime" Precision="3" />
+          <Property Name="pz_izin_detay_tipi" Type="Byte" />
+          <Property Name="pz_bitistarihi" Type="DateTime" Precision="3" />
+          <Property Name="pz_isbasitarihi" Type="DateTime" Precision="3" />
+          <Property Name="pz_saat" Type="Double" />
+          <Property Name="pz_BaslamaSaati" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PERSONEL_TAHAKKUKLARI">
+          <Key>
+            <PropertyRef Name="pt_Guid" />
+          </Key>
+          <Property Name="pt_Guid" Type="Guid" Nullable="false" />
+          <Property Name="pt_DBCno" Type="Int16" Nullable="false" />
+          <Property Name="pt_SpecRECno" Type="Int32" />
+          <Property Name="pt_iptal" Type="Boolean" />
+          <Property Name="pt_fileid" Type="Int16" />
+          <Property Name="pt_hidden" Type="Boolean" />
+          <Property Name="pt_kilitli" Type="Boolean" />
+          <Property Name="pt_degisti" Type="Boolean" />
+          <Property Name="pt_checksum" Type="Int32" />
+          <Property Name="pt_create_user" Type="Int16" />
+          <Property Name="pt_create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pt_lastup_user" Type="Int16" />
+          <Property Name="pt_lastup_date" Type="DateTime" Precision="3" />
+          <Property Name="pt_special1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pt_special2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pt_special3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="pt_pkod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="pt_maliyil" Type="Int32" />
+          <Property Name="pt_tah_ay" Type="Int16" />
+          <Property Name="pt_tahno" Type="Int16" />
+          <Property Name="pt_kayit" Type="Int16" />
+          <Property Name="pt_kesin" Type="Boolean" />
+          <Property Name="pt_ucrettipi" Type="Byte" />
+          <Property Name="pt_brutucret" Type="Double" />
+          <Property Name="pt_kazanc1_tkgun" Type="Int16" />
+          <Property Name="pt_kazanc1_tksaat" Type="Double" />
+          <Property Name="pt_kazanc1_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_kazanc1_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_kazanc1_tktutar" Type="Double" />
+          <Property Name="pt_kazanc2_tkgun" Type="Int16" />
+          <Property Name="pt_kazanc2_tksaat" Type="Double" />
+          <Property Name="pt_kazanc2_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_kazanc2_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_kazanc2_tktutar" Type="Double" />
+          <Property Name="pt_kazanc3_tkgun" Type="Int16" />
+          <Property Name="pt_kazanc3_tksaat" Type="Double" />
+          <Property Name="pt_kazanc3_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_kazanc3_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_kazanc3_tktutar" Type="Double" />
+          <Property Name="pt_kazanc4_tkgun" Type="Int16" />
+          <Property Name="pt_kazanc4_tksaat" Type="Double" />
+          <Property Name="pt_kazanc4_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_kazanc4_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_kazanc4_tktutar" Type="Double" />
+          <Property Name="pt_kazanc5_tkgun" Type="Int16" />
+          <Property Name="pt_kazanc5_tksaat" Type="Double" />
+          <Property Name="pt_kazanc5_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_kazanc5_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_kazanc5_tktutar" Type="Double" />
+          <Property Name="pt_kazanc6_tkgun" Type="Int16" />
+          <Property Name="pt_kazanc6_tksaat" Type="Double" />
+          <Property Name="pt_kazanc6_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_kazanc6_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_kazanc6_tktutar" Type="Double" />
+          <Property Name="pt_KazancBNCarpan" Type="Double" />
+          <Property Name="pt_ekkazanc1_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc1_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc1_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc2_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc2_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc2_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc3_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc3_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc3_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc4_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc4_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc4_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc5_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc5_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc5_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc6_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc6_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc6_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc7_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc7_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc7_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc8_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc8_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc8_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc9_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc9_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc9_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc10_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc10_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc10_tktutar" Type="Double" />
+          <Property Name="pt_ekkazanc11_tkgun" Type="Int16" />
+          <Property Name="pt_ekkazanc11_tksaat" Type="Double" />
+          <Property Name="pt_ekkazanc11_tktutar" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan1" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan2" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan3" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan4" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan5" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan6" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan7" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan8" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan9" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan10" Type="Double" />
+          <Property Name="pt_EkKazancBNCarpan11" Type="Double" />
+          <Property Name="pt_sosyolgun" Type="Int16" />
+          <Property Name="pt_sosyemekgun" Type="Int16" />
+          <Property Name="pt_sosyrdm1" Type="Double" />
+          <Property Name="pt_sosyrdm2" Type="Double" />
+          <Property Name="pt_sosyrdm3" Type="Double" />
+          <Property Name="pt_sosyrdm4" Type="Double" />
+          <Property Name="pt_sosyrdm5" Type="Double" />
+          <Property Name="pt_sosyrdm6" Type="Double" />
+          <Property Name="pt_sosyrdm7" Type="Double" />
+          <Property Name="pt_sosyrdm8" Type="Double" />
+          <Property Name="pt_sosyrdm9" Type="Double" />
+          <Property Name="pt_sosyrdm10" Type="Double" />
+          <Property Name="pt_sosyrdm11" Type="Double" />
+          <Property Name="pt_sosyrdm12" Type="Double" />
+          <Property Name="pt_sosyrdm13" Type="Double" />
+          <Property Name="pt_sosyrdm14" Type="Double" />
+          <Property Name="pt_sosyrdm15" Type="Double" />
+          <Property Name="pt_sosyrdm16" Type="Double" />
+          <Property Name="pt_sosyrdm17" Type="Double" />
+          <Property Name="pt_sosyrdm18" Type="Double" />
+          <Property Name="pt_sosyrdm19" Type="Double" />
+          <Property Name="pt_sosyrdm20" Type="Double" />
+          <Property Name="pt_sosyrdm21" Type="Double" />
+          <Property Name="pt_sosyrdm22" Type="Double" />
+          <Property Name="pt_sosyrdm23" Type="Double" />
+          <Property Name="pt_sosyrdm24" Type="Double" />
+          <Property Name="pt_sosyrdm25" Type="Double" />
+          <Property Name="pt_sosyrdm26" Type="Double" />
+          <Property Name="pt_sosyrdm27" Type="Double" />
+          <Property Name="pt_sosyrdm28" Type="Double" />
+          <Property Name="pt_sosyrdm29" Type="Double" />
+          <Property Name="pt_sosyrdm30" Type="Double" />
+          <Property Name="pt_sosyrdm31" Type="Double" />
+          <Property Name="pt_sosyrdm32" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan1" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan2" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan3" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan4" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan5" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan6" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan7" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan8" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan9" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan10" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan11" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan12" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan13" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan14" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan15" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan16" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan17" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan18" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan19" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan20" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan21" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan22" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan23" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan24" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan25" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan26" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan27" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan28" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan29" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan30" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan31" Type="Double" />
+          <Property Name="pt_SosYardBNCarpan32" Type="Double" />
+          <Property Name="pt_ozksnt1" Type="Double" />
+          <Property Name="pt_ozksnt2" Type="Double" />
+          <Property Name="pt_ozksnt3" Type="Double" />
+          <Property Name="pt_ozksnt4" Type="Double" />
+          <Property Name="pt_ozksnt5" Type="Double" />
+          <Property Name="pt_ozksnt6" Type="Double" />
+          <Property Name="pt_ozksnt7" Type="Double" />
+          <Property Name="pt_ozksnt8" Type="Double" />
+          <Property Name="pt_ozksnt9" Type="Double" />
+          <Property Name="pt_ozksnt10" Type="Double" />
+          <Property Name="pt_ozksnt11" Type="Double" />
+          <Property Name="pt_ozksnt12" Type="Double" />
+          <Property Name="pt_ozksnt13" Type="Double" />
+          <Property Name="pt_ozksnt14" Type="Double" />
+          <Property Name="pt_ozksnt15" Type="Double" />
+          <Property Name="pt_ozksnt16" Type="Double" />
+          <Property Name="pt_ozksnt17" Type="Double" />
+          <Property Name="pt_ozksnt18" Type="Double" />
+          <Property Name="pt_ozksnt19" Type="Double" />
+          <Property Name="pt_ozksnt20" Type="Double" />
+          <Property Name="pt_ozksnt21" Type="Double" />
+          <Property Name="pt_ozksnt22" Type="Double" />
+          <Property Name="pt_ozksnt23" Type="Double" />
+          <Property Name="pt_ozksnt24" Type="Double" />
+          <Property Name="pt_sskprimi" Type="Double" />
+          <Property Name="pt_gv" Type="Double" />
+          <Property Name="pt_dv" Type="Double" />
+          <Property Name="pt_normalkazanc" Type="Double" />
+          <Property Name="pt_ekkazanc" Type="Double" />
+          <Property Name="pt_sosyrdm" Type="Double" />
+          <Property Name="pt_yasksnt" Type="Double" />
+          <Property Name="pt_ozksnt" Type="Double" />
+          <Property Name="pt_kazanc" Type="Double" />
+          <Property Name="pt_kesinti" Type="Double" />
+          <Property Name="pt_net" Type="Double" />
+          <Property Name="pt_sskgunu" Type="Int16" />
+          <Property Name="pt_sskbrut" Type="Double" />
+          <Property Name="pt_izingunu" Type="Int16" />
+          <Property Name="pt_izinmatrah" Type="Double" />
+          <Property Name="pt_tersbakiye" Type="Double" />
+          <Property Name="pt_yuvfarki" Type="Double" />
+          <Property Name="pt_sskisvhis" Type="Double" />
+          <Property Name="pt_sskkonfon" Type="Double" />
+          <Property Name="pt_gayrisafikaz" Type="Int16" />
+          <Property Name="pt_gs" Type="Double" />
+          <Property Name="pt_verind" Type="Double" />
+          <Property Name="pt_gocverind" Type="Double" />
+          <Property Name="pt_sakverind" Type="Double" />
+          <Property Name="pt_digverindgv" Type="Double" />
+          <Property Name="pt_digverindssk" Type="Double" />
+          <Property Name="pt_toplamind" Type="Double" />
+          <Property Name="pt_devsskmatrah" Type="Double" />
+          <Property Name="pt_devgvmatrah" Type="Double" />
+          <Property Name="pt_sskbrutmatrah" Type="Double" />
+          <Property Name="pt_gvmatrah" Type="Double" />
+          <Property Name="pt_gvbrut" Type="Double" />
+          <Property Name="pt_arge5746gvmuafiyeti" Type="Double" />
+          <Property Name="pt_vergi_iadesi" Type="Double" />
+          <Property Name="pt_digverinddv" Type="Double" />
+          <Property Name="pt_dsiz" Type="Int16" />
+          <Property Name="pt_vidv" Type="Double" />
+          <Property Name="pt_netvergiiadesi" Type="Double" />
+          <Property Name="pt_dvmatrah" Type="Double" />
+          <Property Name="pt_tahakkuklog" Type="Byte" />
+          <Property Name="pt_sskkonutfonukad" Type="Byte" />
+          <Property Name="pt_hayatsigortasi" Type="Double" />
+          <Property Name="pt_ssdfonu" Type="Double" />
+          <Property Name="pt_HesapTipi" Type="Byte" />
+          <Property Name="pt_iszlksigperpayi" Type="Double" />
+          <Property Name="pt_iszlksigisvpayi" Type="Double" />
+          <Property Name="pt_iszlksigmatrah" Type="Double" />
+          <Property Name="pt_iszlksigbrut" Type="Double" />
+          <Property Name="pt_digersigorta_isveren" Type="Double" />
+          <Property Name="pt_digersigorta_calisan" Type="Double" />
+          <Property Name="pt_bireyselsigorta_isveren" Type="Double" />
+          <Property Name="pt_bireyselsigorta_calisan" Type="Double" />
+          <Property Name="pt_EksikCalismaNedeni" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="pt_eksikcalismanedensecimli" Type="Byte" />
+          <Property Name="pt_AskerBorclanmasi" Type="Double" />
+          <Property Name="pt_IsvHisTesvInd" Type="Double" />
+          <Property Name="pt_KurTarihi" Type="DateTime" Precision="3" />
+          <Property Name="pt_DepartmanKodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="pt_GorevKodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="pt_BolgeKodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="pt_asgarigecimindirimi" Type="Double" />
+          <Property Name="pt_sonrayadevredensskmatrahi" Type="Double" />
+          <Property Name="pt_gecenaylardankullanilanssk" Type="Double" />
+          <Property Name="pt_sgkyatabiitopkazanc" Type="Double" />
+          <Property Name="pt_sgkyatabiitopekkazanc" Type="Double" />
+          <Property Name="pt_sgkyatabiitopsosyalyardim" Type="Double" />
+          <Property Name="pt_sgkpriminetabiikazanc" Type="Double" />
+          <Property Name="pt_sgkpriminetabiiekkazanc" Type="Double" />
+          <Property Name="pt_sgkpriminetabiisosyalyardim" Type="Double" />
+          <Property Name="pt_sgkprimikazanctan" Type="Double" />
+          <Property Name="pt_sgkprimiekkazanctan" Type="Double" />
+          <Property Name="pt_sgkprimisosyalyardimdan" Type="Double" />
+          <Property Name="pt_tabiioldugukanun" Type="Byte" />
+          <Property Name="pt_tabiioldugukanun2" Type="Byte" />
+          <Property Name="pt_kultur5225gvmuafiyeti" Type="Double" />
+          <Property Name="pt_hazinekanunugvindirimi" Type="Double" />
+          <Property Name="pt_dovizcins" Type="Byte" />
+          <Property Name="pt_dovizkur" Type="Double" />
+          <Property Name="pt_altdovizkur" Type="Double" />
+          <Property Name="pt_bagkurprimi" Type="Double" />
+          <Property Name="pt_tabiioldugubelgeturu" Type="Byte" />
+          <Property Name="pt_tabiioldugukanun3" Type="Byte" />
+          <Property Name="pt_Az102KanunVergiIndirimi" Type="Double" />
+          <Property Name="pt_AzHastalikUcretFarki" Type="Double" />
+          <Property Name="pt_AzHastalikUcretFarkVergisi" Type="Double" />
+          <Property Name="pt_brutlesmeyenodeme" Type="Double" />
+          <Property Name="pt_sanalgvmatrah" Type="Double" />
+          <Property Name="pt_sanalgv" Type="Double" />
+          <Property Name="pt_sanaldvmatrah" Type="Double" />
+          <Property Name="pt_sanaldv" Type="Double" />
+          <Property Name="pt_perskgtesvikind" Type="Double" />
+          <Property Name="pt_perisssigtesvikind" Type="Double" />
+          <Property Name="pt_izin1_tkgun" Type="Int16" />
+          <Property Name="pt_izin1_tksaat" Type="Double" />
+          <Property Name="pt_izin1_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin1_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin1_tktutar" Type="Double" />
+          <Property Name="pt_izin2_tkgun" Type="Int16" />
+          <Property Name="pt_izin2_tksaat" Type="Double" />
+          <Property Name="pt_izin2_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin2_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin2_tktutar" Type="Double" />
+          <Property Name="pt_izin3_tkgun" Type="Int16" />
+          <Property Name="pt_izin3_tksaat" Type="Double" />
+          <Property Name="pt_izin3_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin3_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin3_tktutar" Type="Double" />
+          <Property Name="pt_izin4_tkgun" Type="Int16" />
+          <Property Name="pt_izin4_tksaat" Type="Double" />
+          <Property Name="pt_izin4_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin4_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin4_tktutar" Type="Double" />
+          <Property Name="pt_izin5_tkgun" Type="Int16" />
+          <Property Name="pt_izin5_tksaat" Type="Double" />
+          <Property Name="pt_izin5_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin5_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin5_tktutar" Type="Double" />
+          <Property Name="pt_izin6_tkgun" Type="Int16" />
+          <Property Name="pt_izin6_tksaat" Type="Double" />
+          <Property Name="pt_izin6_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin6_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin6_tktutar" Type="Double" />
+          <Property Name="pt_izin7_tkgun" Type="Int16" />
+          <Property Name="pt_izin7_tksaat" Type="Double" />
+          <Property Name="pt_izin7_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin7_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin7_tktutar" Type="Double" />
+          <Property Name="pt_izin8_tkgun" Type="Int16" />
+          <Property Name="pt_izin8_tksaat" Type="Double" />
+          <Property Name="pt_izin8_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin8_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin8_tktutar" Type="Double" />
+          <Property Name="pt_izin9_tkgun" Type="Int16" />
+          <Property Name="pt_izin9_tksaat" Type="Double" />
+          <Property Name="pt_izin9_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin9_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin9_tktutar" Type="Double" />
+          <Property Name="pt_izin10_tkgun" Type="Int16" />
+          <Property Name="pt_izin10_tksaat" Type="Double" />
+          <Property Name="pt_izin10_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin10_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin10_tktutar" Type="Double" />
+          <Property Name="pt_izin11_tkgun" Type="Int16" />
+          <Property Name="pt_izin11_tksaat" Type="Double" />
+          <Property Name="pt_izin11_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin11_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin11_tktutar" Type="Double" />
+          <Property Name="pt_izin12_tkgun" Type="Int16" />
+          <Property Name="pt_izin12_tksaat" Type="Double" />
+          <Property Name="pt_izin12_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin12_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin12_tktutar" Type="Double" />
+          <Property Name="pt_izin13_tkgun" Type="Int16" />
+          <Property Name="pt_izin13_tksaat" Type="Double" />
+          <Property Name="pt_izin13_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin13_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin13_tktutar" Type="Double" />
+          <Property Name="pt_izin14_tkgun" Type="Int16" />
+          <Property Name="pt_izin14_tksaat" Type="Double" />
+          <Property Name="pt_izin14_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin14_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin14_tktutar" Type="Double" />
+          <Property Name="pt_izin15_tkgun" Type="Int16" />
+          <Property Name="pt_izin15_tksaat" Type="Double" />
+          <Property Name="pt_izin15_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin15_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin15_tktutar" Type="Double" />
+          <Property Name="pt_izin16_tkgun" Type="Int16" />
+          <Property Name="pt_izin16_tksaat" Type="Double" />
+          <Property Name="pt_izin16_tkyarim_isgunu" Type="Int16" />
+          <Property Name="pt_izin16_tkyarim_isgun_saat" Type="Double" />
+          <Property Name="pt_izin16_tktutar" Type="Double" />
+          <Property Name="pt_hayatsigorta_isveren" Type="Double" />
+          <Property Name="pt_hayatsigorta_calisan" Type="Double" />
+          <Property Name="pt_kanungvindirimi" Type="Double" />
+          <Property Name="pt_kanundvindirimi" Type="Double" />
+          <Property Name="pt_isssigisvpayi_tesvind" Type="Double" />
+          <Property Name="pt_hazine_destegine_tabi_fl" Type="Boolean" />
+          <Property Name="pt_hazine_destegi_gunu" Type="Int32" />
+          <Property Name="pt_ilave_agi" Type="Double" />
+          <Property Name="pt_saatlik_izin_suresi" Type="Double" />
+          <Property Name="pt_saatlik_izin_tutari" Type="Double" />
+          <Property Name="pt_otobes_tutari" Type="Double" />
+          <Property Name="pt_hazinekanunudvindirimi" Type="Double" />
+        </EntityType>
+        <EntityType Name="PERSONELLER">
+          <Key>
+            <PropertyRef Name="per_Guid" />
+          </Key>
+          <Property Name="per_Guid" Type="Guid" Nullable="false" />
+          <Property Name="per_DBCno" Type="Int16" Nullable="false" />
+          <Property Name="per_SpecRECno" Type="Int32" />
+          <Property Name="per_iptal" Type="Boolean" />
+          <Property Name="per_fileid" Type="Int16" />
+          <Property Name="per_hidden" Type="Boolean" />
+          <Property Name="per_kilitli" Type="Boolean" />
+          <Property Name="per_degisti" Type="Boolean" />
+          <Property Name="per_checksum" Type="Int32" />
+          <Property Name="per_create_user" Type="Int16" />
+          <Property Name="per_create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="per_lastup_user" Type="Int16" />
+          <Property Name="per_lastup_date" Type="DateTime" Precision="3" />
+          <Property Name="per_special1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="per_special2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="per_special3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="per_kod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_orjdildeadisoyadi" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="per_sicil_no" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_firma_no" Type="Int32" />
+          <Property Name="per_sube_no" Type="Int32" />
+          <Property Name="per_caripers_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_tip" Type="Byte" />
+          <Property Name="per_dept_kod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_is_grup" Type="Byte" />
+          <Property Name="per_giris_tar" Type="DateTime" Precision="3" />
+          <Property Name="per_cikis_tar" Type="DateTime" Precision="3" />
+          <Property Name="per_cikis_neden" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_kod" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_kim_tahsil" Type="Byte" />
+          <Property Name="per_kim_meslek" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_kim_gorev" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_kim_sakat_derece" Type="Byte" />
+          <Property Name="per_kim_gocmen" Type="Byte" />
+          <Property Name="per_kim_gorev_kod" Type="Byte" />
+          <Property Name="per_kim_SGK_kod" Type="Byte" />
+          <Property Name="per_kim_cocuk" Type="Byte" />
+          <Property Name="per_kim_okuloncesi" Type="Byte" />
+          <Property Name="per_kim_ilkokul" Type="Byte" />
+          <Property Name="per_kim_ortaokul" Type="Byte" />
+          <Property Name="per_kim_lise" Type="Byte" />
+          <Property Name="per_kim_yuksek" Type="Byte" />
+          <Property Name="per_nuf_uyruk" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_cinsiyet" Type="Byte" />
+          <Property Name="per_nuf_medeni_hal" Type="Byte" />
+          <Property Name="per_nuf_din" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_dogum_tarih" Type="DateTime" Precision="3" />
+          <Property Name="per_nuf_dogum_yer" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_kangrup" Type="Byte" />
+          <Property Name="per_nuf_seri_no" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_il" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_ilce" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_mahalle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_koy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_ciltno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_sayfano" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_kutukno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_ver_neden" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_ver_yer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_ver_tarih" Type="DateTime" Precision="3" />
+          <Property Name="per_nuf_cuz_kayitno" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="per_ucr_tip" Type="Byte" />
+          <Property Name="per_ucret" Type="Double" />
+          <Property Name="per_Brut_net" Type="Byte" />
+          <Property Name="per_ucr_send_durum" Type="Byte" />
+          <Property Name="per_ucr_send" Type="Byte" />
+          <Property Name="per_ucr_PSSK_sube" Type="Int32" />
+          <Property Name="per_ucr_hesapno" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="per_ucr_sig_yuzde_gr" Type="Byte" />
+          <Property Name="per_ucr_bode_yapilma" Type="Byte" />
+          <Property Name="per_ucr_vdaire" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="per_ucr_vkarneno" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="per_ucr_vkarne_tarih" Type="DateTime" Precision="3" />
+          <Property Name="per_ucr_konutfon" Type="Byte" />
+          <Property Name="per_ucr_onceod" Type="Int16" />
+          <Property Name="per_ozelavansorani" Type="Double" />
+          <Property Name="per_yard_yol" Type="Byte" />
+          <Property Name="per_yard_yemek" Type="Byte" />
+          <Property Name="per_yard_yakacak" Type="Byte" />
+          <Property Name="per_yard_bayram" Type="Byte" />
+          <Property Name="per_yard_cocuk" Type="Byte" />
+          <Property Name="per_yard_aile" Type="Byte" />
+          <Property Name="per_yard_ozelindirim" Type="Byte" />
+          <Property Name="per_adr_cadde" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_mahalle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_sokak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_semt" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_apartman_no" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_daire_no" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_posta_kod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_il" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_ulke" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_adr_adres_kodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_tel_ulke_kod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="per_tel_bolge_kod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="per_tel_no1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_tel_no2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_tel_faxno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_tel_cepno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_doviz_cinsi" Type="Byte" />
+          <Property Name="per_muh_grpkod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc3" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc4" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc5" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc6" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc7" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc8" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc9" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc10" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc11" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc12" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc13" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc14" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc15" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc16" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc17" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc18" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc19" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc20" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc21" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc22" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc23" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_muh_ozelc24" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_old_ucret" Type="Double" />
+          <Property Name="per_old_tarih" Type="DateTime" Precision="3" />
+          <Property Name="per_maas_ikramiye" Type="Byte" />
+          <Property Name="per_ozel_not" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="per_VkfKesOd_fl" Type="Boolean" />
+          <Property Name="per_Kidem_Tarih" Type="DateTime" Precision="3" />
+          <Property Name="per_iszlksig" Type="Byte" />
+          <Property Name="per_Calismatipi" Type="Byte" />
+          <Property Name="per_dil1" Type="Boolean" />
+          <Property Name="per_dil2" Type="Boolean" />
+          <Property Name="per_dil3" Type="Boolean" />
+          <Property Name="per_dil4" Type="Boolean" />
+          <Property Name="per_dil5" Type="Boolean" />
+          <Property Name="per_dil6" Type="Boolean" />
+          <Property Name="per_dil7" Type="Boolean" />
+          <Property Name="per_dil8" Type="Boolean" />
+          <Property Name="per_dil9" Type="Boolean" />
+          <Property Name="per_dil10" Type="Boolean" />
+          <Property Name="per_dil11" Type="Boolean" />
+          <Property Name="per_dil12" Type="Boolean" />
+          <Property Name="per_mevsim" Type="Byte" />
+          <Property Name="per_kapsam" Type="Byte" />
+          <Property Name="per_asgari_ucretli" Type="Boolean" />
+          <Property Name="Per_PerCariCins1" Type="Byte" />
+          <Property Name="Per_PerCariCins2" Type="Byte" />
+          <Property Name="Per_PerCariCins3" Type="Byte" />
+          <Property Name="Per_PerCariCins4" Type="Byte" />
+          <Property Name="Per_PerCariCins5" Type="Byte" />
+          <Property Name="Per_PerCariCins6" Type="Byte" />
+          <Property Name="Per_PerCariCins7" Type="Byte" />
+          <Property Name="Per_PerCariCins8" Type="Byte" />
+          <Property Name="Per_PerCariCins9" Type="Byte" />
+          <Property Name="Per_PerCariCins10" Type="Byte" />
+          <Property Name="Per_PerCariCins11" Type="Byte" />
+          <Property Name="Per_PerCariCins12" Type="Byte" />
+          <Property Name="Per_PerCariCins13" Type="Byte" />
+          <Property Name="Per_PerCariCins14" Type="Byte" />
+          <Property Name="Per_PerCariCins15" Type="Byte" />
+          <Property Name="Per_PerCariCins16" Type="Byte" />
+          <Property Name="Per_PerCariCins17" Type="Byte" />
+          <Property Name="Per_PerCariCins18" Type="Byte" />
+          <Property Name="Per_PerCariCins19" Type="Byte" />
+          <Property Name="Per_PerCariCins20" Type="Byte" />
+          <Property Name="Per_PerCariCins21" Type="Byte" />
+          <Property Name="Per_PerCariCins22" Type="Byte" />
+          <Property Name="Per_PerCariCins23" Type="Byte" />
+          <Property Name="Per_PerCariCins24" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno1" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno2" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno3" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno4" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno5" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno6" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno7" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno8" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno9" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno10" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno11" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno12" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno13" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno14" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno15" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno16" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno17" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno18" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno19" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno20" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno21" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno22" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno23" Type="Byte" />
+          <Property Name="Per_PerCariCins_grupno24" Type="Byte" />
+          <Property Name="Per_TcKimlikNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Per_PersMailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Per_Aylik_calisma_saati" Type="Double" />
+          <Property Name="Per_Muh_Grup_Kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_bolge_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_okul_ad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="per_IdariAmirKodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_TeknikAmirKodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_CikisSebebiSecimli" Type="Byte" />
+          <Property Name="per_ilksoyad" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_tabiioldugukanun" Type="Byte" />
+          <Property Name="per_semada_gosterme_fl" Type="Boolean" />
+          <Property Name="per_Ehl_Bel_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_Ehl_Bel_Tar" Type="DateTime" Precision="3" />
+          <Property Name="per_Ehl_Sinif" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_Ehl_Ver_Tar" Type="DateTime" Precision="3" />
+          <Property Name="per_Ehl_Ver_Il" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_Ehl_Ver_Ilce" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_Ehl_Kart_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_Pasaprot_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_Pas_Alindigi_Tar" Type="DateTime" Precision="3" />
+          <Property Name="per_Pas_Gec_Tar" Type="DateTime" Precision="3" />
+          <Property Name="per_nuf_asker_cuzdan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_nuf_asker_bastarih" Type="DateTime" Precision="3" />
+          <Property Name="per_nuf_asker_bittarih" Type="DateTime" Precision="3" />
+          <Property Name="per_nuf_asker_durum" Type="Byte" />
+          <Property Name="per_Isy_KimlikNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_boyu" Type="Double" />
+          <Property Name="per_kilo" Type="Double" />
+          <Property Name="per_gomlek_bed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_pant_bed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_etek_bed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_ayak_no" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_sapka_bed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_onluk_bed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_diger_bed1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_diger_bed2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_diger_bed3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="per_UserNo" Type="Int32" />
+          <Property Name="per_uye_dernek" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_uye_dernek_sicil_no" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_sinyority_uygulamasi_fl" Type="Boolean" />
+          <Property Name="per_izinparasi_uygulamasi_fl" Type="Boolean" />
+          <Property Name="per_YemekKarti_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="per_srmmrkbaglanti_tip" Type="Byte" />
+          <Property Name="per_srmmrkdaganah_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_maas_banka" Type="Byte" />
+          <Property Name="per_calisma_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_meslek_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_servis_guzergahi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="per_vize_no" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_vize_alindigi_tarih" Type="DateTime" Precision="3" />
+          <Property Name="per_vize_tarihi" Type="DateTime" Precision="3" />
+          <Property Name="per_sskbelge_turu" Type="Byte" />
+          <Property Name="per_agine_tabii" Type="Byte" />
+          <Property Name="per_ozur_5763_kont_dahili_fl" Type="Boolean" />
+          <Property Name="per_yabanci_ulke" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="per_sigortalilik_turu" Type="Byte" />
+          <Property Name="per_eski_sicil_no" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_tabiioldugukanun2" Type="Byte" />
+          <Property Name="per_maaskiminhesabina" Type="Byte" />
+          <Property Name="per_maassistemikodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_is_grup_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_unvan_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_raporlama_yapacagi_per_kod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_okul_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_okul_bolum_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_bolum_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_alt_dept_kod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_kanun_gecerlilik_tarihi" Type="DateTime" Precision="3" />
+          <Property Name="per_tabiioldugukanun3" Type="Byte" />
+          <Property Name="per_mezuniyetyili" Type="Int16" />
+          <Property Name="per_proje_kodu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_hazine_destegine_tabi_fl" Type="Boolean" />
+          <Property Name="per_KEP_adresi" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="per_sigara_fl" Type="Boolean" />
+          <Property Name="per_otobes_fl" Type="Boolean" />
+          <Property Name="per_otobes_sigorta" Type="Byte" />
+          <Property Name="per_otobes_orani" Type="Double" />
+          <Property Name="per_otobes_hesap_no" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="per_otobes_grup_sozlesme_no" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="per_otobes_fon_tercihi" Type="Byte" />
+          <Property Name="per_otobes_giris" Type="DateTime" Precision="3" />
+          <Property Name="per_otobes_ayrilis" Type="DateTime" Precision="3" />
+          <Property Name="per_sosyal_linkedin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_webadresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_youtube" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_google" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_pinterest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_instagram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_sosyal_snapchat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_calismaizni_no" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="per_calismaizni_alindigi_tar" Type="DateTime" Precision="3" />
+          <Property Name="per_calismaizni_gec_tar" Type="DateTime" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MikroDB_V15_KENTModelStoreContainer" CdmEntityContainer="MikroDB_V15_KENTEntities">
+          <EntitySetMapping Name="PERSONEL_AILE_TANIMLARI">
+            <EntityTypeMapping TypeName="MikroDB_V15_KENTModel.PERSONEL_AILE_TANIMLARI">
+              <MappingFragment StoreEntitySet="PERSONEL_AILE_TANIMLARI">
+                <ScalarProperty Name="PA_banka_hesapno" ColumnName="PA_banka_hesapno" />
+                <ScalarProperty Name="PA_maas_banka" ColumnName="PA_maas_banka" />
+                <ScalarProperty Name="PA_OgrenimeDevamEdiyor" ColumnName="PA_OgrenimeDevamEdiyor" />
+                <ScalarProperty Name="PA_agine_tabii" ColumnName="PA_agine_tabii" />
+                <ScalarProperty Name="PA_EvlilikTarihi" ColumnName="PA_EvlilikTarihi" />
+                <ScalarProperty Name="PA_TelNo1" ColumnName="PA_TelNo1" />
+                <ScalarProperty Name="PA_TelBolgekodu" ColumnName="PA_TelBolgekodu" />
+                <ScalarProperty Name="PA_TelUlkeKodu" ColumnName="PA_TelUlkeKodu" />
+                <ScalarProperty Name="PA_Adres_kodu" ColumnName="PA_Adres_kodu" />
+                <ScalarProperty Name="PA_Ulke" ColumnName="PA_Ulke" />
+                <ScalarProperty Name="PA_Il" ColumnName="PA_Il" />
+                <ScalarProperty Name="PA_Ilce" ColumnName="PA_Ilce" />
+                <ScalarProperty Name="PA_Posta_Kodu" ColumnName="PA_Posta_Kodu" />
+                <ScalarProperty Name="PA_Daire_No" ColumnName="PA_Daire_No" />
+                <ScalarProperty Name="PA_Apt_No" ColumnName="PA_Apt_No" />
+                <ScalarProperty Name="PA_Semt" ColumnName="PA_Semt" />
+                <ScalarProperty Name="PA_Sokak" ColumnName="PA_Sokak" />
+                <ScalarProperty Name="PA_Mahalle" ColumnName="PA_Mahalle" />
+                <ScalarProperty Name="PA_Cadde" ColumnName="PA_Cadde" />
+                <ScalarProperty Name="PA_Sakatlik" ColumnName="PA_Sakatlik" />
+                <ScalarProperty Name="PA_Tahsili" ColumnName="PA_Tahsili" />
+                <ScalarProperty Name="PA_Ucretli" ColumnName="PA_Ucretli" />
+                <ScalarProperty Name="PA_DogumYer" ColumnName="PA_DogumYer" />
+                <ScalarProperty Name="PA_DogumTar" ColumnName="PA_DogumTar" />
+                <ScalarProperty Name="PA_Cinsiyet" ColumnName="PA_Cinsiyet" />
+                <ScalarProperty Name="PA_TcKimlik" ColumnName="PA_TcKimlik" />
+                <ScalarProperty Name="PA_IlkSoyad" ColumnName="PA_IlkSoyad" />
+                <ScalarProperty Name="PA_Soyad" ColumnName="PA_Soyad" />
+                <ScalarProperty Name="PA_Ad" ColumnName="PA_Ad" />
+                <ScalarProperty Name="PA_CocukSiraNo" ColumnName="PA_CocukSiraNo" />
+                <ScalarProperty Name="PA_Yakinlik" ColumnName="PA_Yakinlik" />
+                <ScalarProperty Name="PA_PerKodu" ColumnName="PA_PerKodu" />
+                <ScalarProperty Name="PA_special3" ColumnName="PA_special3" />
+                <ScalarProperty Name="PA_special2" ColumnName="PA_special2" />
+                <ScalarProperty Name="PA_special1" ColumnName="PA_special1" />
+                <ScalarProperty Name="PA_lastup_date" ColumnName="PA_lastup_date" />
+                <ScalarProperty Name="PA_lastup_user" ColumnName="PA_lastup_user" />
+                <ScalarProperty Name="PA_create_date" ColumnName="PA_create_date" />
+                <ScalarProperty Name="PA_create_user" ColumnName="PA_create_user" />
+                <ScalarProperty Name="PA_checksum" ColumnName="PA_checksum" />
+                <ScalarProperty Name="PA_degisti" ColumnName="PA_degisti" />
+                <ScalarProperty Name="PA_kilitli" ColumnName="PA_kilitli" />
+                <ScalarProperty Name="PA_hidden" ColumnName="PA_hidden" />
+                <ScalarProperty Name="PA_fileid" ColumnName="PA_fileid" />
+                <ScalarProperty Name="PA_iptal" ColumnName="PA_iptal" />
+                <ScalarProperty Name="PA_SpecRECno" ColumnName="PA_SpecRECno" />
+                <ScalarProperty Name="PA_DBCno" ColumnName="PA_DBCno" />
+                <ScalarProperty Name="PA_Guid" ColumnName="PA_Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONEL_IZINLERI">
+            <EntityTypeMapping TypeName="MikroDB_V15_KENTModel.PERSONEL_IZINLERI">
+              <MappingFragment StoreEntitySet="PERSONEL_IZINLERI">
+                <ScalarProperty Name="pz_BaslamaSaati" ColumnName="pz_BaslamaSaati" />
+                <ScalarProperty Name="pz_saat" ColumnName="pz_saat" />
+                <ScalarProperty Name="pz_isbasitarihi" ColumnName="pz_isbasitarihi" />
+                <ScalarProperty Name="pz_bitistarihi" ColumnName="pz_bitistarihi" />
+                <ScalarProperty Name="pz_izin_detay_tipi" ColumnName="pz_izin_detay_tipi" />
+                <ScalarProperty Name="pz_gerceklesen_donus_tarihi" ColumnName="pz_gerceklesen_donus_tarihi" />
+                <ScalarProperty Name="pz_izin_aciklama" ColumnName="pz_izin_aciklama" />
+                <ScalarProperty Name="pz_bagli_talep_uid" ColumnName="pz_bagli_talep_uid" />
+                <ScalarProperty Name="pz_baslangictarih" ColumnName="pz_baslangictarih" />
+                <ScalarProperty Name="pz_yol_izni" ColumnName="pz_yol_izni" />
+                <ScalarProperty Name="pz_gun_sayisi" ColumnName="pz_gun_sayisi" />
+                <ScalarProperty Name="pz_izin_tipi" ColumnName="pz_izin_tipi" />
+                <ScalarProperty Name="pz_izin_no" ColumnName="pz_izin_no" />
+                <ScalarProperty Name="pz_pers_kod" ColumnName="pz_pers_kod" />
+                <ScalarProperty Name="pz_izin_yil" ColumnName="pz_izin_yil" />
+                <ScalarProperty Name="pz_special3" ColumnName="pz_special3" />
+                <ScalarProperty Name="pz_special2" ColumnName="pz_special2" />
+                <ScalarProperty Name="pz_special1" ColumnName="pz_special1" />
+                <ScalarProperty Name="pz_lastup_date" ColumnName="pz_lastup_date" />
+                <ScalarProperty Name="pz_lastup_user" ColumnName="pz_lastup_user" />
+                <ScalarProperty Name="pz_create_date" ColumnName="pz_create_date" />
+                <ScalarProperty Name="pz_create_user" ColumnName="pz_create_user" />
+                <ScalarProperty Name="pz_checksum" ColumnName="pz_checksum" />
+                <ScalarProperty Name="pz_degisti" ColumnName="pz_degisti" />
+                <ScalarProperty Name="pz_kilitli" ColumnName="pz_kilitli" />
+                <ScalarProperty Name="pz_hidden" ColumnName="pz_hidden" />
+                <ScalarProperty Name="pz_fileid" ColumnName="pz_fileid" />
+                <ScalarProperty Name="pz_iptal" ColumnName="pz_iptal" />
+                <ScalarProperty Name="pz_SpecRECno" ColumnName="pz_SpecRECno" />
+                <ScalarProperty Name="pz_DBCno" ColumnName="pz_DBCno" />
+                <ScalarProperty Name="pz_Guid" ColumnName="pz_Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONEL_TAHAKKUKLARI">
+            <EntityTypeMapping TypeName="MikroDB_V15_KENTModel.PERSONEL_TAHAKKUKLARI">
+              <MappingFragment StoreEntitySet="PERSONEL_TAHAKKUKLARI">
+                <ScalarProperty Name="pt_hazinekanunudvindirimi" ColumnName="pt_hazinekanunudvindirimi" />
+                <ScalarProperty Name="pt_otobes_tutari" ColumnName="pt_otobes_tutari" />
+                <ScalarProperty Name="pt_saatlik_izin_tutari" ColumnName="pt_saatlik_izin_tutari" />
+                <ScalarProperty Name="pt_saatlik_izin_suresi" ColumnName="pt_saatlik_izin_suresi" />
+                <ScalarProperty Name="pt_ilave_agi" ColumnName="pt_ilave_agi" />
+                <ScalarProperty Name="pt_hazine_destegi_gunu" ColumnName="pt_hazine_destegi_gunu" />
+                <ScalarProperty Name="pt_hazine_destegine_tabi_fl" ColumnName="pt_hazine_destegine_tabi_fl" />
+                <ScalarProperty Name="pt_isssigisvpayi_tesvind" ColumnName="pt_isssigisvpayi_tesvind" />
+                <ScalarProperty Name="pt_kanundvindirimi" ColumnName="pt_kanundvindirimi" />
+                <ScalarProperty Name="pt_kanungvindirimi" ColumnName="pt_kanungvindirimi" />
+                <ScalarProperty Name="pt_hayatsigorta_calisan" ColumnName="pt_hayatsigorta_calisan" />
+                <ScalarProperty Name="pt_hayatsigorta_isveren" ColumnName="pt_hayatsigorta_isveren" />
+                <ScalarProperty Name="pt_izin16_tktutar" ColumnName="pt_izin16_tktutar" />
+                <ScalarProperty Name="pt_izin16_tkyarim_isgun_saat" ColumnName="pt_izin16_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin16_tkyarim_isgunu" ColumnName="pt_izin16_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin16_tksaat" ColumnName="pt_izin16_tksaat" />
+                <ScalarProperty Name="pt_izin16_tkgun" ColumnName="pt_izin16_tkgun" />
+                <ScalarProperty Name="pt_izin15_tktutar" ColumnName="pt_izin15_tktutar" />
+                <ScalarProperty Name="pt_izin15_tkyarim_isgun_saat" ColumnName="pt_izin15_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin15_tkyarim_isgunu" ColumnName="pt_izin15_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin15_tksaat" ColumnName="pt_izin15_tksaat" />
+                <ScalarProperty Name="pt_izin15_tkgun" ColumnName="pt_izin15_tkgun" />
+                <ScalarProperty Name="pt_izin14_tktutar" ColumnName="pt_izin14_tktutar" />
+                <ScalarProperty Name="pt_izin14_tkyarim_isgun_saat" ColumnName="pt_izin14_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin14_tkyarim_isgunu" ColumnName="pt_izin14_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin14_tksaat" ColumnName="pt_izin14_tksaat" />
+                <ScalarProperty Name="pt_izin14_tkgun" ColumnName="pt_izin14_tkgun" />
+                <ScalarProperty Name="pt_izin13_tktutar" ColumnName="pt_izin13_tktutar" />
+                <ScalarProperty Name="pt_izin13_tkyarim_isgun_saat" ColumnName="pt_izin13_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin13_tkyarim_isgunu" ColumnName="pt_izin13_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin13_tksaat" ColumnName="pt_izin13_tksaat" />
+                <ScalarProperty Name="pt_izin13_tkgun" ColumnName="pt_izin13_tkgun" />
+                <ScalarProperty Name="pt_izin12_tktutar" ColumnName="pt_izin12_tktutar" />
+                <ScalarProperty Name="pt_izin12_tkyarim_isgun_saat" ColumnName="pt_izin12_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin12_tkyarim_isgunu" ColumnName="pt_izin12_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin12_tksaat" ColumnName="pt_izin12_tksaat" />
+                <ScalarProperty Name="pt_izin12_tkgun" ColumnName="pt_izin12_tkgun" />
+                <ScalarProperty Name="pt_izin11_tktutar" ColumnName="pt_izin11_tktutar" />
+                <ScalarProperty Name="pt_izin11_tkyarim_isgun_saat" ColumnName="pt_izin11_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin11_tkyarim_isgunu" ColumnName="pt_izin11_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin11_tksaat" ColumnName="pt_izin11_tksaat" />
+                <ScalarProperty Name="pt_izin11_tkgun" ColumnName="pt_izin11_tkgun" />
+                <ScalarProperty Name="pt_izin10_tktutar" ColumnName="pt_izin10_tktutar" />
+                <ScalarProperty Name="pt_izin10_tkyarim_isgun_saat" ColumnName="pt_izin10_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin10_tkyarim_isgunu" ColumnName="pt_izin10_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin10_tksaat" ColumnName="pt_izin10_tksaat" />
+                <ScalarProperty Name="pt_izin10_tkgun" ColumnName="pt_izin10_tkgun" />
+                <ScalarProperty Name="pt_izin9_tktutar" ColumnName="pt_izin9_tktutar" />
+                <ScalarProperty Name="pt_izin9_tkyarim_isgun_saat" ColumnName="pt_izin9_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin9_tkyarim_isgunu" ColumnName="pt_izin9_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin9_tksaat" ColumnName="pt_izin9_tksaat" />
+                <ScalarProperty Name="pt_izin9_tkgun" ColumnName="pt_izin9_tkgun" />
+                <ScalarProperty Name="pt_izin8_tktutar" ColumnName="pt_izin8_tktutar" />
+                <ScalarProperty Name="pt_izin8_tkyarim_isgun_saat" ColumnName="pt_izin8_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin8_tkyarim_isgunu" ColumnName="pt_izin8_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin8_tksaat" ColumnName="pt_izin8_tksaat" />
+                <ScalarProperty Name="pt_izin8_tkgun" ColumnName="pt_izin8_tkgun" />
+                <ScalarProperty Name="pt_izin7_tktutar" ColumnName="pt_izin7_tktutar" />
+                <ScalarProperty Name="pt_izin7_tkyarim_isgun_saat" ColumnName="pt_izin7_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin7_tkyarim_isgunu" ColumnName="pt_izin7_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin7_tksaat" ColumnName="pt_izin7_tksaat" />
+                <ScalarProperty Name="pt_izin7_tkgun" ColumnName="pt_izin7_tkgun" />
+                <ScalarProperty Name="pt_izin6_tktutar" ColumnName="pt_izin6_tktutar" />
+                <ScalarProperty Name="pt_izin6_tkyarim_isgun_saat" ColumnName="pt_izin6_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin6_tkyarim_isgunu" ColumnName="pt_izin6_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin6_tksaat" ColumnName="pt_izin6_tksaat" />
+                <ScalarProperty Name="pt_izin6_tkgun" ColumnName="pt_izin6_tkgun" />
+                <ScalarProperty Name="pt_izin5_tktutar" ColumnName="pt_izin5_tktutar" />
+                <ScalarProperty Name="pt_izin5_tkyarim_isgun_saat" ColumnName="pt_izin5_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin5_tkyarim_isgunu" ColumnName="pt_izin5_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin5_tksaat" ColumnName="pt_izin5_tksaat" />
+                <ScalarProperty Name="pt_izin5_tkgun" ColumnName="pt_izin5_tkgun" />
+                <ScalarProperty Name="pt_izin4_tktutar" ColumnName="pt_izin4_tktutar" />
+                <ScalarProperty Name="pt_izin4_tkyarim_isgun_saat" ColumnName="pt_izin4_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin4_tkyarim_isgunu" ColumnName="pt_izin4_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin4_tksaat" ColumnName="pt_izin4_tksaat" />
+                <ScalarProperty Name="pt_izin4_tkgun" ColumnName="pt_izin4_tkgun" />
+                <ScalarProperty Name="pt_izin3_tktutar" ColumnName="pt_izin3_tktutar" />
+                <ScalarProperty Name="pt_izin3_tkyarim_isgun_saat" ColumnName="pt_izin3_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin3_tkyarim_isgunu" ColumnName="pt_izin3_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin3_tksaat" ColumnName="pt_izin3_tksaat" />
+                <ScalarProperty Name="pt_izin3_tkgun" ColumnName="pt_izin3_tkgun" />
+                <ScalarProperty Name="pt_izin2_tktutar" ColumnName="pt_izin2_tktutar" />
+                <ScalarProperty Name="pt_izin2_tkyarim_isgun_saat" ColumnName="pt_izin2_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin2_tkyarim_isgunu" ColumnName="pt_izin2_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin2_tksaat" ColumnName="pt_izin2_tksaat" />
+                <ScalarProperty Name="pt_izin2_tkgun" ColumnName="pt_izin2_tkgun" />
+                <ScalarProperty Name="pt_izin1_tktutar" ColumnName="pt_izin1_tktutar" />
+                <ScalarProperty Name="pt_izin1_tkyarim_isgun_saat" ColumnName="pt_izin1_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_izin1_tkyarim_isgunu" ColumnName="pt_izin1_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_izin1_tksaat" ColumnName="pt_izin1_tksaat" />
+                <ScalarProperty Name="pt_izin1_tkgun" ColumnName="pt_izin1_tkgun" />
+                <ScalarProperty Name="pt_perisssigtesvikind" ColumnName="pt_perisssigtesvikind" />
+                <ScalarProperty Name="pt_perskgtesvikind" ColumnName="pt_perskgtesvikind" />
+                <ScalarProperty Name="pt_sanaldv" ColumnName="pt_sanaldv" />
+                <ScalarProperty Name="pt_sanaldvmatrah" ColumnName="pt_sanaldvmatrah" />
+                <ScalarProperty Name="pt_sanalgv" ColumnName="pt_sanalgv" />
+                <ScalarProperty Name="pt_sanalgvmatrah" ColumnName="pt_sanalgvmatrah" />
+                <ScalarProperty Name="pt_brutlesmeyenodeme" ColumnName="pt_brutlesmeyenodeme" />
+                <ScalarProperty Name="pt_AzHastalikUcretFarkVergisi" ColumnName="pt_AzHastalikUcretFarkVergisi" />
+                <ScalarProperty Name="pt_AzHastalikUcretFarki" ColumnName="pt_AzHastalikUcretFarki" />
+                <ScalarProperty Name="pt_Az102KanunVergiIndirimi" ColumnName="pt_Az102KanunVergiIndirimi" />
+                <ScalarProperty Name="pt_tabiioldugukanun3" ColumnName="pt_tabiioldugukanun3" />
+                <ScalarProperty Name="pt_tabiioldugubelgeturu" ColumnName="pt_tabiioldugubelgeturu" />
+                <ScalarProperty Name="pt_bagkurprimi" ColumnName="pt_bagkurprimi" />
+                <ScalarProperty Name="pt_altdovizkur" ColumnName="pt_altdovizkur" />
+                <ScalarProperty Name="pt_dovizkur" ColumnName="pt_dovizkur" />
+                <ScalarProperty Name="pt_dovizcins" ColumnName="pt_dovizcins" />
+                <ScalarProperty Name="pt_hazinekanunugvindirimi" ColumnName="pt_hazinekanunugvindirimi" />
+                <ScalarProperty Name="pt_kultur5225gvmuafiyeti" ColumnName="pt_kultur5225gvmuafiyeti" />
+                <ScalarProperty Name="pt_tabiioldugukanun2" ColumnName="pt_tabiioldugukanun2" />
+                <ScalarProperty Name="pt_tabiioldugukanun" ColumnName="pt_tabiioldugukanun" />
+                <ScalarProperty Name="pt_sgkprimisosyalyardimdan" ColumnName="pt_sgkprimisosyalyardimdan" />
+                <ScalarProperty Name="pt_sgkprimiekkazanctan" ColumnName="pt_sgkprimiekkazanctan" />
+                <ScalarProperty Name="pt_sgkprimikazanctan" ColumnName="pt_sgkprimikazanctan" />
+                <ScalarProperty Name="pt_sgkpriminetabiisosyalyardim" ColumnName="pt_sgkpriminetabiisosyalyardim" />
+                <ScalarProperty Name="pt_sgkpriminetabiiekkazanc" ColumnName="pt_sgkpriminetabiiekkazanc" />
+                <ScalarProperty Name="pt_sgkpriminetabiikazanc" ColumnName="pt_sgkpriminetabiikazanc" />
+                <ScalarProperty Name="pt_sgkyatabiitopsosyalyardim" ColumnName="pt_sgkyatabiitopsosyalyardim" />
+                <ScalarProperty Name="pt_sgkyatabiitopekkazanc" ColumnName="pt_sgkyatabiitopekkazanc" />
+                <ScalarProperty Name="pt_sgkyatabiitopkazanc" ColumnName="pt_sgkyatabiitopkazanc" />
+                <ScalarProperty Name="pt_gecenaylardankullanilanssk" ColumnName="pt_gecenaylardankullanilanssk" />
+                <ScalarProperty Name="pt_sonrayadevredensskmatrahi" ColumnName="pt_sonrayadevredensskmatrahi" />
+                <ScalarProperty Name="pt_asgarigecimindirimi" ColumnName="pt_asgarigecimindirimi" />
+                <ScalarProperty Name="pt_BolgeKodu" ColumnName="pt_BolgeKodu" />
+                <ScalarProperty Name="pt_GorevKodu" ColumnName="pt_GorevKodu" />
+                <ScalarProperty Name="pt_DepartmanKodu" ColumnName="pt_DepartmanKodu" />
+                <ScalarProperty Name="pt_KurTarihi" ColumnName="pt_KurTarihi" />
+                <ScalarProperty Name="pt_IsvHisTesvInd" ColumnName="pt_IsvHisTesvInd" />
+                <ScalarProperty Name="pt_AskerBorclanmasi" ColumnName="pt_AskerBorclanmasi" />
+                <ScalarProperty Name="pt_eksikcalismanedensecimli" ColumnName="pt_eksikcalismanedensecimli" />
+                <ScalarProperty Name="pt_EksikCalismaNedeni" ColumnName="pt_EksikCalismaNedeni" />
+                <ScalarProperty Name="pt_bireyselsigorta_calisan" ColumnName="pt_bireyselsigorta_calisan" />
+                <ScalarProperty Name="pt_bireyselsigorta_isveren" ColumnName="pt_bireyselsigorta_isveren" />
+                <ScalarProperty Name="pt_digersigorta_calisan" ColumnName="pt_digersigorta_calisan" />
+                <ScalarProperty Name="pt_digersigorta_isveren" ColumnName="pt_digersigorta_isveren" />
+                <ScalarProperty Name="pt_iszlksigbrut" ColumnName="pt_iszlksigbrut" />
+                <ScalarProperty Name="pt_iszlksigmatrah" ColumnName="pt_iszlksigmatrah" />
+                <ScalarProperty Name="pt_iszlksigisvpayi" ColumnName="pt_iszlksigisvpayi" />
+                <ScalarProperty Name="pt_iszlksigperpayi" ColumnName="pt_iszlksigperpayi" />
+                <ScalarProperty Name="pt_HesapTipi" ColumnName="pt_HesapTipi" />
+                <ScalarProperty Name="pt_ssdfonu" ColumnName="pt_ssdfonu" />
+                <ScalarProperty Name="pt_hayatsigortasi" ColumnName="pt_hayatsigortasi" />
+                <ScalarProperty Name="pt_sskkonutfonukad" ColumnName="pt_sskkonutfonukad" />
+                <ScalarProperty Name="pt_tahakkuklog" ColumnName="pt_tahakkuklog" />
+                <ScalarProperty Name="pt_dvmatrah" ColumnName="pt_dvmatrah" />
+                <ScalarProperty Name="pt_netvergiiadesi" ColumnName="pt_netvergiiadesi" />
+                <ScalarProperty Name="pt_vidv" ColumnName="pt_vidv" />
+                <ScalarProperty Name="pt_dsiz" ColumnName="pt_dsiz" />
+                <ScalarProperty Name="pt_digverinddv" ColumnName="pt_digverinddv" />
+                <ScalarProperty Name="pt_vergi_iadesi" ColumnName="pt_vergi_iadesi" />
+                <ScalarProperty Name="pt_arge5746gvmuafiyeti" ColumnName="pt_arge5746gvmuafiyeti" />
+                <ScalarProperty Name="pt_gvbrut" ColumnName="pt_gvbrut" />
+                <ScalarProperty Name="pt_gvmatrah" ColumnName="pt_gvmatrah" />
+                <ScalarProperty Name="pt_sskbrutmatrah" ColumnName="pt_sskbrutmatrah" />
+                <ScalarProperty Name="pt_devgvmatrah" ColumnName="pt_devgvmatrah" />
+                <ScalarProperty Name="pt_devsskmatrah" ColumnName="pt_devsskmatrah" />
+                <ScalarProperty Name="pt_toplamind" ColumnName="pt_toplamind" />
+                <ScalarProperty Name="pt_digverindssk" ColumnName="pt_digverindssk" />
+                <ScalarProperty Name="pt_digverindgv" ColumnName="pt_digverindgv" />
+                <ScalarProperty Name="pt_sakverind" ColumnName="pt_sakverind" />
+                <ScalarProperty Name="pt_gocverind" ColumnName="pt_gocverind" />
+                <ScalarProperty Name="pt_verind" ColumnName="pt_verind" />
+                <ScalarProperty Name="pt_gs" ColumnName="pt_gs" />
+                <ScalarProperty Name="pt_gayrisafikaz" ColumnName="pt_gayrisafikaz" />
+                <ScalarProperty Name="pt_sskkonfon" ColumnName="pt_sskkonfon" />
+                <ScalarProperty Name="pt_sskisvhis" ColumnName="pt_sskisvhis" />
+                <ScalarProperty Name="pt_yuvfarki" ColumnName="pt_yuvfarki" />
+                <ScalarProperty Name="pt_tersbakiye" ColumnName="pt_tersbakiye" />
+                <ScalarProperty Name="pt_izinmatrah" ColumnName="pt_izinmatrah" />
+                <ScalarProperty Name="pt_izingunu" ColumnName="pt_izingunu" />
+                <ScalarProperty Name="pt_sskbrut" ColumnName="pt_sskbrut" />
+                <ScalarProperty Name="pt_sskgunu" ColumnName="pt_sskgunu" />
+                <ScalarProperty Name="pt_net" ColumnName="pt_net" />
+                <ScalarProperty Name="pt_kesinti" ColumnName="pt_kesinti" />
+                <ScalarProperty Name="pt_kazanc" ColumnName="pt_kazanc" />
+                <ScalarProperty Name="pt_ozksnt" ColumnName="pt_ozksnt" />
+                <ScalarProperty Name="pt_yasksnt" ColumnName="pt_yasksnt" />
+                <ScalarProperty Name="pt_sosyrdm" ColumnName="pt_sosyrdm" />
+                <ScalarProperty Name="pt_ekkazanc" ColumnName="pt_ekkazanc" />
+                <ScalarProperty Name="pt_normalkazanc" ColumnName="pt_normalkazanc" />
+                <ScalarProperty Name="pt_dv" ColumnName="pt_dv" />
+                <ScalarProperty Name="pt_gv" ColumnName="pt_gv" />
+                <ScalarProperty Name="pt_sskprimi" ColumnName="pt_sskprimi" />
+                <ScalarProperty Name="pt_ozksnt24" ColumnName="pt_ozksnt24" />
+                <ScalarProperty Name="pt_ozksnt23" ColumnName="pt_ozksnt23" />
+                <ScalarProperty Name="pt_ozksnt22" ColumnName="pt_ozksnt22" />
+                <ScalarProperty Name="pt_ozksnt21" ColumnName="pt_ozksnt21" />
+                <ScalarProperty Name="pt_ozksnt20" ColumnName="pt_ozksnt20" />
+                <ScalarProperty Name="pt_ozksnt19" ColumnName="pt_ozksnt19" />
+                <ScalarProperty Name="pt_ozksnt18" ColumnName="pt_ozksnt18" />
+                <ScalarProperty Name="pt_ozksnt17" ColumnName="pt_ozksnt17" />
+                <ScalarProperty Name="pt_ozksnt16" ColumnName="pt_ozksnt16" />
+                <ScalarProperty Name="pt_ozksnt15" ColumnName="pt_ozksnt15" />
+                <ScalarProperty Name="pt_ozksnt14" ColumnName="pt_ozksnt14" />
+                <ScalarProperty Name="pt_ozksnt13" ColumnName="pt_ozksnt13" />
+                <ScalarProperty Name="pt_ozksnt12" ColumnName="pt_ozksnt12" />
+                <ScalarProperty Name="pt_ozksnt11" ColumnName="pt_ozksnt11" />
+                <ScalarProperty Name="pt_ozksnt10" ColumnName="pt_ozksnt10" />
+                <ScalarProperty Name="pt_ozksnt9" ColumnName="pt_ozksnt9" />
+                <ScalarProperty Name="pt_ozksnt8" ColumnName="pt_ozksnt8" />
+                <ScalarProperty Name="pt_ozksnt7" ColumnName="pt_ozksnt7" />
+                <ScalarProperty Name="pt_ozksnt6" ColumnName="pt_ozksnt6" />
+                <ScalarProperty Name="pt_ozksnt5" ColumnName="pt_ozksnt5" />
+                <ScalarProperty Name="pt_ozksnt4" ColumnName="pt_ozksnt4" />
+                <ScalarProperty Name="pt_ozksnt3" ColumnName="pt_ozksnt3" />
+                <ScalarProperty Name="pt_ozksnt2" ColumnName="pt_ozksnt2" />
+                <ScalarProperty Name="pt_ozksnt1" ColumnName="pt_ozksnt1" />
+                <ScalarProperty Name="pt_SosYardBNCarpan32" ColumnName="pt_SosYardBNCarpan32" />
+                <ScalarProperty Name="pt_SosYardBNCarpan31" ColumnName="pt_SosYardBNCarpan31" />
+                <ScalarProperty Name="pt_SosYardBNCarpan30" ColumnName="pt_SosYardBNCarpan30" />
+                <ScalarProperty Name="pt_SosYardBNCarpan29" ColumnName="pt_SosYardBNCarpan29" />
+                <ScalarProperty Name="pt_SosYardBNCarpan28" ColumnName="pt_SosYardBNCarpan28" />
+                <ScalarProperty Name="pt_SosYardBNCarpan27" ColumnName="pt_SosYardBNCarpan27" />
+                <ScalarProperty Name="pt_SosYardBNCarpan26" ColumnName="pt_SosYardBNCarpan26" />
+                <ScalarProperty Name="pt_SosYardBNCarpan25" ColumnName="pt_SosYardBNCarpan25" />
+                <ScalarProperty Name="pt_SosYardBNCarpan24" ColumnName="pt_SosYardBNCarpan24" />
+                <ScalarProperty Name="pt_SosYardBNCarpan23" ColumnName="pt_SosYardBNCarpan23" />
+                <ScalarProperty Name="pt_SosYardBNCarpan22" ColumnName="pt_SosYardBNCarpan22" />
+                <ScalarProperty Name="pt_SosYardBNCarpan21" ColumnName="pt_SosYardBNCarpan21" />
+                <ScalarProperty Name="pt_SosYardBNCarpan20" ColumnName="pt_SosYardBNCarpan20" />
+                <ScalarProperty Name="pt_SosYardBNCarpan19" ColumnName="pt_SosYardBNCarpan19" />
+                <ScalarProperty Name="pt_SosYardBNCarpan18" ColumnName="pt_SosYardBNCarpan18" />
+                <ScalarProperty Name="pt_SosYardBNCarpan17" ColumnName="pt_SosYardBNCarpan17" />
+                <ScalarProperty Name="pt_SosYardBNCarpan16" ColumnName="pt_SosYardBNCarpan16" />
+                <ScalarProperty Name="pt_SosYardBNCarpan15" ColumnName="pt_SosYardBNCarpan15" />
+                <ScalarProperty Name="pt_SosYardBNCarpan14" ColumnName="pt_SosYardBNCarpan14" />
+                <ScalarProperty Name="pt_SosYardBNCarpan13" ColumnName="pt_SosYardBNCarpan13" />
+                <ScalarProperty Name="pt_SosYardBNCarpan12" ColumnName="pt_SosYardBNCarpan12" />
+                <ScalarProperty Name="pt_SosYardBNCarpan11" ColumnName="pt_SosYardBNCarpan11" />
+                <ScalarProperty Name="pt_SosYardBNCarpan10" ColumnName="pt_SosYardBNCarpan10" />
+                <ScalarProperty Name="pt_SosYardBNCarpan9" ColumnName="pt_SosYardBNCarpan9" />
+                <ScalarProperty Name="pt_SosYardBNCarpan8" ColumnName="pt_SosYardBNCarpan8" />
+                <ScalarProperty Name="pt_SosYardBNCarpan7" ColumnName="pt_SosYardBNCarpan7" />
+                <ScalarProperty Name="pt_SosYardBNCarpan6" ColumnName="pt_SosYardBNCarpan6" />
+                <ScalarProperty Name="pt_SosYardBNCarpan5" ColumnName="pt_SosYardBNCarpan5" />
+                <ScalarProperty Name="pt_SosYardBNCarpan4" ColumnName="pt_SosYardBNCarpan4" />
+                <ScalarProperty Name="pt_SosYardBNCarpan3" ColumnName="pt_SosYardBNCarpan3" />
+                <ScalarProperty Name="pt_SosYardBNCarpan2" ColumnName="pt_SosYardBNCarpan2" />
+                <ScalarProperty Name="pt_SosYardBNCarpan1" ColumnName="pt_SosYardBNCarpan1" />
+                <ScalarProperty Name="pt_sosyrdm32" ColumnName="pt_sosyrdm32" />
+                <ScalarProperty Name="pt_sosyrdm31" ColumnName="pt_sosyrdm31" />
+                <ScalarProperty Name="pt_sosyrdm30" ColumnName="pt_sosyrdm30" />
+                <ScalarProperty Name="pt_sosyrdm29" ColumnName="pt_sosyrdm29" />
+                <ScalarProperty Name="pt_sosyrdm28" ColumnName="pt_sosyrdm28" />
+                <ScalarProperty Name="pt_sosyrdm27" ColumnName="pt_sosyrdm27" />
+                <ScalarProperty Name="pt_sosyrdm26" ColumnName="pt_sosyrdm26" />
+                <ScalarProperty Name="pt_sosyrdm25" ColumnName="pt_sosyrdm25" />
+                <ScalarProperty Name="pt_sosyrdm24" ColumnName="pt_sosyrdm24" />
+                <ScalarProperty Name="pt_sosyrdm23" ColumnName="pt_sosyrdm23" />
+                <ScalarProperty Name="pt_sosyrdm22" ColumnName="pt_sosyrdm22" />
+                <ScalarProperty Name="pt_sosyrdm21" ColumnName="pt_sosyrdm21" />
+                <ScalarProperty Name="pt_sosyrdm20" ColumnName="pt_sosyrdm20" />
+                <ScalarProperty Name="pt_sosyrdm19" ColumnName="pt_sosyrdm19" />
+                <ScalarProperty Name="pt_sosyrdm18" ColumnName="pt_sosyrdm18" />
+                <ScalarProperty Name="pt_sosyrdm17" ColumnName="pt_sosyrdm17" />
+                <ScalarProperty Name="pt_sosyrdm16" ColumnName="pt_sosyrdm16" />
+                <ScalarProperty Name="pt_sosyrdm15" ColumnName="pt_sosyrdm15" />
+                <ScalarProperty Name="pt_sosyrdm14" ColumnName="pt_sosyrdm14" />
+                <ScalarProperty Name="pt_sosyrdm13" ColumnName="pt_sosyrdm13" />
+                <ScalarProperty Name="pt_sosyrdm12" ColumnName="pt_sosyrdm12" />
+                <ScalarProperty Name="pt_sosyrdm11" ColumnName="pt_sosyrdm11" />
+                <ScalarProperty Name="pt_sosyrdm10" ColumnName="pt_sosyrdm10" />
+                <ScalarProperty Name="pt_sosyrdm9" ColumnName="pt_sosyrdm9" />
+                <ScalarProperty Name="pt_sosyrdm8" ColumnName="pt_sosyrdm8" />
+                <ScalarProperty Name="pt_sosyrdm7" ColumnName="pt_sosyrdm7" />
+                <ScalarProperty Name="pt_sosyrdm6" ColumnName="pt_sosyrdm6" />
+                <ScalarProperty Name="pt_sosyrdm5" ColumnName="pt_sosyrdm5" />
+                <ScalarProperty Name="pt_sosyrdm4" ColumnName="pt_sosyrdm4" />
+                <ScalarProperty Name="pt_sosyrdm3" ColumnName="pt_sosyrdm3" />
+                <ScalarProperty Name="pt_sosyrdm2" ColumnName="pt_sosyrdm2" />
+                <ScalarProperty Name="pt_sosyrdm1" ColumnName="pt_sosyrdm1" />
+                <ScalarProperty Name="pt_sosyemekgun" ColumnName="pt_sosyemekgun" />
+                <ScalarProperty Name="pt_sosyolgun" ColumnName="pt_sosyolgun" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan11" ColumnName="pt_EkKazancBNCarpan11" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan10" ColumnName="pt_EkKazancBNCarpan10" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan9" ColumnName="pt_EkKazancBNCarpan9" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan8" ColumnName="pt_EkKazancBNCarpan8" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan7" ColumnName="pt_EkKazancBNCarpan7" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan6" ColumnName="pt_EkKazancBNCarpan6" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan5" ColumnName="pt_EkKazancBNCarpan5" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan4" ColumnName="pt_EkKazancBNCarpan4" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan3" ColumnName="pt_EkKazancBNCarpan3" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan2" ColumnName="pt_EkKazancBNCarpan2" />
+                <ScalarProperty Name="pt_EkKazancBNCarpan1" ColumnName="pt_EkKazancBNCarpan1" />
+                <ScalarProperty Name="pt_ekkazanc11_tktutar" ColumnName="pt_ekkazanc11_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc11_tksaat" ColumnName="pt_ekkazanc11_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc11_tkgun" ColumnName="pt_ekkazanc11_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc10_tktutar" ColumnName="pt_ekkazanc10_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc10_tksaat" ColumnName="pt_ekkazanc10_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc10_tkgun" ColumnName="pt_ekkazanc10_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc9_tktutar" ColumnName="pt_ekkazanc9_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc9_tksaat" ColumnName="pt_ekkazanc9_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc9_tkgun" ColumnName="pt_ekkazanc9_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc8_tktutar" ColumnName="pt_ekkazanc8_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc8_tksaat" ColumnName="pt_ekkazanc8_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc8_tkgun" ColumnName="pt_ekkazanc8_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc7_tktutar" ColumnName="pt_ekkazanc7_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc7_tksaat" ColumnName="pt_ekkazanc7_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc7_tkgun" ColumnName="pt_ekkazanc7_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc6_tktutar" ColumnName="pt_ekkazanc6_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc6_tksaat" ColumnName="pt_ekkazanc6_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc6_tkgun" ColumnName="pt_ekkazanc6_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc5_tktutar" ColumnName="pt_ekkazanc5_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc5_tksaat" ColumnName="pt_ekkazanc5_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc5_tkgun" ColumnName="pt_ekkazanc5_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc4_tktutar" ColumnName="pt_ekkazanc4_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc4_tksaat" ColumnName="pt_ekkazanc4_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc4_tkgun" ColumnName="pt_ekkazanc4_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc3_tktutar" ColumnName="pt_ekkazanc3_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc3_tksaat" ColumnName="pt_ekkazanc3_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc3_tkgun" ColumnName="pt_ekkazanc3_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc2_tktutar" ColumnName="pt_ekkazanc2_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc2_tksaat" ColumnName="pt_ekkazanc2_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc2_tkgun" ColumnName="pt_ekkazanc2_tkgun" />
+                <ScalarProperty Name="pt_ekkazanc1_tktutar" ColumnName="pt_ekkazanc1_tktutar" />
+                <ScalarProperty Name="pt_ekkazanc1_tksaat" ColumnName="pt_ekkazanc1_tksaat" />
+                <ScalarProperty Name="pt_ekkazanc1_tkgun" ColumnName="pt_ekkazanc1_tkgun" />
+                <ScalarProperty Name="pt_KazancBNCarpan" ColumnName="pt_KazancBNCarpan" />
+                <ScalarProperty Name="pt_kazanc6_tktutar" ColumnName="pt_kazanc6_tktutar" />
+                <ScalarProperty Name="pt_kazanc6_tkyarim_isgun_saat" ColumnName="pt_kazanc6_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_kazanc6_tkyarim_isgunu" ColumnName="pt_kazanc6_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_kazanc6_tksaat" ColumnName="pt_kazanc6_tksaat" />
+                <ScalarProperty Name="pt_kazanc6_tkgun" ColumnName="pt_kazanc6_tkgun" />
+                <ScalarProperty Name="pt_kazanc5_tktutar" ColumnName="pt_kazanc5_tktutar" />
+                <ScalarProperty Name="pt_kazanc5_tkyarim_isgun_saat" ColumnName="pt_kazanc5_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_kazanc5_tkyarim_isgunu" ColumnName="pt_kazanc5_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_kazanc5_tksaat" ColumnName="pt_kazanc5_tksaat" />
+                <ScalarProperty Name="pt_kazanc5_tkgun" ColumnName="pt_kazanc5_tkgun" />
+                <ScalarProperty Name="pt_kazanc4_tktutar" ColumnName="pt_kazanc4_tktutar" />
+                <ScalarProperty Name="pt_kazanc4_tkyarim_isgun_saat" ColumnName="pt_kazanc4_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_kazanc4_tkyarim_isgunu" ColumnName="pt_kazanc4_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_kazanc4_tksaat" ColumnName="pt_kazanc4_tksaat" />
+                <ScalarProperty Name="pt_kazanc4_tkgun" ColumnName="pt_kazanc4_tkgun" />
+                <ScalarProperty Name="pt_kazanc3_tktutar" ColumnName="pt_kazanc3_tktutar" />
+                <ScalarProperty Name="pt_kazanc3_tkyarim_isgun_saat" ColumnName="pt_kazanc3_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_kazanc3_tkyarim_isgunu" ColumnName="pt_kazanc3_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_kazanc3_tksaat" ColumnName="pt_kazanc3_tksaat" />
+                <ScalarProperty Name="pt_kazanc3_tkgun" ColumnName="pt_kazanc3_tkgun" />
+                <ScalarProperty Name="pt_kazanc2_tktutar" ColumnName="pt_kazanc2_tktutar" />
+                <ScalarProperty Name="pt_kazanc2_tkyarim_isgun_saat" ColumnName="pt_kazanc2_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_kazanc2_tkyarim_isgunu" ColumnName="pt_kazanc2_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_kazanc2_tksaat" ColumnName="pt_kazanc2_tksaat" />
+                <ScalarProperty Name="pt_kazanc2_tkgun" ColumnName="pt_kazanc2_tkgun" />
+                <ScalarProperty Name="pt_kazanc1_tktutar" ColumnName="pt_kazanc1_tktutar" />
+                <ScalarProperty Name="pt_kazanc1_tkyarim_isgun_saat" ColumnName="pt_kazanc1_tkyarim_isgun_saat" />
+                <ScalarProperty Name="pt_kazanc1_tkyarim_isgunu" ColumnName="pt_kazanc1_tkyarim_isgunu" />
+                <ScalarProperty Name="pt_kazanc1_tksaat" ColumnName="pt_kazanc1_tksaat" />
+                <ScalarProperty Name="pt_kazanc1_tkgun" ColumnName="pt_kazanc1_tkgun" />
+                <ScalarProperty Name="pt_brutucret" ColumnName="pt_brutucret" />
+                <ScalarProperty Name="pt_ucrettipi" ColumnName="pt_ucrettipi" />
+                <ScalarProperty Name="pt_kesin" ColumnName="pt_kesin" />
+                <ScalarProperty Name="pt_kayit" ColumnName="pt_kayit" />
+                <ScalarProperty Name="pt_tahno" ColumnName="pt_tahno" />
+                <ScalarProperty Name="pt_tah_ay" ColumnName="pt_tah_ay" />
+                <ScalarProperty Name="pt_maliyil" ColumnName="pt_maliyil" />
+                <ScalarProperty Name="pt_pkod" ColumnName="pt_pkod" />
+                <ScalarProperty Name="pt_special3" ColumnName="pt_special3" />
+                <ScalarProperty Name="pt_special2" ColumnName="pt_special2" />
+                <ScalarProperty Name="pt_special1" ColumnName="pt_special1" />
+                <ScalarProperty Name="pt_lastup_date" ColumnName="pt_lastup_date" />
+                <ScalarProperty Name="pt_lastup_user" ColumnName="pt_lastup_user" />
+                <ScalarProperty Name="pt_create_date" ColumnName="pt_create_date" />
+                <ScalarProperty Name="pt_create_user" ColumnName="pt_create_user" />
+                <ScalarProperty Name="pt_checksum" ColumnName="pt_checksum" />
+                <ScalarProperty Name="pt_degisti" ColumnName="pt_degisti" />
+                <ScalarProperty Name="pt_kilitli" ColumnName="pt_kilitli" />
+                <ScalarProperty Name="pt_hidden" ColumnName="pt_hidden" />
+                <ScalarProperty Name="pt_fileid" ColumnName="pt_fileid" />
+                <ScalarProperty Name="pt_iptal" ColumnName="pt_iptal" />
+                <ScalarProperty Name="pt_SpecRECno" ColumnName="pt_SpecRECno" />
+                <ScalarProperty Name="pt_DBCno" ColumnName="pt_DBCno" />
+                <ScalarProperty Name="pt_Guid" ColumnName="pt_Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONELLERs">
+            <EntityTypeMapping TypeName="MikroDB_V15_KENTModel.PERSONELLER">
+              <MappingFragment StoreEntitySet="PERSONELLER">
+                <ScalarProperty Name="per_calismaizni_gec_tar" ColumnName="per_calismaizni_gec_tar" />
+                <ScalarProperty Name="per_calismaizni_alindigi_tar" ColumnName="per_calismaizni_alindigi_tar" />
+                <ScalarProperty Name="per_calismaizni_no" ColumnName="per_calismaizni_no" />
+                <ScalarProperty Name="per_sosyal_snapchat" ColumnName="per_sosyal_snapchat" />
+                <ScalarProperty Name="per_sosyal_instagram" ColumnName="per_sosyal_instagram" />
+                <ScalarProperty Name="per_sosyal_pinterest" ColumnName="per_sosyal_pinterest" />
+                <ScalarProperty Name="per_sosyal_google" ColumnName="per_sosyal_google" />
+                <ScalarProperty Name="per_sosyal_facebook" ColumnName="per_sosyal_facebook" />
+                <ScalarProperty Name="per_sosyal_twitter" ColumnName="per_sosyal_twitter" />
+                <ScalarProperty Name="per_sosyal_youtube" ColumnName="per_sosyal_youtube" />
+                <ScalarProperty Name="per_sosyal_webadresi" ColumnName="per_sosyal_webadresi" />
+                <ScalarProperty Name="per_sosyal_linkedin" ColumnName="per_sosyal_linkedin" />
+                <ScalarProperty Name="per_otobes_ayrilis" ColumnName="per_otobes_ayrilis" />
+                <ScalarProperty Name="per_otobes_giris" ColumnName="per_otobes_giris" />
+                <ScalarProperty Name="per_otobes_fon_tercihi" ColumnName="per_otobes_fon_tercihi" />
+                <ScalarProperty Name="per_otobes_grup_sozlesme_no" ColumnName="per_otobes_grup_sozlesme_no" />
+                <ScalarProperty Name="per_otobes_hesap_no" ColumnName="per_otobes_hesap_no" />
+                <ScalarProperty Name="per_otobes_orani" ColumnName="per_otobes_orani" />
+                <ScalarProperty Name="per_otobes_sigorta" ColumnName="per_otobes_sigorta" />
+                <ScalarProperty Name="per_otobes_fl" ColumnName="per_otobes_fl" />
+                <ScalarProperty Name="per_sigara_fl" ColumnName="per_sigara_fl" />
+                <ScalarProperty Name="per_KEP_adresi" ColumnName="per_KEP_adresi" />
+                <ScalarProperty Name="per_hazine_destegine_tabi_fl" ColumnName="per_hazine_destegine_tabi_fl" />
+                <ScalarProperty Name="per_proje_kodu" ColumnName="per_proje_kodu" />
+                <ScalarProperty Name="per_mezuniyetyili" ColumnName="per_mezuniyetyili" />
+                <ScalarProperty Name="per_tabiioldugukanun3" ColumnName="per_tabiioldugukanun3" />
+                <ScalarProperty Name="per_kanun_gecerlilik_tarihi" ColumnName="per_kanun_gecerlilik_tarihi" />
+                <ScalarProperty Name="per_alt_dept_kod" ColumnName="per_alt_dept_kod" />
+                <ScalarProperty Name="per_bolum_kodu" ColumnName="per_bolum_kodu" />
+                <ScalarProperty Name="per_okul_bolum_kodu" ColumnName="per_okul_bolum_kodu" />
+                <ScalarProperty Name="per_okul_kodu" ColumnName="per_okul_kodu" />
+                <ScalarProperty Name="per_raporlama_yapacagi_per_kod" ColumnName="per_raporlama_yapacagi_per_kod" />
+                <ScalarProperty Name="per_unvan_kodu" ColumnName="per_unvan_kodu" />
+                <ScalarProperty Name="per_is_grup_kodu" ColumnName="per_is_grup_kodu" />
+                <ScalarProperty Name="per_maassistemikodu" ColumnName="per_maassistemikodu" />
+                <ScalarProperty Name="per_maaskiminhesabina" ColumnName="per_maaskiminhesabina" />
+                <ScalarProperty Name="per_tabiioldugukanun2" ColumnName="per_tabiioldugukanun2" />
+                <ScalarProperty Name="per_eski_sicil_no" ColumnName="per_eski_sicil_no" />
+                <ScalarProperty Name="per_sigortalilik_turu" ColumnName="per_sigortalilik_turu" />
+                <ScalarProperty Name="per_yabanci_ulke" ColumnName="per_yabanci_ulke" />
+                <ScalarProperty Name="per_ozur_5763_kont_dahili_fl" ColumnName="per_ozur_5763_kont_dahili_fl" />
+                <ScalarProperty Name="per_agine_tabii" ColumnName="per_agine_tabii" />
+                <ScalarProperty Name="per_sskbelge_turu" ColumnName="per_sskbelge_turu" />
+                <ScalarProperty Name="per_vize_tarihi" ColumnName="per_vize_tarihi" />
+                <ScalarProperty Name="per_vize_alindigi_tarih" ColumnName="per_vize_alindigi_tarih" />
+                <ScalarProperty Name="per_vize_no" ColumnName="per_vize_no" />
+                <ScalarProperty Name="per_servis_guzergahi" ColumnName="per_servis_guzergahi" />
+                <ScalarProperty Name="per_meslek_kodu" ColumnName="per_meslek_kodu" />
+                <ScalarProperty Name="per_calisma_kodu" ColumnName="per_calisma_kodu" />
+                <ScalarProperty Name="per_maas_banka" ColumnName="per_maas_banka" />
+                <ScalarProperty Name="per_srmmrkdaganah_kodu" ColumnName="per_srmmrkdaganah_kodu" />
+                <ScalarProperty Name="per_srmmrkbaglanti_tip" ColumnName="per_srmmrkbaglanti_tip" />
+                <ScalarProperty Name="per_YemekKarti_ID" ColumnName="per_YemekKarti_ID" />
+                <ScalarProperty Name="per_izinparasi_uygulamasi_fl" ColumnName="per_izinparasi_uygulamasi_fl" />
+                <ScalarProperty Name="per_sinyority_uygulamasi_fl" ColumnName="per_sinyority_uygulamasi_fl" />
+                <ScalarProperty Name="per_uye_dernek_sicil_no" ColumnName="per_uye_dernek_sicil_no" />
+                <ScalarProperty Name="per_uye_dernek" ColumnName="per_uye_dernek" />
+                <ScalarProperty Name="per_UserNo" ColumnName="per_UserNo" />
+                <ScalarProperty Name="per_diger_bed3" ColumnName="per_diger_bed3" />
+                <ScalarProperty Name="per_diger_bed2" ColumnName="per_diger_bed2" />
+                <ScalarProperty Name="per_diger_bed1" ColumnName="per_diger_bed1" />
+                <ScalarProperty Name="per_onluk_bed" ColumnName="per_onluk_bed" />
+                <ScalarProperty Name="per_sapka_bed" ColumnName="per_sapka_bed" />
+                <ScalarProperty Name="per_ayak_no" ColumnName="per_ayak_no" />
+                <ScalarProperty Name="per_etek_bed" ColumnName="per_etek_bed" />
+                <ScalarProperty Name="per_pant_bed" ColumnName="per_pant_bed" />
+                <ScalarProperty Name="per_gomlek_bed" ColumnName="per_gomlek_bed" />
+                <ScalarProperty Name="per_kilo" ColumnName="per_kilo" />
+                <ScalarProperty Name="per_boyu" ColumnName="per_boyu" />
+                <ScalarProperty Name="per_Isy_KimlikNo" ColumnName="per_Isy_KimlikNo" />
+                <ScalarProperty Name="per_nuf_asker_durum" ColumnName="per_nuf_asker_durum" />
+                <ScalarProperty Name="per_nuf_asker_bittarih" ColumnName="per_nuf_asker_bittarih" />
+                <ScalarProperty Name="per_nuf_asker_bastarih" ColumnName="per_nuf_asker_bastarih" />
+                <ScalarProperty Name="per_nuf_asker_cuzdan" ColumnName="per_nuf_asker_cuzdan" />
+                <ScalarProperty Name="per_Pas_Gec_Tar" ColumnName="per_Pas_Gec_Tar" />
+                <ScalarProperty Name="per_Pas_Alindigi_Tar" ColumnName="per_Pas_Alindigi_Tar" />
+                <ScalarProperty Name="per_Pasaprot_No" ColumnName="per_Pasaprot_No" />
+                <ScalarProperty Name="per_Ehl_Kart_No" ColumnName="per_Ehl_Kart_No" />
+                <ScalarProperty Name="per_Ehl_Ver_Ilce" ColumnName="per_Ehl_Ver_Ilce" />
+                <ScalarProperty Name="per_Ehl_Ver_Il" ColumnName="per_Ehl_Ver_Il" />
+                <ScalarProperty Name="per_Ehl_Ver_Tar" ColumnName="per_Ehl_Ver_Tar" />
+                <ScalarProperty Name="per_Ehl_Sinif" ColumnName="per_Ehl_Sinif" />
+                <ScalarProperty Name="per_Ehl_Bel_Tar" ColumnName="per_Ehl_Bel_Tar" />
+                <ScalarProperty Name="per_Ehl_Bel_No" ColumnName="per_Ehl_Bel_No" />
+                <ScalarProperty Name="per_semada_gosterme_fl" ColumnName="per_semada_gosterme_fl" />
+                <ScalarProperty Name="per_tabiioldugukanun" ColumnName="per_tabiioldugukanun" />
+                <ScalarProperty Name="per_ilksoyad" ColumnName="per_ilksoyad" />
+                <ScalarProperty Name="per_CikisSebebiSecimli" ColumnName="per_CikisSebebiSecimli" />
+                <ScalarProperty Name="per_TeknikAmirKodu" ColumnName="per_TeknikAmirKodu" />
+                <ScalarProperty Name="per_IdariAmirKodu" ColumnName="per_IdariAmirKodu" />
+                <ScalarProperty Name="per_okul_ad" ColumnName="per_okul_ad" />
+                <ScalarProperty Name="per_bolge_kodu" ColumnName="per_bolge_kodu" />
+                <ScalarProperty Name="Per_Muh_Grup_Kodu" ColumnName="Per_Muh_Grup_Kodu" />
+                <ScalarProperty Name="Per_Aylik_calisma_saati" ColumnName="Per_Aylik_calisma_saati" />
+                <ScalarProperty Name="Per_PersMailAddress" ColumnName="Per_PersMailAddress" />
+                <ScalarProperty Name="Per_TcKimlikNo" ColumnName="Per_TcKimlikNo" />
+                <ScalarProperty Name="Per_PerCariCins_grupno24" ColumnName="Per_PerCariCins_grupno24" />
+                <ScalarProperty Name="Per_PerCariCins_grupno23" ColumnName="Per_PerCariCins_grupno23" />
+                <ScalarProperty Name="Per_PerCariCins_grupno22" ColumnName="Per_PerCariCins_grupno22" />
+                <ScalarProperty Name="Per_PerCariCins_grupno21" ColumnName="Per_PerCariCins_grupno21" />
+                <ScalarProperty Name="Per_PerCariCins_grupno20" ColumnName="Per_PerCariCins_grupno20" />
+                <ScalarProperty Name="Per_PerCariCins_grupno19" ColumnName="Per_PerCariCins_grupno19" />
+                <ScalarProperty Name="Per_PerCariCins_grupno18" ColumnName="Per_PerCariCins_grupno18" />
+                <ScalarProperty Name="Per_PerCariCins_grupno17" ColumnName="Per_PerCariCins_grupno17" />
+                <ScalarProperty Name="Per_PerCariCins_grupno16" ColumnName="Per_PerCariCins_grupno16" />
+                <ScalarProperty Name="Per_PerCariCins_grupno15" ColumnName="Per_PerCariCins_grupno15" />
+                <ScalarProperty Name="Per_PerCariCins_grupno14" ColumnName="Per_PerCariCins_grupno14" />
+                <ScalarProperty Name="Per_PerCariCins_grupno13" ColumnName="Per_PerCariCins_grupno13" />
+                <ScalarProperty Name="Per_PerCariCins_grupno12" ColumnName="Per_PerCariCins_grupno12" />
+                <ScalarProperty Name="Per_PerCariCins_grupno11" ColumnName="Per_PerCariCins_grupno11" />
+                <ScalarProperty Name="Per_PerCariCins_grupno10" ColumnName="Per_PerCariCins_grupno10" />
+                <ScalarProperty Name="Per_PerCariCins_grupno9" ColumnName="Per_PerCariCins_grupno9" />
+                <ScalarProperty Name="Per_PerCariCins_grupno8" ColumnName="Per_PerCariCins_grupno8" />
+                <ScalarProperty Name="Per_PerCariCins_grupno7" ColumnName="Per_PerCariCins_grupno7" />
+                <ScalarProperty Name="Per_PerCariCins_grupno6" ColumnName="Per_PerCariCins_grupno6" />
+                <ScalarProperty Name="Per_PerCariCins_grupno5" ColumnName="Per_PerCariCins_grupno5" />
+                <ScalarProperty Name="Per_PerCariCins_grupno4" ColumnName="Per_PerCariCins_grupno4" />
+                <ScalarProperty Name="Per_PerCariCins_grupno3" ColumnName="Per_PerCariCins_grupno3" />
+                <ScalarProperty Name="Per_PerCariCins_grupno2" ColumnName="Per_PerCariCins_grupno2" />
+                <ScalarProperty Name="Per_PerCariCins_grupno1" ColumnName="Per_PerCariCins_grupno1" />
+                <ScalarProperty Name="Per_PerCariCins24" ColumnName="Per_PerCariCins24" />
+                <ScalarProperty Name="Per_PerCariCins23" ColumnName="Per_PerCariCins23" />
+                <ScalarProperty Name="Per_PerCariCins22" ColumnName="Per_PerCariCins22" />
+                <ScalarProperty Name="Per_PerCariCins21" ColumnName="Per_PerCariCins21" />
+                <ScalarProperty Name="Per_PerCariCins20" ColumnName="Per_PerCariCins20" />
+                <ScalarProperty Name="Per_PerCariCins19" ColumnName="Per_PerCariCins19" />
+                <ScalarProperty Name="Per_PerCariCins18" ColumnName="Per_PerCariCins18" />
+                <ScalarProperty Name="Per_PerCariCins17" ColumnName="Per_PerCariCins17" />
+                <ScalarProperty Name="Per_PerCariCins16" ColumnName="Per_PerCariCins16" />
+                <ScalarProperty Name="Per_PerCariCins15" ColumnName="Per_PerCariCins15" />
+                <ScalarProperty Name="Per_PerCariCins14" ColumnName="Per_PerCariCins14" />
+                <ScalarProperty Name="Per_PerCariCins13" ColumnName="Per_PerCariCins13" />
+                <ScalarProperty Name="Per_PerCariCins12" ColumnName="Per_PerCariCins12" />
+                <ScalarProperty Name="Per_PerCariCins11" ColumnName="Per_PerCariCins11" />
+                <ScalarProperty Name="Per_PerCariCins10" ColumnName="Per_PerCariCins10" />
+                <ScalarProperty Name="Per_PerCariCins9" ColumnName="Per_PerCariCins9" />
+                <ScalarProperty Name="Per_PerCariCins8" ColumnName="Per_PerCariCins8" />
+                <ScalarProperty Name="Per_PerCariCins7" ColumnName="Per_PerCariCins7" />
+                <ScalarProperty Name="Per_PerCariCins6" ColumnName="Per_PerCariCins6" />
+                <ScalarProperty Name="Per_PerCariCins5" ColumnName="Per_PerCariCins5" />
+                <ScalarProperty Name="Per_PerCariCins4" ColumnName="Per_PerCariCins4" />
+                <ScalarProperty Name="Per_PerCariCins3" ColumnName="Per_PerCariCins3" />
+                <ScalarProperty Name="Per_PerCariCins2" ColumnName="Per_PerCariCins2" />
+                <ScalarProperty Name="Per_PerCariCins1" ColumnName="Per_PerCariCins1" />
+                <ScalarProperty Name="per_asgari_ucretli" ColumnName="per_asgari_ucretli" />
+                <ScalarProperty Name="per_kapsam" ColumnName="per_kapsam" />
+                <ScalarProperty Name="per_mevsim" ColumnName="per_mevsim" />
+                <ScalarProperty Name="per_dil12" ColumnName="per_dil12" />
+                <ScalarProperty Name="per_dil11" ColumnName="per_dil11" />
+                <ScalarProperty Name="per_dil10" ColumnName="per_dil10" />
+                <ScalarProperty Name="per_dil9" ColumnName="per_dil9" />
+                <ScalarProperty Name="per_dil8" ColumnName="per_dil8" />
+                <ScalarProperty Name="per_dil7" ColumnName="per_dil7" />
+                <ScalarProperty Name="per_dil6" ColumnName="per_dil6" />
+                <ScalarProperty Name="per_dil5" ColumnName="per_dil5" />
+                <ScalarProperty Name="per_dil4" ColumnName="per_dil4" />
+                <ScalarProperty Name="per_dil3" ColumnName="per_dil3" />
+                <ScalarProperty Name="per_dil2" ColumnName="per_dil2" />
+                <ScalarProperty Name="per_dil1" ColumnName="per_dil1" />
+                <ScalarProperty Name="per_Calismatipi" ColumnName="per_Calismatipi" />
+                <ScalarProperty Name="per_iszlksig" ColumnName="per_iszlksig" />
+                <ScalarProperty Name="per_Kidem_Tarih" ColumnName="per_Kidem_Tarih" />
+                <ScalarProperty Name="per_VkfKesOd_fl" ColumnName="per_VkfKesOd_fl" />
+                <ScalarProperty Name="per_ozel_not" ColumnName="per_ozel_not" />
+                <ScalarProperty Name="per_maas_ikramiye" ColumnName="per_maas_ikramiye" />
+                <ScalarProperty Name="per_old_tarih" ColumnName="per_old_tarih" />
+                <ScalarProperty Name="per_old_ucret" ColumnName="per_old_ucret" />
+                <ScalarProperty Name="per_muh_ozelc24" ColumnName="per_muh_ozelc24" />
+                <ScalarProperty Name="per_muh_ozelc23" ColumnName="per_muh_ozelc23" />
+                <ScalarProperty Name="per_muh_ozelc22" ColumnName="per_muh_ozelc22" />
+                <ScalarProperty Name="per_muh_ozelc21" ColumnName="per_muh_ozelc21" />
+                <ScalarProperty Name="per_muh_ozelc20" ColumnName="per_muh_ozelc20" />
+                <ScalarProperty Name="per_muh_ozelc19" ColumnName="per_muh_ozelc19" />
+                <ScalarProperty Name="per_muh_ozelc18" ColumnName="per_muh_ozelc18" />
+                <ScalarProperty Name="per_muh_ozelc17" ColumnName="per_muh_ozelc17" />
+                <ScalarProperty Name="per_muh_ozelc16" ColumnName="per_muh_ozelc16" />
+                <ScalarProperty Name="per_muh_ozelc15" ColumnName="per_muh_ozelc15" />
+                <ScalarProperty Name="per_muh_ozelc14" ColumnName="per_muh_ozelc14" />
+                <ScalarProperty Name="per_muh_ozelc13" ColumnName="per_muh_ozelc13" />
+                <ScalarProperty Name="per_muh_ozelc12" ColumnName="per_muh_ozelc12" />
+                <ScalarProperty Name="per_muh_ozelc11" ColumnName="per_muh_ozelc11" />
+                <ScalarProperty Name="per_muh_ozelc10" ColumnName="per_muh_ozelc10" />
+                <ScalarProperty Name="per_muh_ozelc9" ColumnName="per_muh_ozelc9" />
+                <ScalarProperty Name="per_muh_ozelc8" ColumnName="per_muh_ozelc8" />
+                <ScalarProperty Name="per_muh_ozelc7" ColumnName="per_muh_ozelc7" />
+                <ScalarProperty Name="per_muh_ozelc6" ColumnName="per_muh_ozelc6" />
+                <ScalarProperty Name="per_muh_ozelc5" ColumnName="per_muh_ozelc5" />
+                <ScalarProperty Name="per_muh_ozelc4" ColumnName="per_muh_ozelc4" />
+                <ScalarProperty Name="per_muh_ozelc3" ColumnName="per_muh_ozelc3" />
+                <ScalarProperty Name="per_muh_ozelc2" ColumnName="per_muh_ozelc2" />
+                <ScalarProperty Name="per_muh_ozelc1" ColumnName="per_muh_ozelc1" />
+                <ScalarProperty Name="per_muh_grpkod" ColumnName="per_muh_grpkod" />
+                <ScalarProperty Name="per_doviz_cinsi" ColumnName="per_doviz_cinsi" />
+                <ScalarProperty Name="per_tel_cepno" ColumnName="per_tel_cepno" />
+                <ScalarProperty Name="per_tel_faxno" ColumnName="per_tel_faxno" />
+                <ScalarProperty Name="per_tel_no2" ColumnName="per_tel_no2" />
+                <ScalarProperty Name="per_tel_no1" ColumnName="per_tel_no1" />
+                <ScalarProperty Name="per_tel_bolge_kod" ColumnName="per_tel_bolge_kod" />
+                <ScalarProperty Name="per_tel_ulke_kod" ColumnName="per_tel_ulke_kod" />
+                <ScalarProperty Name="per_adr_adres_kodu" ColumnName="per_adr_adres_kodu" />
+                <ScalarProperty Name="per_adr_ulke" ColumnName="per_adr_ulke" />
+                <ScalarProperty Name="per_adr_il" ColumnName="per_adr_il" />
+                <ScalarProperty Name="per_adr_ilce" ColumnName="per_adr_ilce" />
+                <ScalarProperty Name="per_adr_posta_kod" ColumnName="per_adr_posta_kod" />
+                <ScalarProperty Name="per_adr_daire_no" ColumnName="per_adr_daire_no" />
+                <ScalarProperty Name="per_adr_apartman_no" ColumnName="per_adr_apartman_no" />
+                <ScalarProperty Name="per_adr_semt" ColumnName="per_adr_semt" />
+                <ScalarProperty Name="per_adr_sokak" ColumnName="per_adr_sokak" />
+                <ScalarProperty Name="per_adr_mahalle" ColumnName="per_adr_mahalle" />
+                <ScalarProperty Name="per_adr_cadde" ColumnName="per_adr_cadde" />
+                <ScalarProperty Name="per_yard_ozelindirim" ColumnName="per_yard_ozelindirim" />
+                <ScalarProperty Name="per_yard_aile" ColumnName="per_yard_aile" />
+                <ScalarProperty Name="per_yard_cocuk" ColumnName="per_yard_cocuk" />
+                <ScalarProperty Name="per_yard_bayram" ColumnName="per_yard_bayram" />
+                <ScalarProperty Name="per_yard_yakacak" ColumnName="per_yard_yakacak" />
+                <ScalarProperty Name="per_yard_yemek" ColumnName="per_yard_yemek" />
+                <ScalarProperty Name="per_yard_yol" ColumnName="per_yard_yol" />
+                <ScalarProperty Name="per_ozelavansorani" ColumnName="per_ozelavansorani" />
+                <ScalarProperty Name="per_ucr_onceod" ColumnName="per_ucr_onceod" />
+                <ScalarProperty Name="per_ucr_konutfon" ColumnName="per_ucr_konutfon" />
+                <ScalarProperty Name="per_ucr_vkarne_tarih" ColumnName="per_ucr_vkarne_tarih" />
+                <ScalarProperty Name="per_ucr_vkarneno" ColumnName="per_ucr_vkarneno" />
+                <ScalarProperty Name="per_ucr_vdaire" ColumnName="per_ucr_vdaire" />
+                <ScalarProperty Name="per_ucr_bode_yapilma" ColumnName="per_ucr_bode_yapilma" />
+                <ScalarProperty Name="per_ucr_sig_yuzde_gr" ColumnName="per_ucr_sig_yuzde_gr" />
+                <ScalarProperty Name="per_ucr_hesapno" ColumnName="per_ucr_hesapno" />
+                <ScalarProperty Name="per_ucr_PSSK_sube" ColumnName="per_ucr_PSSK_sube" />
+                <ScalarProperty Name="per_ucr_send" ColumnName="per_ucr_send" />
+                <ScalarProperty Name="per_ucr_send_durum" ColumnName="per_ucr_send_durum" />
+                <ScalarProperty Name="per_Brut_net" ColumnName="per_Brut_net" />
+                <ScalarProperty Name="per_ucret" ColumnName="per_ucret" />
+                <ScalarProperty Name="per_ucr_tip" ColumnName="per_ucr_tip" />
+                <ScalarProperty Name="per_nuf_cuz_kayitno" ColumnName="per_nuf_cuz_kayitno" />
+                <ScalarProperty Name="per_nuf_ver_tarih" ColumnName="per_nuf_ver_tarih" />
+                <ScalarProperty Name="per_nuf_ver_yer" ColumnName="per_nuf_ver_yer" />
+                <ScalarProperty Name="per_nuf_ver_neden" ColumnName="per_nuf_ver_neden" />
+                <ScalarProperty Name="per_nuf_kutukno" ColumnName="per_nuf_kutukno" />
+                <ScalarProperty Name="per_nuf_sayfano" ColumnName="per_nuf_sayfano" />
+                <ScalarProperty Name="per_nuf_ciltno" ColumnName="per_nuf_ciltno" />
+                <ScalarProperty Name="per_nuf_koy" ColumnName="per_nuf_koy" />
+                <ScalarProperty Name="per_nuf_mahalle" ColumnName="per_nuf_mahalle" />
+                <ScalarProperty Name="per_nuf_ilce" ColumnName="per_nuf_ilce" />
+                <ScalarProperty Name="per_nuf_il" ColumnName="per_nuf_il" />
+                <ScalarProperty Name="per_nuf_seri_no" ColumnName="per_nuf_seri_no" />
+                <ScalarProperty Name="per_nuf_kangrup" ColumnName="per_nuf_kangrup" />
+                <ScalarProperty Name="per_nuf_dogum_yer" ColumnName="per_nuf_dogum_yer" />
+                <ScalarProperty Name="per_nuf_dogum_tarih" ColumnName="per_nuf_dogum_tarih" />
+                <ScalarProperty Name="per_nuf_din" ColumnName="per_nuf_din" />
+                <ScalarProperty Name="per_nuf_medeni_hal" ColumnName="per_nuf_medeni_hal" />
+                <ScalarProperty Name="per_nuf_cinsiyet" ColumnName="per_nuf_cinsiyet" />
+                <ScalarProperty Name="per_nuf_uyruk" ColumnName="per_nuf_uyruk" />
+                <ScalarProperty Name="per_kim_yuksek" ColumnName="per_kim_yuksek" />
+                <ScalarProperty Name="per_kim_lise" ColumnName="per_kim_lise" />
+                <ScalarProperty Name="per_kim_ortaokul" ColumnName="per_kim_ortaokul" />
+                <ScalarProperty Name="per_kim_ilkokul" ColumnName="per_kim_ilkokul" />
+                <ScalarProperty Name="per_kim_okuloncesi" ColumnName="per_kim_okuloncesi" />
+                <ScalarProperty Name="per_kim_cocuk" ColumnName="per_kim_cocuk" />
+                <ScalarProperty Name="per_kim_SGK_kod" ColumnName="per_kim_SGK_kod" />
+                <ScalarProperty Name="per_kim_gorev_kod" ColumnName="per_kim_gorev_kod" />
+                <ScalarProperty Name="per_kim_gocmen" ColumnName="per_kim_gocmen" />
+                <ScalarProperty Name="per_kim_sakat_derece" ColumnName="per_kim_sakat_derece" />
+                <ScalarProperty Name="per_kim_gorev" ColumnName="per_kim_gorev" />
+                <ScalarProperty Name="per_kim_meslek" ColumnName="per_kim_meslek" />
+                <ScalarProperty Name="per_kim_tahsil" ColumnName="per_kim_tahsil" />
+                <ScalarProperty Name="per_muh_kod" ColumnName="per_muh_kod" />
+                <ScalarProperty Name="per_cikis_neden" ColumnName="per_cikis_neden" />
+                <ScalarProperty Name="per_cikis_tar" ColumnName="per_cikis_tar" />
+                <ScalarProperty Name="per_giris_tar" ColumnName="per_giris_tar" />
+                <ScalarProperty Name="per_is_grup" ColumnName="per_is_grup" />
+                <ScalarProperty Name="per_dept_kod" ColumnName="per_dept_kod" />
+                <ScalarProperty Name="per_tip" ColumnName="per_tip" />
+                <ScalarProperty Name="per_caripers_kodu" ColumnName="per_caripers_kodu" />
+                <ScalarProperty Name="per_sube_no" ColumnName="per_sube_no" />
+                <ScalarProperty Name="per_firma_no" ColumnName="per_firma_no" />
+                <ScalarProperty Name="per_sicil_no" ColumnName="per_sicil_no" />
+                <ScalarProperty Name="per_orjdildeadisoyadi" ColumnName="per_orjdildeadisoyadi" />
+                <ScalarProperty Name="per_soyadi" ColumnName="per_soyadi" />
+                <ScalarProperty Name="per_adi" ColumnName="per_adi" />
+                <ScalarProperty Name="per_kod" ColumnName="per_kod" />
+                <ScalarProperty Name="per_special3" ColumnName="per_special3" />
+                <ScalarProperty Name="per_special2" ColumnName="per_special2" />
+                <ScalarProperty Name="per_special1" ColumnName="per_special1" />
+                <ScalarProperty Name="per_lastup_date" ColumnName="per_lastup_date" />
+                <ScalarProperty Name="per_lastup_user" ColumnName="per_lastup_user" />
+                <ScalarProperty Name="per_create_date" ColumnName="per_create_date" />
+                <ScalarProperty Name="per_create_user" ColumnName="per_create_user" />
+                <ScalarProperty Name="per_checksum" ColumnName="per_checksum" />
+                <ScalarProperty Name="per_degisti" ColumnName="per_degisti" />
+                <ScalarProperty Name="per_kilitli" ColumnName="per_kilitli" />
+                <ScalarProperty Name="per_hidden" ColumnName="per_hidden" />
+                <ScalarProperty Name="per_fileid" ColumnName="per_fileid" />
+                <ScalarProperty Name="per_iptal" ColumnName="per_iptal" />
+                <ScalarProperty Name="per_SpecRECno" ColumnName="per_SpecRECno" />
+                <ScalarProperty Name="per_DBCno" ColumnName="per_DBCno" />
+                <ScalarProperty Name="per_Guid" ColumnName="per_Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

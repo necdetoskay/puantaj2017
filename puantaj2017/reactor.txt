@@ -1,0 +1,1 @@
+﻿"C:\Program Files (x86)\Eziriz\.NET Reactor\dotNET_Reactor.exe" -file  "Z:\Source\Repos\proje\puantaj2017\puantaj2017\bin\Debug\puantaj2017.exe" -mono 1 -antitamp 1 -control_flow_obfuscation 1 -necrobit 1  -obfuscation 1 -targetfile "Z:\Source\Repos\proje\puantaj2017\puantaj2017\bin\Debug\puantaj2017.exe"  -evaluationenable 1 -evaluationtype trial -time 1

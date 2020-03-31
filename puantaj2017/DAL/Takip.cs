@@ -14,10 +14,23 @@ namespace puantaj2017.DAL
     
     public partial class Takip
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Takip()
+        {
+            this.Takip1 = new HashSet<Takip>();
+        }
+    
         public int id { get; set; }
         public string aciklama { get; set; }
         public System.DateTime ekleme { get; set; }
         public Nullable<System.DateTime> tamamlanma { get; set; }
         public System.DateTime sontarih { get; set; }
+        public Nullable<int> parentid { get; set; }
+        public int gostermegunu { get; set; }
+        public Nullable<int> sira { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Takip> Takip1 { get; set; }
+        public virtual Takip Takip2 { get; set; }
     }
 }

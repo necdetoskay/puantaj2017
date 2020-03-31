@@ -5,10 +5,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self"
-              xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
-              xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation"
-              xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Avanslar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personelId" Type="int" Nullable="false" />
+          <Property Name="tutar" Type="int" Nullable="false" />
+          <Property Name="tarih" Type="date" />
+        </EntityType>
         <EntityType Name="birim">
           <Key>
             <PropertyRef Name="id" />
@@ -17,6 +23,8 @@
           <Property Name="birimad" Type="nvarchar" MaxLength="50" />
           <Property Name="fullad" Type="nvarchar" MaxLength="100" />
           <Property Name="sira" Type="int" />
+          <Property Name="puantaj" Type="bit" />
+          <Property Name="birimAmiri" Type="int" />
         </EntityType>
         <EntityType Name="Grup">
           <Key>
@@ -24,24 +32,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Imza">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Aciklama" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Tarih" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ImzaTakip">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="imzaID" Type="int" Nullable="false" />
-          <Property Name="personelID" Type="int" Nullable="false" />
-          <Property Name="Tarih" Type="datetime" Nullable="false" />
-          <Property Name="ImzaTarih" Type="datetime" />
         </EntityType>
         <EntityType Name="Izin">
           <Key>
@@ -67,18 +57,22 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="adsoyad" Type="nvarchar(max)" Nullable="false" />
           <Property Name="birimid" Type="int" />
           <Property Name="puantaj" Type="bit" Nullable="false" />
           <Property Name="sira" Type="int" />
-          <Property Name="sicilno" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="sicilno" Type="nvarchar" MaxLength="10" />
           <Property Name="tcno" Type="nvarchar" MaxLength="11" />
           <Property Name="pdksid" Type="int" />
           <Property Name="giristarihi" Type="date" />
           <Property Name="kidemtarihi" Type="date" />
-          <Property Name="mikroid" Type="int" />
+          <Property Name="mikroid" Type="uniqueidentifier" />
           <Property Name="dogumtarihi" Type="date" />
+          <Property Name="cikistarihi" Type="date" />
+          <Property Name="kadro" Type="int" />
+          <Property Name="iban" Type="nvarchar" MaxLength="26" />
+          <Property Name="yaka" Type="bit" />
         </EntityType>
         <EntityType Name="PersonelGrup">
           <Key>
@@ -87,6 +81,17 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="grupid" Type="int" Nullable="false" />
           <Property Name="personelid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonelMesai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personelID" Type="int" Nullable="false" />
+          <Property Name="yil" Type="int" Nullable="false" />
+          <Property Name="ay" Type="int" Nullable="false" />
+          <Property Name="mesai1" Type="int" Nullable="false" />
+          <Property Name="mesai2" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Takip">
           <Key>
@@ -97,32 +102,50 @@
           <Property Name="ekleme" Type="datetime" Nullable="false" />
           <Property Name="tamamlanma" Type="datetime" />
           <Property Name="sontarih" Type="datetime" Nullable="false" />
+          <Property Name="parentid" Type="int" />
+          <Property Name="gostermegunu" Type="int" Nullable="false" />
+          <Property Name="sira" Type="int" />
         </EntityType>
-        <Association Name="FK__ImzaTakip__imzaI__5FB337D6">
-          <End Role="Imza" Type="Self.Imza" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ImzaTakip" Type="Self.ImzaTakip" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Imza">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ImzaTakip">
-              <PropertyRef Name="imzaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ImzaTakip__perso__60A75C0F">
+        <EntityType Name="vergi_dilim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yil" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vergi_dilim_detay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dilimId" Type="int" Nullable="false" />
+          <Property Name="oran" Type="int" Nullable="false" />
+          <Property Name="alt" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ust" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Avanslar__person__03F0984C">
           <End Role="Personel" Type="Self.Personel" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ImzaTakip" Type="Self.ImzaTakip" Multiplicity="*" />
+          <End Role="Avanslar" Type="Self.Avanslar" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Personel">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="ImzaTakip">
-              <PropertyRef Name="personelID" />
+            <Dependent Role="Avanslar">
+              <PropertyRef Name="personelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__birim__birimAmir__208CD6FA">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="0..1" />
+          <End Role="birim" Type="Self.birim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="birim">
+              <PropertyRef Name="birimAmiri" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -196,23 +219,65 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PersonelM__perso__218BE82B">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonelMesai" Type="Self.PersonelMesai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PersonelMesai">
+              <PropertyRef Name="personelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Takip__parentid__4850AF91">
+          <End Role="Takip" Type="Self.Takip" Multiplicity="0..1" />
+          <End Role="Takip1" Type="Self.Takip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Takip">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Takip1">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vergi_dil__dilim__6CC31A31">
+          <End Role="vergi_dilim" Type="Self.vergi_dilim" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="vergi_dilim_detay" Type="Self.vergi_dilim_detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vergi_dilim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vergi_dilim_detay">
+              <PropertyRef Name="dilimId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ikModelStoreContainer">
+          <EntitySet Name="Avanslar" EntityType="Self.Avanslar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="birim" EntityType="Self.birim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grup" EntityType="Self.Grup" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Imza" EntityType="Self.Imza" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ImzaTakip" EntityType="Self.ImzaTakip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Izin" EntityType="Self.Izin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IzinTip" EntityType="Self.IzinTip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonelGrup" EntityType="Self.PersonelGrup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelMesai" EntityType="Self.PersonelMesai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Takip" EntityType="Self.Takip" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ImzaTakip__imzaI__5FB337D6" Association="Self.FK__ImzaTakip__imzaI__5FB337D6">
-            <End Role="Imza" EntitySet="Imza" />
-            <End Role="ImzaTakip" EntitySet="ImzaTakip" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ImzaTakip__perso__60A75C0F" Association="Self.FK__ImzaTakip__perso__60A75C0F">
+          <EntitySet Name="vergi_dilim" EntityType="Self.vergi_dilim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vergi_dilim_detay" EntityType="Self.vergi_dilim_detay" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Avanslar__person__03F0984C" Association="Self.FK__Avanslar__person__03F0984C">
             <End Role="Personel" EntitySet="Personel" />
-            <End Role="ImzaTakip" EntitySet="ImzaTakip" />
+            <End Role="Avanslar" EntitySet="Avanslar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__birim__birimAmir__208CD6FA" Association="Self.FK__birim__birimAmir__208CD6FA">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="birim" EntitySet="birim" />
           </AssociationSet>
           <AssociationSet Name="FK__Izin__izintip__66603565" Association="Self.FK__Izin__izintip__66603565">
             <End Role="IzinTip" EntitySet="IzinTip" />
@@ -234,9 +299,20 @@
             <End Role="Personel" EntitySet="Personel" />
             <End Role="PersonelGrup" EntitySet="PersonelGrup" />
           </AssociationSet>
+          <AssociationSet Name="FK__PersonelM__perso__218BE82B" Association="Self.FK__PersonelM__perso__218BE82B">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="PersonelMesai" EntitySet="PersonelMesai" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Takip__parentid__4850AF91" Association="Self.FK__Takip__parentid__4850AF91">
+            <End Role="Takip" EntitySet="Takip" />
+            <End Role="Takip1" EntitySet="Takip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vergi_dil__dilim__6CC31A31" Association="Self.FK__vergi_dil__dilim__6CC31A31">
+            <End Role="vergi_dilim" EntitySet="vergi_dilim" />
+            <End Role="vergi_dilim_detay" EntitySet="vergi_dilim_detay" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ikModel" Alias="Self" annotation:UseStrongSpatialTypes="false"
@@ -251,9 +327,11 @@
           <Property Name="birimad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="fullad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="sira" Type="Int32" />
-          <NavigationProperty Name="Personels" Relationship="Self.FK__personel__birimi__4CA06362" FromRole="birim"
-                              ToRole="Personel" />
-        </EntityType>
+          <Property Name="puantaj" Type="Boolean" />
+          <Property Name="birimAmiri" Type="Int32" />
+          <NavigationProperty Name="Personel" Relationship="ikModel.FK__birim__birimAmir__208CD6FA" FromRole="birim" ToRole="Personel" />
+          <NavigationProperty Name="Personels" Relationship="ikModel.FK__personel__birimi__4CA06362" FromRole="birim" ToRole="Personel" />
+          </EntityType>
         <EntityType Name="Grup">
           <Key>
             <PropertyRef Name="id" />
@@ -262,30 +340,6 @@
           <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="PersonelGrups" Relationship="Self.FK__PersonelG__grupi__6E01572D" FromRole="Grup"
                               ToRole="PersonelGrup" />
-        </EntityType>
-        <EntityType Name="Imza">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Aciklama" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ImzaTakips" Relationship="Self.FK__ImzaTakip__imzaI__5FB337D6" FromRole="Imza"
-                              ToRole="ImzaTakip" />
-        </EntityType>
-        <EntityType Name="ImzaTakip">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="imzaID" Type="Int32" Nullable="false" />
-          <Property Name="personelID" Type="Int32" Nullable="false" />
-          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ImzaTarih" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Imza" Relationship="Self.FK__ImzaTakip__imzaI__5FB337D6" FromRole="ImzaTakip"
-                              ToRole="Imza" />
-          <NavigationProperty Name="Personel" Relationship="Self.FK__ImzaTakip__perso__60A75C0F" FromRole="ImzaTakip"
-                              ToRole="Personel" />
         </EntityType>
         <EntityType Name="Izin">
           <Key>
@@ -301,8 +355,7 @@
           <Property Name="gun" Type="Int32" Nullable="false" />
           <NavigationProperty Name="IzinTip1" Relationship="Self.FK__Izin__izintip__66603565" FromRole="Izin"
                               ToRole="IzinTip" />
-          <NavigationProperty Name="Personel" Relationship="Self.FK__Izin__personelid__656C112C" FromRole="Izin"
-                              ToRole="Personel" />
+          <NavigationProperty Name="Personel" Relationship="ikModel.FK__Izin__personelid__656C112C" FromRole="Izin" ToRole="Personel" />
         </EntityType>
         <EntityType Name="IzinTip">
           <Key>
@@ -313,31 +366,6 @@
           <NavigationProperty Name="Izins" Relationship="Self.FK__Izin__izintip__66603565" FromRole="IzinTip"
                               ToRole="Izin" />
         </EntityType>
-        <EntityType Name="Personel">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="adsoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="birimid" Type="Int32" />
-          <Property Name="puantaj" Type="Boolean" Nullable="false" />
-          <Property Name="sira" Type="Int32" />
-          <Property Name="sicilno" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="tcno" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="pdksid" Type="Int32" />
-          <Property Name="giristarihi" Type="DateTime" Precision="0" />
-          <Property Name="kidemtarihi" Type="DateTime" Precision="0" />
-          <Property Name="mikroid" Type="Int32" />
-          <Property Name="dogumtarihi" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="birim" Relationship="Self.FK__personel__birimi__4CA06362" FromRole="Personel"
-                              ToRole="birim" />
-          <NavigationProperty Name="ImzaTakips" Relationship="Self.FK__ImzaTakip__perso__60A75C0F" FromRole="Personel"
-                              ToRole="ImzaTakip" />
-          <NavigationProperty Name="Izins" Relationship="Self.FK__Izin__personelid__656C112C" FromRole="Personel"
-                              ToRole="Izin" />
-          <NavigationProperty Name="PersonelGrups" Relationship="Self.FK__PersonelG__perso__6EF57B66"
-                              FromRole="Personel" ToRole="PersonelGrup" />
-        </EntityType>
         <EntityType Name="PersonelGrup">
           <Key>
             <PropertyRef Name="id" />
@@ -347,8 +375,7 @@
           <Property Name="personelid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Grup" Relationship="Self.FK__PersonelG__grupi__6E01572D" FromRole="PersonelGrup"
                               ToRole="Grup" />
-          <NavigationProperty Name="Personel" Relationship="Self.FK__PersonelG__perso__6EF57B66"
-                              FromRole="PersonelGrup" ToRole="Personel" />
+          <NavigationProperty Name="Personel" Relationship="ikModel.FK__PersonelG__perso__6EF57B66" FromRole="PersonelGrup" ToRole="Personel" />
         </EntityType>
         <EntityType Name="Takip">
           <Key>
@@ -359,21 +386,12 @@
           <Property Name="ekleme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="tamamlanma" Type="DateTime" Precision="3" />
           <Property Name="sontarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="parentid" Type="Int32" />
+          <NavigationProperty Name="Takip1" Relationship="ikModel.FK__Takip__parentid__4850AF91" FromRole="Takip" ToRole="Takip1" />
+          <NavigationProperty Name="Takip2" Relationship="ikModel.FK__Takip__parentid__4850AF91" FromRole="Takip1" ToRole="Takip" />
+          <Property Name="gostermegunu" Type="Int32" Nullable="false" />
+          <Property Name="sira" Type="Int32" />
         </EntityType>
-        <Association Name="FK__personel__birimi__4CA06362">
-          <End Role="birim" Type="Self.birim" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="birim">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Personel">
-              <PropertyRef Name="birimid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__PersonelG__grupi__6E01572D">
           <End Role="Grup" Type="Self.Grup" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -385,34 +403,6 @@
             </Principal>
             <Dependent Role="PersonelGrup">
               <PropertyRef Name="grupid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ImzaTakip__imzaI__5FB337D6">
-          <End Role="Imza" Type="Self.Imza" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ImzaTakip" Type="Self.ImzaTakip" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Imza">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ImzaTakip">
-              <PropertyRef Name="imzaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ImzaTakip__perso__60A75C0F">
-          <End Role="Personel" Type="Self.Personel" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ImzaTakip" Type="Self.ImzaTakip" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personel">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ImzaTakip">
-              <PropertyRef Name="personelID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -430,11 +420,186 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Izin__personelid__656C112C">
-          <End Role="Personel" Type="Self.Personel" Multiplicity="1">
+        <EntityContainer Name="ikEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="birims" EntityType="Self.birim" />
+          <EntitySet Name="Grups" EntityType="Self.Grup" />
+          <EntitySet Name="Izins" EntityType="Self.Izin" />
+          <EntitySet Name="IzinTips" EntityType="Self.IzinTip" />
+          <EntitySet Name="PersonelGrups" EntityType="Self.PersonelGrup" />
+          <EntitySet Name="Takips" EntityType="Self.Takip" />
+          <AssociationSet Name="FK__PersonelG__grupi__6E01572D" Association="Self.FK__PersonelG__grupi__6E01572D">
+            <End Role="Grup" EntitySet="Grups" />
+            <End Role="PersonelGrup" EntitySet="PersonelGrups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Izin__izintip__66603565" Association="Self.FK__Izin__izintip__66603565">
+            <End Role="IzinTip" EntitySet="IzinTips" />
+            <End Role="Izin" EntitySet="Izins" />
+          </AssociationSet>
+          <EntitySet Name="Avanslars" EntityType="ikModel.Avanslar" />
+          <EntitySet Name="vergi_dilim" EntityType="ikModel.vergi_dilim" />
+          <EntitySet Name="vergi_dilim_detay" EntityType="ikModel.vergi_dilim_detay" />
+          <AssociationSet Name="FK__vergi_dil__dilim__6CC31A31" Association="ikModel.FK__vergi_dil__dilim__6CC31A31">
+            <End Role="vergi_dilim" EntitySet="vergi_dilim" />
+            <End Role="vergi_dilim_detay" EntitySet="vergi_dilim_detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Takip__parentid__4850AF91" Association="ikModel.FK__Takip__parentid__4850AF91">
+            <End Role="Takip" EntitySet="Takips" />
+            <End Role="Takip1" EntitySet="Takips" />
+          </AssociationSet>
+          <EntitySet Name="Personels" EntityType="ikModel.Personel" />
+          <AssociationSet Name="FK__Avanslar__person__03F0984C" Association="ikModel.FK__Avanslar__person__03F0984C">
+            <End Role="Personel" EntitySet="Personels" />
+            <End Role="Avanslar" EntitySet="Avanslars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__birim__birimAmir__208CD6FA" Association="ikModel.FK__birim__birimAmir__208CD6FA">
+            <End Role="Personel" EntitySet="Personels" />
+            <End Role="birim" EntitySet="birims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personel__birimi__4CA06362" Association="ikModel.FK__personel__birimi__4CA06362">
+            <End Role="birim" EntitySet="birims" />
+            <End Role="Personel" EntitySet="Personels" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Izin__personelid__656C112C" Association="ikModel.FK__Izin__personelid__656C112C">
+            <End Role="Personel" EntitySet="Personels" />
+            <End Role="Izin" EntitySet="Izins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonelG__perso__6EF57B66" Association="ikModel.FK__PersonelG__perso__6EF57B66">
+            <End Role="Personel" EntitySet="Personels" />
+            <End Role="PersonelGrup" EntitySet="PersonelGrups" />
+          </AssociationSet>
+          <EntitySet Name="PersonelMesais" EntityType="ikModel.PersonelMesai" />
+          <AssociationSet Name="FK__PersonelM__perso__218BE82B" Association="ikModel.FK__PersonelM__perso__218BE82B">
+            <End Role="Personel" EntitySet="Personels" />
+            <End Role="PersonelMesai" EntitySet="PersonelMesais" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Avanslar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personelId" Type="Int32" Nullable="false" />
+          <Property Name="tutar" Type="Int32" Nullable="false" />
+          <Property Name="tarih" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Personel" Relationship="ikModel.FK__Avanslar__person__03F0984C" FromRole="Avanslar" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="vergi_dilim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yil" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="vergi_dilim_detay" Relationship="ikModel.FK__vergi_dil__dilim__6CC31A31" FromRole="vergi_dilim" ToRole="vergi_dilim_detay" />
+        </EntityType>
+        <EntityType Name="vergi_dilim_detay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dilimId" Type="Int32" Nullable="false" />
+          <Property Name="oran" Type="Int32" Nullable="false" />
+          <Property Name="alt" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ust" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="vergi_dilim" Relationship="ikModel.FK__vergi_dil__dilim__6CC31A31" FromRole="vergi_dilim_detay" ToRole="vergi_dilim" />
+        </EntityType>
+        <Association Name="FK__vergi_dil__dilim__6CC31A31">
+          <End Type="ikModel.vergi_dilim" Role="vergi_dilim" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Izin" Type="Self.Izin" Multiplicity="*" />
+          <End Type="ikModel.vergi_dilim_detay" Role="vergi_dilim_detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vergi_dilim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vergi_dilim_detay">
+              <PropertyRef Name="dilimId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Takip__parentid__4850AF91">
+          <End Type="ikModel.Takip" Role="Takip" Multiplicity="0..1" />
+          <End Type="ikModel.Takip" Role="Takip1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Takip">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Takip1">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adsoyad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="birimid" Type="Int32" />
+          <Property Name="puantaj" Type="Boolean" Nullable="false" />
+          <Property Name="sira" Type="Int32" />
+          <Property Name="sicilno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="tcno" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="pdksid" Type="Int32" />
+          <Property Name="giristarihi" Type="DateTime" Precision="0" />
+          <Property Name="kidemtarihi" Type="DateTime" Precision="0" />
+          <Property Name="mikroid" Type="Guid" />
+          <Property Name="dogumtarihi" Type="DateTime" Precision="0" />
+          <Property Name="cikistarihi" Type="DateTime" Precision="0" />
+          <Property Name="kadro" Type="Int32" />
+          <Property Name="iban" Type="String" MaxLength="26" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Avanslars" Relationship="ikModel.FK__Avanslar__person__03F0984C" FromRole="Personel" ToRole="Avanslar" />
+          <NavigationProperty Name="birims" Relationship="ikModel.FK__birim__birimAmir__208CD6FA" FromRole="Personel" ToRole="birim" />
+          <NavigationProperty Name="birim" Relationship="ikModel.FK__personel__birimi__4CA06362" FromRole="Personel" ToRole="birim" />
+          <NavigationProperty Name="Izins" Relationship="ikModel.FK__Izin__personelid__656C112C" FromRole="Personel" ToRole="Izin" />
+          <NavigationProperty Name="PersonelGrups" Relationship="ikModel.FK__PersonelG__perso__6EF57B66" FromRole="Personel" ToRole="PersonelGrup" />
+          <Property Name="yaka" Type="Boolean" />
+          <NavigationProperty Name="PersonelMesais" Relationship="ikModel.FK__PersonelM__perso__218BE82B" FromRole="Personel" ToRole="PersonelMesai" />
+        </EntityType>
+        <Association Name="FK__Avanslar__person__03F0984C">
+          <End Type="ikModel.Personel" Role="Personel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ikModel.Avanslar" Role="Avanslar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Avanslar">
+              <PropertyRef Name="personelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__birim__birimAmir__208CD6FA">
+          <End Type="ikModel.Personel" Role="Personel" Multiplicity="0..1" />
+          <End Type="ikModel.birim" Role="birim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="birim">
+              <PropertyRef Name="birimAmiri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personel__birimi__4CA06362">
+          <End Type="ikModel.birim" Role="birim" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ikModel.Personel" Role="Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="birim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="birimid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Izin__personelid__656C112C">
+          <End Type="ikModel.Personel" Role="Personel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ikModel.Izin" Role="Izin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Personel">
               <PropertyRef Name="id" />
@@ -445,10 +610,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PersonelG__perso__6EF57B66">
-          <End Role="Personel" Type="Self.Personel" Multiplicity="1">
+          <End Type="ikModel.Personel" Role="Personel" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="PersonelGrup" Type="Self.PersonelGrup" Multiplicity="*" />
+          <End Type="ikModel.PersonelGrup" Role="PersonelGrup" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Personel">
               <PropertyRef Name="id" />
@@ -458,45 +623,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ikEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="birims" EntityType="Self.birim" />
-          <EntitySet Name="Grups" EntityType="Self.Grup" />
-          <EntitySet Name="Imzas" EntityType="Self.Imza" />
-          <EntitySet Name="ImzaTakips" EntityType="Self.ImzaTakip" />
-          <EntitySet Name="Izins" EntityType="Self.Izin" />
-          <EntitySet Name="IzinTips" EntityType="Self.IzinTip" />
-          <EntitySet Name="Personels" EntityType="Self.Personel" />
-          <EntitySet Name="PersonelGrups" EntityType="Self.PersonelGrup" />
-          <EntitySet Name="Takips" EntityType="Self.Takip" />
-          <AssociationSet Name="FK__personel__birimi__4CA06362" Association="Self.FK__personel__birimi__4CA06362">
-            <End Role="birim" EntitySet="birims" />
-            <End Role="Personel" EntitySet="Personels" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PersonelG__grupi__6E01572D" Association="Self.FK__PersonelG__grupi__6E01572D">
-            <End Role="Grup" EntitySet="Grups" />
-            <End Role="PersonelGrup" EntitySet="PersonelGrups" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ImzaTakip__imzaI__5FB337D6" Association="Self.FK__ImzaTakip__imzaI__5FB337D6">
-            <End Role="Imza" EntitySet="Imzas" />
-            <End Role="ImzaTakip" EntitySet="ImzaTakips" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ImzaTakip__perso__60A75C0F" Association="Self.FK__ImzaTakip__perso__60A75C0F">
-            <End Role="Personel" EntitySet="Personels" />
-            <End Role="ImzaTakip" EntitySet="ImzaTakips" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Izin__izintip__66603565" Association="Self.FK__Izin__izintip__66603565">
-            <End Role="IzinTip" EntitySet="IzinTips" />
-            <End Role="Izin" EntitySet="Izins" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Izin__personelid__656C112C" Association="Self.FK__Izin__personelid__656C112C">
-            <End Role="Personel" EntitySet="Personels" />
-            <End Role="Izin" EntitySet="Izins" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PersonelG__perso__6EF57B66" Association="Self.FK__PersonelG__perso__6EF57B66">
-            <End Role="Personel" EntitySet="Personels" />
-            <End Role="PersonelGrup" EntitySet="PersonelGrups" />
-          </AssociationSet>
-        </EntityContainer>
+        <EntityType Name="PersonelMesai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personelID" Type="Int32" Nullable="false" />
+          <Property Name="yil" Type="Int32" Nullable="false" />
+          <Property Name="ay" Type="Int32" Nullable="false" />
+          <Property Name="mesai1" Type="Int32" Nullable="false" />
+          <Property Name="mesai2" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Personel" Relationship="ikModel.FK__PersonelM__perso__218BE82B" FromRole="PersonelMesai" ToRole="Personel" />
+        </EntityType>
+        <Association Name="FK__PersonelM__perso__218BE82B">
+          <End Type="ikModel.Personel" Role="Personel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ikModel.PersonelMesai" Role="PersonelMesai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PersonelMesai">
+              <PropertyRef Name="personelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -506,6 +658,8 @@
           <EntitySetMapping Name="birims">
             <EntityTypeMapping TypeName="ikModel.birim">
               <MappingFragment StoreEntitySet="birim">
+                <ScalarProperty Name="birimAmiri" ColumnName="birimAmiri" />
+                <ScalarProperty Name="puantaj" ColumnName="puantaj" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="birimad" ColumnName="birimad" />
                 <ScalarProperty Name="fullad" ColumnName="fullad" />
@@ -518,26 +672,6 @@
               <MappingFragment StoreEntitySet="Grup">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ad" ColumnName="ad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Imzas">
-            <EntityTypeMapping TypeName="ikModel.Imza">
-              <MappingFragment StoreEntitySet="Imza">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
-                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ImzaTakips">
-            <EntityTypeMapping TypeName="ikModel.ImzaTakip">
-              <MappingFragment StoreEntitySet="ImzaTakip">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="imzaID" ColumnName="imzaID" />
-                <ScalarProperty Name="personelID" ColumnName="personelID" />
-                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-                <ScalarProperty Name="ImzaTarih" ColumnName="ImzaTarih" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -563,24 +697,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Personels">
-            <EntityTypeMapping TypeName="ikModel.Personel">
-              <MappingFragment StoreEntitySet="Personel">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
-                <ScalarProperty Name="birimid" ColumnName="birimid" />
-                <ScalarProperty Name="puantaj" ColumnName="puantaj" />
-                <ScalarProperty Name="sira" ColumnName="sira" />
-                <ScalarProperty Name="sicilno" ColumnName="sicilno" />
-                <ScalarProperty Name="tcno" ColumnName="tcno" />
-                <ScalarProperty Name="pdksid" ColumnName="pdksid" />
-                <ScalarProperty Name="giristarihi" ColumnName="giristarihi" />
-                <ScalarProperty Name="kidemtarihi" ColumnName="kidemtarihi" />
-                <ScalarProperty Name="mikroid" ColumnName="mikroid" />
-                <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PersonelGrups">
             <EntityTypeMapping TypeName="ikModel.PersonelGrup">
               <MappingFragment StoreEntitySet="PersonelGrup">
@@ -593,11 +709,77 @@
           <EntitySetMapping Name="Takips">
             <EntityTypeMapping TypeName="ikModel.Takip">
               <MappingFragment StoreEntitySet="Takip">
+                <ScalarProperty Name="sira" ColumnName="sira" />
+                <ScalarProperty Name="gostermegunu" ColumnName="gostermegunu" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="aciklama" ColumnName="aciklama" />
                 <ScalarProperty Name="ekleme" ColumnName="ekleme" />
                 <ScalarProperty Name="tamamlanma" ColumnName="tamamlanma" />
                 <ScalarProperty Name="sontarih" ColumnName="sontarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Avanslars">
+            <EntityTypeMapping TypeName="ikModel.Avanslar">
+              <MappingFragment StoreEntitySet="Avanslar">
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="tutar" ColumnName="tutar" />
+                <ScalarProperty Name="personelId" ColumnName="personelId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vergi_dilim">
+            <EntityTypeMapping TypeName="ikModel.vergi_dilim">
+              <MappingFragment StoreEntitySet="vergi_dilim">
+                <ScalarProperty Name="yil" ColumnName="yil" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vergi_dilim_detay">
+            <EntityTypeMapping TypeName="ikModel.vergi_dilim_detay">
+              <MappingFragment StoreEntitySet="vergi_dilim_detay">
+                <ScalarProperty Name="ust" ColumnName="ust" />
+                <ScalarProperty Name="alt" ColumnName="alt" />
+                <ScalarProperty Name="oran" ColumnName="oran" />
+                <ScalarProperty Name="dilimId" ColumnName="dilimId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personels">
+            <EntityTypeMapping TypeName="ikModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="yaka" ColumnName="yaka" />
+                <ScalarProperty Name="iban" ColumnName="iban" />
+                <ScalarProperty Name="kadro" ColumnName="kadro" />
+                <ScalarProperty Name="cikistarihi" ColumnName="cikistarihi" />
+                <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+                <ScalarProperty Name="mikroid" ColumnName="mikroid" />
+                <ScalarProperty Name="kidemtarihi" ColumnName="kidemtarihi" />
+                <ScalarProperty Name="giristarihi" ColumnName="giristarihi" />
+                <ScalarProperty Name="pdksid" ColumnName="pdksid" />
+                <ScalarProperty Name="tcno" ColumnName="tcno" />
+                <ScalarProperty Name="sicilno" ColumnName="sicilno" />
+                <ScalarProperty Name="sira" ColumnName="sira" />
+                <ScalarProperty Name="puantaj" ColumnName="puantaj" />
+                <ScalarProperty Name="birimid" ColumnName="birimid" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelMesais">
+            <EntityTypeMapping TypeName="ikModel.PersonelMesai">
+              <MappingFragment StoreEntitySet="PersonelMesai">
+                <ScalarProperty Name="mesai2" ColumnName="mesai2" />
+                <ScalarProperty Name="mesai1" ColumnName="mesai1" />
+                <ScalarProperty Name="ay" ColumnName="ay" />
+                <ScalarProperty Name="yil" ColumnName="yil" />
+                <ScalarProperty Name="personelID" ColumnName="personelID" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
