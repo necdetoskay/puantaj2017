@@ -329,7 +329,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private System.Windows.Forms.ToolStripMenuItem geçKalanlarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çıkıştaKartBasmayanlarToolStripMenuItem;
-        private DevExpress.XtraScheduler.UI.MonthEdit monthEdit1;
+        //private DevExpress.XtraScheduler.UI.MonthEdit monthEdit1;
         private System.Windows.Forms.Button button2;
         private DevExpress.XtraGrid.Columns.GridColumn ID;
         private DevExpress.XtraGrid.Columns.GridColumn GirisSaat;

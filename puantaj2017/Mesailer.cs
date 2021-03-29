@@ -6,9 +6,14 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using DevExpress.Data;
+using DevExpress.Office.Utils;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Layout.Modes;
 using Microsoft.Office.Interop.Excel;
 using puantaj2017.DAL;
 using PtakipDAL;
@@ -27,9 +32,161 @@ namespace puantaj2017
         public Mesailer()
         {
             InitializeComponent();
-            gridView1.CustomUnboundColumnData += GridView1_CustomUnboundColumnData;
+            // gridView1.CustomUnboundColumnData += GridView1_CustomUnboundColumnData;
             gridView1.CellValueChanged += GridView1_CellValueChanged;
+            gridView1.CellValueChanging += GridView1_CellValueChanging;
             gridView1.RowStyle += GridView1_RowStyle;
+            gridView1.CustomUnboundColumnData += GridView1_CustomUnboundColumnData;
+            gridView1.CustomSummaryCalculate += GridView1_CustomSummaryCalculate;
+           // gridView1.PopupMenuShowing += GridView1_PopupMenuShowing;
+            
+        }
+        //class RowInfo {
+        //    public RowInfo(GridView view, int rowHandle) {
+        //        this.RowHandle = rowHandle;
+        //        this.View = view;
+        //    }
+        //    public GridView View;
+        //    public int RowHandle;
+        //}
+     
+        private void Hesapla(PersonelMesaiData rw)
+        {
+            var saatkes = -300;
+            var gmdak = 0;
+            if (!rw.Hesapla) return;
+               
+
+            if (rw.MesaiSekli == MesaiSekli.Normal) // 9 saat düşülecek
+            {
+                rw.ToplamDakika = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes - (rw.Tatil ? 0 : 480) - (rw.Yemek ? 60 : 0);
+
+                saatkes += rw.ToplamDakika;
+                int saat = (int)(saatkes / 60);
+                if (saat > 0)
+                {
+                    rw.fm1saat = saat;
+                    rw.fm1dakika = saatkes % 60;
+                    saatkes = rw.fm1dakika;
+                }
+            }
+            else if (rw.MesaiSekli == MesaiSekli.ResmiTatil) //resmi tatilde sadece yemek düşülecek
+            {
+                rw.ToplamDakika = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes - (rw.Yemek ? 60 : 0);
+
+            }
+            else
+            { //gece mesaisinde  7,5 saat haricinde tümü mexai olarak hesaplanacak
+
+                rw.ToplamDakika = (int)(new TimeSpan(23, 59, 0).Subtract(rw.GirisSaat).TotalMinutes + TimeSpan.Parse(rw.CikisSaat).Subtract(new TimeSpan(0, 0, 0)).TotalMinutes - 450);
+                gmdak += rw.ToplamDakika;
+                int saat = (int)(gmdak / 60);
+                if (saat > 0)
+                {
+                    rw.gmsaat = saat;
+                    rw.gmdakika = gmdak % 60;
+                    gmdak = gmdak % 60;
+                }
+            }
+
+            if (!cBEksikHesap.Checked)
+            {
+                if (rw.ToplamDakika < 0)
+                {
+                    rw.Hesapla = false;
+                    rw.ToplamDakika = 0;
+                }
+            }
+            else
+            {
+                rw.Hesapla = true;
+            }
+        }
+        //void GirisCikisDegistir(object sender, EventArgs e) {
+        //    DXMenuCheckItem item = sender as DXMenuCheckItem;
+        //    RowInfo info = item.Tag as RowInfo;
+        //    var rw =(puantaj2017.DAL.PersonelMesaiData)this.gridView1.GetRow(info.RowHandle);
+        //    var t = rw.GirisSaat;
+        //    rw.GirisSaat = TimeSpan.Parse(rw.CikisSaat);
+        //    rw.CikisSaat = t.ToString();
+        //    Hesapla(rw);
+        //    //yeniden hesapla
+
+        //    //info.View.
+        //    //info.View.OptionsView.AllowCellMerge = item.Checked;
+        //}
+
+        //DXMenuCheckItem CreateMenuItemCellMerging(GridView view, int rowHandle)
+        //{
+        //    DXMenuCheckItem checkItem = new DXMenuCheckItem("Giriş Çıkış Değiştir",
+        //        view.OptionsView.AllowCellMerge, null, new EventHandler(GirisCikisDegistir));
+        //    checkItem.Tag = new RowInfo(view, rowHandle);
+        //    //checkItem.ImageOptions.Image = imageCollection1.Images[1];
+        //    return checkItem;
+        //}
+
+        //private void GridView1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        //{
+        //    GridView view = sender as GridView;
+        //    if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row) {
+        //        int rowHandle = e.HitInfo.RowHandle;
+        //        // Delete existing menu items, if any.
+        //        //e.Menu.Items.Clear();
+        //        // Add the Rows submenu with the 'Delete Row' command
+              
+        //        // Add the 'Cell Merging' check menu item.
+        //        DXMenuItem item = CreateMenuItemCellMerging(view, rowHandle);
+        //        item.BeginGroup = true;
+        //        e.Menu.Items.Add(item);
+        //    }
+        //}
+
+        private void GridView1_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        {
+            e.TotalValue = e.FieldValue;
+         
+        }
+
+        private void rowHesapla(CellValueChangedEventArgs e, PersonelMesaiData rw)
+        {
+            //yemek
+            //hesapla
+            //tatil
+            //resmi tatil
+            //gece mesai
+
+            //çıkış-giriş
+
+            switch (rw.MesaiSekli)
+            {
+                case MesaiSekli.Normal:
+
+                    break;
+                case MesaiSekli.ResmiTatil:
+                    break;
+                default://gece mesai
+                    break;
+
+
+            }
+            if (e.Column.Caption == "Yemek")
+            {
+                if (rw.Yemek)
+                {
+                    //mesaiden 60 dk düş
+                }
+            }
+
+        }
+
+        private void GridView1_CellValueChanging(object sender, CellValueChangedEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view == null) return;
+            PersonelMesaiData rw;
+            rw = (PersonelMesaiData)view.GetRow(e.RowHandle);
+            rowHesapla(e, rw);
+        
         }
 
         private void GridView1_RowStyle(object sender, RowStyleEventArgs e)
@@ -44,25 +201,7 @@ namespace puantaj2017
                     var giris = TimeSpan.Parse(View.GetRowCellDisplayText(e.RowHandle, View.Columns["GirisSaat"]));
                     var cikis = TimeSpan.Parse(View.GetRowCellDisplayText(e.RowHandle, View.Columns["CikisSaat"]));
 
-                    var izinler = ds.PersonelIzin.Where(
-                        c => c.Saatlik && c.personelid == id && c.tarih == tarih &&
-                            (c.gidis_saat == new TimeSpan(8, 30, 0) || c.gelis_saat == new TimeSpan(17, 30, 0)));
-                    //if (izinler.Any())
-                    //{
-                    //    var first = izinler.FirstOrDefault();
-                    //    var frst = ds.PersonelGirisCikis.FirstOrDefault(c => c.personelid == id && c.tarih == tarih);
-                    //    if (first.gidis_saat == new TimeSpan(8, 30, 0))// || first.gelis_saat == new TimeSpan(17, 30, 0))
-                    //    {//        frst.giris_saat = new TimeSpan(8, 30, 0);
-                    //        e.Appearance.BackColor = Color.Bisque;
-                    //    }
 
-                    //    if (first.gelis_saat == new TimeSpan(17, 30, 0))// || first.gelis_saat == new TimeSpan(17, 30, 0))
-                    //    {
-                    //        frst.cikis_saat = "17:30:00";
-                    //        e.Appearance.BackColor = Color.Bisque;
-                    //    }
-
-                    //}
                     if (
                         ds.PersonelIzin.Any(
                             c =>
@@ -79,15 +218,7 @@ namespace puantaj2017
 
 
             }
-            //if (e.Column.FieldName == "UnitsOnOrder" || e.Column.FieldName == "UnitPrice")
-            //{
-            //    string category = View.GetRowCellDisplayText(e.RowHandle, View.Columns["Category"]);
-            //    if (category == "Seafood")
-            //    {
-            //        e.Appearance.BackColor = Color.DeepSkyBlue;
-            //        e.Appearance.BackColor2 = Color.LightCyan;
-            //    }
-            //}
+
         }
 
         private void GridView1_CellValueChanged(object sender, CellValueChangedEventArgs e)
@@ -99,6 +230,25 @@ namespace puantaj2017
 
             if (e.Column.Caption != "")
             {
+                if (e.Column.Caption == "Hesapla")
+                {
+
+                }
+                if (e.Column.Caption == "ResmiTatil")
+                {
+                    rw.FM2 = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes -
+                                     (rw.Yemek ? 60 : 0);
+                    rw.ToplamDakika = 0;
+
+                    gridControl1.Update();
+                    return;
+                }
+                if (e.Column.Caption == "GeceMesai")
+                {
+                    rw.ToplamDakika = new TimeSpan(23, 59, 0).Subtract(rw.GirisSaat).Minutes + TimeSpan.Parse(rw.CikisSaat).Subtract(new TimeSpan(0, 0, 0)).Minutes - 450;
+
+                    return;
+                }
                 if (rw.Hesapla)
                 {
                     rw.ToplamDakika = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes -
@@ -107,6 +257,7 @@ namespace puantaj2017
                 else
                     rw.ToplamDakika = 0;
             }
+            //view.ValidateEditor();
         }
 
         private void GridView1_CustomUnboundColumnData(object sender, CustomColumnDataEventArgs e)
@@ -122,7 +273,7 @@ namespace puantaj2017
                 //var tatil = Convert.ToBoolean(view.GetListSourceRowCellValue(rowIndex, "Tatil"));
                 //var yemek = Convert.ToBoolean(view.GetListSourceRowCellValue(rowIndex, "Yemek"));
                 //var hesapla = Convert.ToBoolean(view.GetListSourceRowCellValue(rowIndex, "Hesapla"));
-                if (e.Column.FieldName == "Haftanın Günü")
+                if (e.Column.FieldName == "haftaningunu")
                 {
                     e.Value = haftaningunu.ToString("dddd");
                 }
@@ -152,92 +303,6 @@ namespace puantaj2017
         private void Mesailer_Load(object sender, EventArgs e)
         {
 
-            return;
-
-            //PersonelMesaiData
-            ds = (puantajDataSet)Tag;
-            try
-            {
-                var source = (from p in ds.Personel
-                              join pgc in ds.PersonelGirisCikis on p.id equals pgc.personelid
-                              select new PersonelMesaiData
-                              {
-                                  Hafta = pgc.hafta,
-                                  PersonelID = p.id,
-                                  PersonelAdSoyad = p.adsoyad,
-                                  Tarih = pgc.tarih,
-                                  GirisSaat = pgc.giris_saat,
-                                  CikisSaat = pgc.cikis_saat,
-                                  Yemek = true,
-                                  Hesapla = true,
-                                  ToplamDakika = 0,
-                                  Tatil = pgc.tarih.DayOfWeek == DayOfWeek.Sunday | pgc.tarih.DayOfWeek == DayOfWeek.Saturday
-                              });
-
-
-
-
-
-
-                var liste = source.ToList();
-
-
-                for (int i = 0; i < liste.Count; i++)
-                {
-                    try
-                    {
-                        var izin =
-                                       ds.PersonelIzin.Where(
-                                           c => c.personelid == liste[i].PersonelID && c.tarih == liste[i].Tarih);
-                        if (izin.Any(c => c.Saatlik))
-                        {
-                            var mazeret = izin.FirstOrDefault(c => c.Saatlik);
-                            if (mazeret.gidis_saat == new TimeSpan(8, 30, 0))
-                            {
-                                liste[i].GirisSaat = new TimeSpan(8, 30, 0);
-                            }
-                            if (mazeret.gelis_saat == new TimeSpan(17, 30, 0))
-                            {
-                                liste[i].CikisSaat = "17:30:00";
-                            }
-                        }
-                    }
-                    catch (Exception ichata)
-                    {
-
-                    }
-
-                }
-
-                sourceList = liste;
-                gridControl1.DataSource = sourceList;
-            }
-            catch (Exception xx)
-            {
-                // throw;
-            }
-
-
-
-            //foreach (var personelMesaiData in source)
-            //{
-            //    var tarih = DateTime.Parse(personelMesaiData.Tarih.ToShortDateString());
-            //    var izin =
-            //        ds.PersonelIzin.Where(
-            //            c => c.personelid == personelMesaiData.PersonelID && c.tarih == personelMesaiData.Tarih);
-            //    if (izin.Any(c => c.Saatlik))
-            //    {
-            //        var mazeret = izin.FirstOrDefault(c => c.Saatlik);
-            //        if (mazeret.gidis_saat == new TimeSpan(8, 30, 0))
-            //        {
-            //            personelMesaiData.GirisSaat = new TimeSpan(8, 30, 0);
-            //        }
-            //        if (mazeret.gelis_saat == new TimeSpan(17, 30, 0))
-            //        {
-            //            personelMesaiData.CikisSaat = "17:30:00";
-            //        }
-            //    }
-            //}
 
 
 
@@ -251,7 +316,7 @@ namespace puantaj2017
         }
 
 
-        private void aaaaaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HesaplaToolStripMenuItem_Click(object sender, EventArgs e)//hesapla
         {
             GridView gridView = gridControl1.FocusedView as GridView;
             var rows = gridView.DataController.GetAllFilteredAndSortedRows().Cast<PersonelMesaiData>();
@@ -262,25 +327,69 @@ namespace puantaj2017
             }
 
             //foreach (var row in rows.Where(c => c.Hesapla).GroupBy(c => c.Hafta))
+            var saatkes = -300;
+            var gmdak = 0;
             foreach (var row in rows.GroupBy(c => c.Hafta))
             {
+                saatkes = -300;
+               // gmdak = 0;
+
                 foreach (var rw in row)
                 {
                     try
                     {
-                        rw.ToplamDakika = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes - (rw.Yemek ? 60 : 0) - (rw.Tatil ? 0 : 480);
-                        if (!cBEksikHesap.Checked)
-                        {
-                            if (rw.ToplamDakika < 0)
-                            {
-                                rw.Hesapla = false;
-                                rw.ToplamDakika = 0;
-                            }
-                        }
-                        else
-                        {
-                            rw.Hesapla = true;
-                        }
+
+                        Hesapla(rw);
+                        //if(!rw.Hesapla)
+                        //    continue;
+
+                        //if (rw.MesaiSekli == MesaiSekli.Normal) // 9 saat düşülecek
+                        //{
+                        //    rw.ToplamDakika = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes - (rw.Tatil?0: 480) - (rw.Yemek ? 60 : 0);
+
+                        //    saatkes += rw.ToplamDakika;
+                        //    int saat = (int)(saatkes / 60);
+                        //    if (saat > 0)
+                        //    {
+                        //        rw.fm1saat = saat;
+                        //        rw.fm1dakika = saatkes % 60;
+                        //        saatkes = rw.fm1dakika;
+                        //    }
+                        //}
+                        //else if (rw.MesaiSekli == MesaiSekli.ResmiTatil) //resmi tatilde sadece yemek düşülecek
+                        //{
+                        //    rw.ToplamDakika = (int)TimeSpan.Parse(rw.CikisSaat).Subtract(rw.GirisSaat).TotalMinutes - (rw.Yemek ? 60 : 0);
+                           
+                        //}
+                        //else
+                        //{ //gece mesaisinde  7,5 saat haricinde tümü mexai olarak hesaplanacak
+
+                        //    rw.ToplamDakika = (int)(new TimeSpan(23, 59, 0).Subtract(rw.GirisSaat).TotalMinutes + TimeSpan.Parse(rw.CikisSaat).Subtract(new TimeSpan(0, 0, 0)).TotalMinutes - 450);
+                        //    gmdak += rw.ToplamDakika;
+                        //    int saat = (int) (gmdak / 60);
+                        //    if(saat>0)
+                        //    {
+                        //        rw.gmsaat = saat;
+                        //        rw.gmdakika = gmdak % 60;
+                        //        gmdak = gmdak % 60;
+                        //    }
+                        //}
+
+                        //if (!cBEksikHesap.Checked)
+                        //{
+                        //    if (rw.ToplamDakika < 0)
+                        //    {
+                        //        rw.Hesapla = false;
+                        //        rw.ToplamDakika = 0;
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    rw.Hesapla = true;
+                        //}
+
+                       
+
 
 
                     }
@@ -291,52 +400,6 @@ namespace puantaj2017
                     }
                 }
             }
-
-
-            //if (gridView1.GroupCount == 0)
-            //    for (int rowHandle = 0; rowHandle < gridView1.RowCount; rowHandle++)
-            //    {
-            //        foreach (GridColumn gc in gridView1.Columns)
-            //            Console.WriteLine(String.Format("{0} ", gridView1.GetRowCellDisplayText(rowHandle, gc)));
-
-            //    }
-            //else
-            //{
-            //    // Get the list of grouped columns
-            //    List<GridColumn> groupedColumnsList = new List<GridColumn>();
-            //    foreach (GridColumn groupedColumn in gridView1.GroupedColumns)
-            //        groupedColumnsList.Add(groupedColumn);
-
-            //    for (int rowHandle = -1; gridView1.IsValidRowHandle(rowHandle); rowHandle--)
-            //    {
-            //        Console.WriteLine(gridView1.GetGroupRowDisplayText(rowHandle) + "\r\n");
-            //        if (gridView1.GetChildRowHandle(rowHandle, 0) > -1)
-
-            //            for (int childRowHandle = 0; childRowHandle < gridView1.GetChildRowCount(rowHandle); childRowHandle++)
-            //            {
-            //                var id =
-            //                    gridView1.GetRowCellDisplayText(gridView1.GetChildRowHandle(rowHandle, childRowHandle),
-            //                        gridView1.Columns["PersonelID"]);
-            //                var tarih = gridView1.GetRowCellDisplayText(gridView1.GetChildRowHandle(rowHandle, childRowHandle),
-            //                        gridView1.Columns["Tarih"]);
-
-
-
-
-            //            }
-            //    }
-            //}
-
-
-            //PersonelMesaiData row = (PersonelMesaiData)gridView.GetRow(gridView.FocusedRowHandle);
-
-
-
-            //var mesai = (List<PersonelMesaiData>) gridView1.DataSource;        ;//.DefaultView.DataSource;
-            //var me = mesai.Where(c => c.PersonelID == row.PersonelID);
-            //for (int i = 0; i < gridView1.DataRowCount; i++) {
-            //    var rw=gridView1.GetRow(i);
-            //}
 
         }
 
@@ -372,6 +435,9 @@ namespace puantaj2017
             rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
             rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
             var toplammesai = 0;
+            var toplamfm2 = 0;
+
+
 
             foreach (var rw in rows.GroupBy(c => c.Hafta))
             {
@@ -413,9 +479,23 @@ namespace puantaj2017
                 rg.Value2 = "Toplam Dakika";
                 rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                 rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter; rg.Font.Bold = true;
+                if (rw.Any(c => c.FM2 > 0))
+                {
+                    rg = (Range)worksheet.Cells[row, col++];
+                    rg.Value2 = "R.T. Toplam Dakika";
+                    rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter; rg.Font.Bold = true;
+                }
+
+
+
+
                 col = 2;
                 row++;
-                var haftalikmesai = 0; foreach (var r in rw)
+                var haftalikmesai = 0;
+                var haftalikfm2 = 0;
+
+                foreach (var r in rw)
                 {
                     rg = (Range)worksheet.Cells[row, col++];
                     rg.Value2 = r.Tarih.ToShortDateString();
@@ -441,9 +521,19 @@ namespace puantaj2017
                     rg.Value2 = r.ToplamDakika;
                     rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                     rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                    if (r.FM2 > 0)
+                    {
+                        rg = (Range)worksheet.Cells[row, col++];
+                        rg.Value2 = r.FM2;
+                        rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+                    }
+
+
                     row++;
                     col = 2;
                     haftalikmesai += r.ToplamDakika;
+                    haftalikfm2 += r.FM2;
                 }
 
                 rg = (Range)worksheet.Cells[row, col++];
@@ -466,10 +556,11 @@ namespace puantaj2017
                 rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
                 rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
 
-
+                ////////////////////////////////////////////
                 var mesai = haftalikmesai - 300;
                 var haftaliksaat = (int)(mesai / 60);
                 var haftalikdakika = (int)(mesai % 60);
+                /////////////////////////////////
 
                 rg = (Range)worksheet.Cells[row, col++];
                 rg.Value2 = mesai;
@@ -484,6 +575,8 @@ namespace puantaj2017
                 rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
 
                 toplammesai += mesai > 0 ? mesai : 0;
+                toplamfm2 += haftalikfm2 > 0 ? haftalikfm2 : 0;
+                /////////////////////////////////
             }
             row += 3;
             col = 2;
@@ -522,13 +615,62 @@ namespace puantaj2017
             rg.Value2 = (int)(toplammesai % 60);
             rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
             rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+            ////////////////////////
 
-            MesaiKaydet(rows,toplammesai);
+            if (toplamfm2 > 0)
+            {
+                row += 3;
+                col = 2;
+
+
+
+                rg = (Range)worksheet.Cells[row, col];
+                rg.Value2 = "TOPLAM TATİL MESAİ";
+                rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+
+                rg = (Range)worksheet.Cells[row + 1, col];
+                rg.Value2 = toplamfm2;
+                rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+
+
+                col++;
+
+                rg = (Range)worksheet.Cells[row, col];
+                rg.Value2 = "TOPLAM TATİL SAAT";
+                rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+
+                rg = (Range)worksheet.Cells[row + 1, col];
+                rg.Value2 = (int)(toplamfm2 / 60);
+                rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+
+
+                col++;
+                rg = (Range)worksheet.Cells[row, col];
+                rg.Value2 = "TOPLAM TATİL DAKİKA";
+                rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+
+                rg = (Range)worksheet.Cells[row + 1, col];
+                rg.Value2 = (int)(toplamfm2 % 60);
+                rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;
+            }
+
+
+
+
+
+
+            MesaiKaydet(rows, toplammesai, toplamfm2);
             //soru sor database e kaydet
-           
+
         }
 
-        private void MesaiKaydet(IEnumerable<PersonelMesaiData> rows,int toplammesai )
+        private void MesaiKaydet(IEnumerable<PersonelMesaiData> rows, int toplammesai, int toplamfm2 = 0)
         {
 
             if (MessageBox.Show("Mesai Kayıt Edilsin mi?", "Mesai Kaydet", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -546,6 +688,11 @@ namespace puantaj2017
                     {
                         mesai++;
                     }
+                    var fm2 = (int)(toplamfm2 / 60);
+                    if (toplamfm2 % 60 >= 30)
+                    {
+                        fm2++;
+                    }
                     var varmı = personel.PersonelMesais.Any(c => c.yil == yıl & c.ay == ay);
 
                     if (varmı)
@@ -558,12 +705,12 @@ namespace puantaj2017
                     }
                     else
                     {
-
                         personel.PersonelMesais.Add(new PersonelMesai
                         {
                             ay = ay,
                             yil = yıl,
-                            mesai1 = mesai
+                            mesai1 = mesai,
+                            mesai2 = fm2
                         });
                     }
                     db.SaveChanges();
@@ -620,7 +767,7 @@ namespace puantaj2017
 
                 }
             }
-            aaaaaToolStripMenuItem_Click(null, null);
+            HesaplaToolStripMenuItem_Click(null, null);
         }
 
         private void gridView1_DataSourceChanged(object sender, EventArgs e)
@@ -630,6 +777,9 @@ namespace puantaj2017
 
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            //var a = gridView1.CalcHitInfo(gridControl1.PointToClient(Cursor.Position));
+            //var row=gridView1.GetRow(a.RowHandle);
+
 
         }
 
@@ -681,7 +831,8 @@ namespace puantaj2017
                             Yemek = true,
                             Hesapla = true,
                             ToplamDakika = 0,
-                            Tatil = pgun.Tarih.DayOfWeek == DayOfWeek.Sunday | pgun.Tarih.DayOfWeek == DayOfWeek.Saturday
+                            Tatil = pgun.Tarih.DayOfWeek == DayOfWeek.Sunday | pgun.Tarih.DayOfWeek == DayOfWeek.Saturday,
+                            MesaiSekli = pgun.Giris < TimeSpan.Parse(pgun.Cikis.ToString()) ? MesaiSekli.Normal : MesaiSekli.Gece
 
                         });
 
@@ -716,6 +867,28 @@ namespace puantaj2017
                     }
 
                 }
+                liste.ForEach(c =>
+                {
+                    if (c.GirisSaat == TimeSpan.Parse(c.CikisSaat))
+                    {
+                        c.Hesapla = false;
+
+                    }
+                    else
+                    {
+                        if (c.MesaiSekli == MesaiSekli.Normal)
+                        {
+                            c.ToplamDakika = (int)TimeSpan.Parse(c.CikisSaat).Subtract(c.GirisSaat).TotalMinutes - (c.Yemek ? 60 : 0) - (c.Tatil ? 0 : 480);
+
+
+                        }
+                        else
+                        {
+                            c.ToplamDakika = (int)(new TimeSpan(23, 59, 0).Subtract(c.GirisSaat).TotalMinutes + TimeSpan.Parse(c.CikisSaat).Subtract(new TimeSpan(0, 0, 0)).TotalMinutes - 450);
+                        }
+                    }
+
+                });
 
                 sourceList = liste;
                 gridControl1.DataSource = sourceList;
@@ -732,13 +905,22 @@ namespace puantaj2017
             if (numericUpDownAy.Value < 1)
             {
                 MessageBox.Show("Tahakkuk ayı belirtilmemiş");
-                return;}
+                return;
+            }
 
-            splashScreenManager1.ShowWaitForm();
+            //splashScreenManager1.ShowWaitForm();
             MesaileriYukle();
-            splashScreenManager1.CloseWaitForm();
+            //splashScreenManager1.CloseWaitForm();
         }
 
-       
+        private void yazdırToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gridControl1.PrintDialog();
+        }
+
+        private void excelToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            gridControl1.ExportToXlsx(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\test.xlsx");
+        }
     }
 }

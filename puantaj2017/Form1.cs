@@ -35,75 +35,7 @@ namespace puantaj2017
         public Form1()
         {
 
-            //try
-            //{
-            //    using (SmtpClient client = new SmtpClient("owa.kentkonut.com.tr", 25))
-            //    {
-            //        using (MailMessage message = new MailMessage()
-            //        {
-            //            From = new MailAddress("noskay@kentkonut.com.tr")})
-            //        {
-
-            //            message.To.Add("noskay@kentkonut.com.tr");
-            //            client.Credentials = new System.Net.NetworkCredential("noskay", "25951697");
-            //            client.EnableSsl = true;
-            //            client.Send(message);
-            //        }
-            //    }
-            //}
-            //catch (Exception exxxx)
-            //{
-
-            //    throw;
-            //}
-
-            //MailItem mail = null;
-            //Recipients mailRecipients = null;
-            //Recipient mailRecipient = null;
-            //Application app = new Microsoft.Office.Interop.Outlook.Application();try
-            //{
-            //    mail = app.CreateItem(OlItemType.olMailItem)
-            //        as MailItem;
-            //    mail.Subject = "A programatically generated e-mail";
-            //    mailRecipients = mail.Recipients;mailRecipient = mailRecipients.Add("noskay@kentkonut.com.tr");
-            //    mail.To = "noskay@kentkonut.com.tr";
-            //    mailRecipient.Resolve();
-            //    if (mailRecipient.Resolved){
-            //        mail.Send();}
-            //    else
-            //    {
-            //        System.Windows.Forms.MessageBox.Show(
-            //            "There is no such record in your address book.");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(ex.Message,
-            //         "An exception is occured in the code of add-in.");
-            //}
-            //finally
-            //{
-            //    if (mailRecipient != null) Marshal.ReleaseComObject(mailRecipient);
-            //    if (mailRecipients != null) Marshal.ReleaseComObject(mailRecipients);
-            //    if (mail != null) Marshal.ReleaseComObject(mail);
-            //}
-
-
-
-#if DEBUG
-            //var perkotek = new PtakipDAL.PerkotekContext();
-            //perkotek.PuantajHazirla(new DateTime(2017, 03, 01), new DateTime(2017, 03, 31));
-
-
-            //foreach (var personel in perkotek.personel)
-            //{
-            //    for (var tarih = new DateTime(2017, 03, 01); tarih <= new DateTime(2017, 03, 31); tarih = tarih.AddDays(1))
-            //    {
-            //        Console.WriteLine(string.Format("{0},{1},{2}", tarih.ToShortDateString(), personel.AdSoyad, perkotek.Puantaj(personel.ID, tarih)));
-            //    }
-            //}
-
-#endif
+           
 
             var wp = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
@@ -200,18 +132,7 @@ namespace puantaj2017
             dataGridView2.DataSource = ds.PersonelIzin.Where(c => c.personelid == personel.id).ToList();
         }
 
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    //seçili personel puantaj oluştur
-        //    var personel = (puantajDataSet.PersonelRow)personelListBox.SelectedItem;
-        //    MesaiHesapla(personel);
-
-        //    PuantajGetir(personel);
-        //}
-
-        //private void MesaiHesapla(puantajDataSet.PersonelRow personel)
-        //{
-        //}
+       
 
         private IList<Puantaj> PuantajGetir(puantajDataSet.PersonelRow personel)
         {
@@ -368,26 +289,6 @@ namespace puantaj2017
 
 
 
-            //dosyayı oluştur
-            //sayfa ekle birim adı ile
-
-
-            //var excel = new Application();
-            //excel.Visible = true;
-            //Workbook xlWorkBook;
-            //Worksheet xlWorkSheet;
-
-
-            //xlWorkBook = excel.Workbooks.Add(misValue);
-            //foreach (var birim in ik.birims.OrderByDescending(c => c.id))
-            //{
-            //    var worksheet = xlWorkBook.Worksheets.Add();
-            //    worksheet.Name = birim.birimad;
-            //    tabloyuolustur(worksheet, birim); //tablo başlığını oluştur
-            //                                      //personel verilerini ekle
-            //                                      //tablo altlığını oluştur.
-
-            //}
         }
 
         private void tabloyuolustur(Worksheet worksheet, birim birim)
@@ -1006,9 +907,10 @@ namespace puantaj2017
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            xlWorkBook.Close();
+           // xlWorkBook.Close();
             excel.Workbooks.Close();
-            excel.Quit(); releaseObject(excel);
+            excel.Quit();
+            releaseObject(excel);
         }
         private void releaseObject(object obj)
         {
@@ -1036,8 +938,8 @@ namespace puantaj2017
 
         private void geçKalanlarRaporToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new GecKalanlar();
-            form.ShowDialog();
+            //var form = new GecKalanlar();
+            //form.ShowDialog();
         }
 
         private void aileFertleriToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1074,7 +976,7 @@ namespace puantaj2017
 
         }private void kalanİzinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new KalanIzin().ShowDialog();
+            //new KalanIzin().ShowDialog();
         }
 
         private void dosyaTarihİşlemleriToolStripMenuItem_Click(object sender, EventArgs e)

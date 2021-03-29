@@ -43,8 +43,17 @@ namespace puantaj2017
                                     c =>
                                         c.pt_pkod == pkod && c.pt_maliyil == numericUpDown1.Value &&
                                         c.pt_tah_ay == numericUpDown2.Value).Sum(c => c.pt_net);
-                            row.TahakkukTutar = Math.Round(decimal.Parse(net.ToString()), 2);
+                            if (net == null)
+                            {
+                                row.TahakkukTutar = 0;
+                            }
+                            else
+                            {
+                                row.TahakkukTutar = Math.Round(decimal.Parse(net.ToString()), 2);
+                            }
+                          
                             row.Fark = row.VakifTutar - row.TahakkukTutar;
+                          
                         }
                     }
                     catch (Exception x)
@@ -57,8 +66,10 @@ namespace puantaj2017
         }
         private void BordroBanka_Load(object sender, EventArgs e)
         {
-
+            gridView1.CellValueChanged += gridView1_CellValueChanged;
         }
+
+     
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -66,11 +77,15 @@ namespace puantaj2017
             if (view == null) return;
             BankaBordroVM rw;
             rw = (BankaBordroVM)view.GetRow(e.RowHandle);
-            if (e.Column.Caption != "")
+            if (e.Column.Caption != "Tahakkuk Tutar")
             {
                 try
                 {
                     rw.Fark = rw.VakifTutar - rw.TahakkukTutar;
+                    if (rw.Fark > 0)
+                    {
+                        
+                    }
                 }
                 catch (Exception xxxx)
                 {
@@ -85,8 +100,8 @@ namespace puantaj2017
         private void button1_Click(object sender, EventArgs e)
         {
             openFileDialog1.Multiselect = false;
-            openFileDialog1.InitialDirectory = @"\\fileserver\İnsan kaynakları\2018\MAAŞ";
-            openFileDialog1.Filter = "Excel Dosyası |*.xlsx| Excel Dosyası|*.xls";
+            openFileDialog1.InitialDirectory = @"\\fileserver\İnsan kaynakları\";
+            openFileDialog1.Filter = "Excel Files|*.xlsx;*.xls";
             openFileDialog1.Title = "Excel Dosyası Seçiniz..";
             openFileDialog1.FilterIndex = 2;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)

@@ -264,7 +264,7 @@
 
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
+        //private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colPersonelKodu;
         private DevExpress.XtraGrid.Columns.GridColumn colAdıSoyadı;
         private DevExpress.XtraGrid.Columns.GridColumn colSicilNo;

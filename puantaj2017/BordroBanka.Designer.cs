@@ -44,7 +44,7 @@
             this.colTahakkukTutar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::puantaj2017.WaitForm1), true, true);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -140,7 +140,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 85);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(845, 449);
+            this.gridControl1.Size = new System.Drawing.Size(972, 449);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -196,9 +196,9 @@
             this.fark.Visible = true;
             this.fark.VisibleIndex = 3;
             // 
-            // splashScreenManager1
+            // openFileDialog1
             // 
-            this.splashScreenManager1.ClosingDelay = 500;
+            this.openFileDialog1.InitialDirectory = "\\\\fileserver\\İnsan kaynakları";
             // 
             // panel1
             // 
@@ -211,14 +211,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(845, 85);
+            this.panel1.Size = new System.Drawing.Size(972, 85);
             this.panel1.TabIndex = 10;
             // 
             // BordroBanka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 534);
+            this.ClientSize = new System.Drawing.Size(972, 534);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
             this.Name = "BordroBanka";

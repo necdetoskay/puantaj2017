@@ -158,6 +158,12 @@ namespace puantaj2017.DAL
         public string aciklama { get; set; }
     }
 
+    public enum MesaiSekli
+    {
+        Normal,
+        ResmiTatil,
+        Gece
+    }
 
     public class PersonelMesaiData{
         public int Hafta { get; set; }
@@ -166,11 +172,20 @@ namespace puantaj2017.DAL
         public DateTime Tarih { get; set; }
         public TimeSpan GirisSaat { get; set; }
         public string CikisSaat { get; set; }
-      
+
+        public MesaiSekli MesaiSekli { get; set; }
         public bool Yemek { get; set; }
         public bool Hesapla { get; set; }
         public int ToplamDakika { get; set; }
         public bool Tatil { get; set; }
+     
+        public int FM2 { get; set; }
+        public int  fm1dakika { get; set; }
+        public int fm2dakika { get; set; }
+        public int gmdakika { get; set; }
+        public int  fm1saat { get; set; }
+        public int fm2saat { get; set; }
+        public int gmsaat { get; set; }
     }
 
 

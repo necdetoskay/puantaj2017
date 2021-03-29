@@ -46,8 +46,8 @@
             this.mazeretlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pdksRaporİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.girişÇıkışlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::puantaj2017.WaitForm1), true, true);
             this.geçKalanlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::puantaj2017.WaitForm1), true, true);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -79,7 +79,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(669, 63);
+            this.groupBox1.Size = new System.Drawing.Size(1142, 63);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -110,7 +110,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 87);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(669, 360);
+            this.gridControl1.Size = new System.Drawing.Size(1142, 397);
             this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -119,11 +119,6 @@
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsClipboard.AllowCopy = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsClipboard.AllowExcelFormat = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsClipboard.ClipboardMode = DevExpress.Export.ClipboardMode.Formatted;
-            this.gridView1.OptionsClipboard.CopyCollapsedData = DevExpress.Utils.DefaultBoolean.False;
-            this.gridView1.OptionsClipboard.CopyColumnHeaders = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsSelection.MultiSelect = true;
             // 
             // menuStrip1
@@ -133,7 +128,7 @@
             this.raporlarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(669, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1142, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -216,10 +211,6 @@
             this.girişÇıkışlarToolStripMenuItem.Text = "Giriş Çıkışlar";
             this.girişÇıkışlarToolStripMenuItem.Click += new System.EventHandler(this.girişÇıkışlarToolStripMenuItem_Click);
             // 
-            // splashScreenManager1
-            // 
-            this.splashScreenManager1.ClosingDelay = 500;
-            // 
             // geçKalanlarToolStripMenuItem
             // 
             this.geçKalanlarToolStripMenuItem.Name = "geçKalanlarToolStripMenuItem";
@@ -227,11 +218,15 @@
             this.geçKalanlarToolStripMenuItem.Text = "Geç Kalanlar";
             this.geçKalanlarToolStripMenuItem.Click += new System.EventHandler(this.geçKalanlarToolStripMenuItem_Click);
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // PuantajForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 447);
+            this.ClientSize = new System.Drawing.Size(1142, 484);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);

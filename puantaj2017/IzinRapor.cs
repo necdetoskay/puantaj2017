@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using DevExpress.XtraBars.Docking2010.Views.Widget;
+//using DevExpress.XtraBars.Docking2010.Views.Widget;
 using Microsoft.Office.Interop.Excel;
 using puantaj2017.DAL;
 using Application = Microsoft.Office.Interop.Excel.Application;
@@ -43,7 +43,7 @@ namespace puantaj2017
             }
             catch (Exception LL)
             {
-
+                MessageBox.Show(LL.Message);
 
             }
 
@@ -111,8 +111,6 @@ namespace puantaj2017
                         rp.bitis = rprlar[i].tarih;
                         rp.gun = 1;
                         rp.aciklama = rprlar[i].aciklama;
-
-
                     }
                     else
                     {

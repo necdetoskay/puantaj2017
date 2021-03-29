@@ -21,6 +21,7 @@ namespace puantaj2017
         private delegate void AddListBoxItemDelegate(object item);
         private List<DBes> tcler;
         Workbook workbook = new Workbook();
+       
         private string filename;
         public BES()
         {

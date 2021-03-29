@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.Office.Utils;
 using Microsoft.Office.Interop.Excel;
 using puantaj2017.DAL;
 using PtakipDAL;
@@ -34,17 +35,57 @@ namespace puantaj2017.DAL
             {
                 foreach (var birim in ik.birims.Where(c => c.puantaj == true).OrderBy(c => c.sira))
                 {
-                    xlWorkSheet = xlWorkBook.Worksheets.Add();
-                    xlWorkSheet.Name = birim.birimad;
-                    tabloyuolustur(xlWorkSheet, birim, tarih1, tarih2); //tablo başlığını oluştur
+                    var sira = 1; 
+                    var margin = 3;
+                    var bakilan = 0;
+                    var sayi = birim.Personels.Count(c => c.puantaj);
+                   
+                    
+
+                    if (sayi > 10+margin)
+                    {
+                        var sayfa = sayi / 10;
+                        var fc = sayi % 10;
+                        if (fc > margin) sayfa++;
+                        var d = sayi / sayfa;
+
+                        var take = d + (sayi%d);
+                        while (bakilan < sayi)
+                        {
+                            xlWorkSheet = xlWorkBook.Worksheets.Add();
+                            xlWorkSheet.Name = birim.birimad + sira;
+                            tabloyuolustur(xlWorkSheet, birim.Personels.Where(c => c.puantaj).OrderByDescending(c=>c.sira).Skip(bakilan).Take(take), tarih1, tarih2);
+                            //Debug.WriteLine(string.Format("Bakılan aralık: {0} - {1}",bakilan,take));
+                            bakilan +=take;
+                            take = sayi - (bakilan*sira);
+                            sira++;
+                        }
+                    }
+                    else
+                    {
+
+                        xlWorkSheet = xlWorkBook.Worksheets.Add();
+                        xlWorkSheet.Name = birim.birimad + sira.ToString();
+                        tabloyuolustur(xlWorkSheet, birim.Personels.Where(c => c.puantaj), tarih1, tarih2);
+                    }
+
+                  
+
+
+                    //sayı 10 dan büyükse birimi ikiye ayır
+
+                    //xlWorkSheet = xlWorkBook.Worksheets.Add();
+                    //xlWorkSheet.Name = birim.birimad;
+                    //tabloyuolustur(xlWorkSheet, birim, tarih1, tarih2); //tablo başlığını oluştur
                                                                       //personel verilerini ekle
                                                                       //tablo altlığını oluştur.
                 }
             }
         }
 
-        private void tabloyuolustur(Worksheet worksheet, birim birim, DateTime tarih1, DateTime tarih2)
+        private void tabloyuolustur(Worksheet worksheet, IEnumerable<Personel> personels, DateTime tarih1, DateTime tarih2)
         {
+
             Range rg;
             var row = 5;
             var col = 2;
@@ -245,7 +286,7 @@ namespace puantaj2017.DAL
             var sıra = 1;
             row = 6;
 
-            foreach (var personel in birim.Personels.Where(c => c.puantaj).OrderBy(c => c.sira))
+            foreach (var personel in personels)
             {
                 col = 2;
 
@@ -600,7 +641,7 @@ namespace puantaj2017.DAL
             rg = worksheet.get_Range(ColumnIndexToColumnLetter(col) + row,
                ColumnIndexToColumnLetter(right) + (row));
             rg.Merge();
-            rg.Value2 = birim.fullad.ToUpper();
+            rg.Value2 =personels.First().birim.fullad.ToUpper();
             rg.Font.Bold = true;
             rg.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             rg.Cells.VerticalAlignment = XlVAlign.xlVAlignCenter;

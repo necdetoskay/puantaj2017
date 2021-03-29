@@ -46,7 +46,8 @@
             this.comboBox1.Items.AddRange(new object[] {
             "2018",
             "2019",
-            "2020"});
+            "2020",
+            "2021"});
             this.comboBox1.Location = new System.Drawing.Point(160, 48);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
